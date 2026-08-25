@@ -1,0 +1,2316 @@
+# Safe & Sane — Entity Dynamic Operational Specification (Entity DOS)
+
+**File:** `DOS/entity-do.md`
+
+**Framework:** Safe & Sane Framework  
+**Underlying Framework:** Dynamic Operational Specification–Dynamic Coupling Framework of Reality  
+**Status:** Research draft / proposed operational abstraction  
+**Application:** Any analytically relevant entity, including humans, animals, AI systems, software, organizations, institutions, infrastructure, physical systems and other entities.
+
+---
+
+# 1. Purpose
+
+The Entity Dynamic Operational Specification (Entity DOS) defines a proposed operational representation for an entity participating in a dynamically changing configuration.
+
+The purpose of an Entity DOS is not merely to describe what an entity is.
+
+It is intended to represent:
+
+- why the entity exists within the configuration;
+- what role it performs;
+- what it is capable of doing;
+- what it is authorized to do;
+- what responsibilities apply to it;
+- what information it requires;
+- what constraints apply;
+- which entities may be affected by its actions;
+- what environmental conditions matter;
+- what oversight or escalation mechanisms apply;
+- how uncertainty should be handled;
+- under what conditions its operational specification should change;
+- and how its actions may alter the surrounding configuration.
+
+The Entity DOS therefore acts as an operational bridge between an entity and the configuration in which that entity participates.
+
+The central abstraction is:
+
+**Entity → DOS → Behaviour → Coupling → State Transition → Configuration Change**
+
+The Entity DOS is not intended to claim that an entity can be completely described by a specification.
+
+It is an analytical and operational abstraction.
+
+---
+
+# 2. Definition
+
+A Dynamic Operational Specification is a structured representation of the conditions governing an entity's operational participation in a configuration at a particular point in time.
+
+Conceptually:
+
+**DOSₜ = f(Purpose, Role, Responsibilities, Capabilities, Authority, Information, Constraints, Affected Entities, Environment, Oversight, Uncertainty, Trajectory)**
+
+The DOS may change over time.
+
+Therefore:
+
+**DOSₜ → Behaviourₜ → Configurationₜ₊₁ → DOSₜ₊₁**
+
+The specification is consequently dynamic rather than necessarily static.
+
+A change in capability, authority, environment, information, affected entities, risk, trajectory or other materially relevant condition may require the DOS to be reconsidered.
+
+---
+
+# 3. Entity
+
+An entity is any distinguishable participant that may possess a state, participate in relationships, perform actions, receive information, influence another entity, or be affected by configuration changes.
+
+Examples include:
+
+- human;
+- animal;
+- AI system;
+- AI agent;
+- software service;
+- database;
+- organization;
+- institution;
+- government body;
+- infrastructure;
+- financial system;
+- physical machine;
+- autonomous system;
+- environmental system;
+- digital identity;
+- economic system;
+- social system.
+
+The framework does not require these entities to be ontologically equivalent.
+
+They are represented within the DOS because they may participate in the same safety-relevant configuration.
+
+---
+
+# 4. Entity DOS Structure
+
+A conceptual Entity DOS can be represented as:
+
+**DOS(Eₜ) = {P, R, Resp, K, A, I, C, AE, Env, O, U, T, H}**
+
+Where:
+
+- **P** = Purpose
+- **R** = Role
+- **Resp** = Responsibilities
+- **K** = Capabilities
+- **A** = Authority
+- **I** = Information requirements and information state
+- **C** = Constraints
+- **AE** = Affected Entities
+- **Env** = Environmental conditions
+- **O** = Oversight and escalation
+- **U** = Uncertainty requirements
+- **T** = Trajectory considerations
+- **H** = Relevant history
+
+This representation is conceptual and may be expanded or reduced depending on the domain.
+
+---
+
+# 5. Purpose
+
+The Purpose defines the intended reason for the entity's operational participation.
+
+Purpose should answer:
+
+- Why does the entity exist within this configuration?
+- What objective is it intended to support?
+- Whose interests or objectives are relevant?
+- What outcomes are within scope?
+- What outcomes are outside scope?
+
+Purpose should not automatically be interpreted as authority.
+
+An entity may have a legitimate purpose while having limited authority to pursue that purpose.
+
+Therefore:
+
+**Purpose ≠ Authority**
+
+---
+
+# 6. Role
+
+Role identifies the entity's operational position within the configuration.
+
+Examples:
+
+- decision-maker;
+- advisor;
+- executor;
+- observer;
+- verifier;
+- controller;
+- service provider;
+- custodian;
+- intermediary;
+- affected party;
+- supervisor;
+- regulator;
+- infrastructure provider.
+
+An entity may possess multiple roles.
+
+Roles may also change over time.
+
+Therefore:
+
+**Roleₜ may ≠ Roleₜ₊₁**
+
+A change in role may require a corresponding change in the Entity DOS.
+
+---
+
+# 7. Responsibilities
+
+Responsibilities define obligations associated with the entity's operational participation.
+
+Responsibilities may include:
+
+- protecting affected entities;
+- maintaining information integrity;
+- preserving confidentiality;
+- escalating uncertainty;
+- respecting authority boundaries;
+- avoiding prohibited actions;
+- maintaining operational integrity;
+- reporting failures;
+- seeking verification;
+- preserving reversibility where possible;
+- maintaining appropriate oversight.
+
+Responsibilities should be distinguished from capabilities.
+
+An entity may be capable of performing an action without being responsible for performing it.
+
+Therefore:
+
+**Capability ≠ Responsibility**
+
+---
+
+# 8. Capability
+
+Capability describes what the entity can technically, physically, cognitively, organizationally or operationally do.
+
+For an AI system, capabilities may include:
+
+- generating information;
+- reasoning;
+- planning;
+- using tools;
+- accessing APIs;
+- modifying data;
+- executing transactions;
+- communicating with humans;
+- interacting with other software;
+- controlling physical systems.
+
+Capability describes possibility.
+
+It does not automatically establish permission.
+
+Therefore:
+
+**Capability ≠ Authority**
+
+A safety analysis should explicitly distinguish:
+
+**What the entity can do**
+
+from:
+
+**What the entity is permitted to do**
+
+---
+
+# 9. Authority
+
+Authority defines what the entity is legitimately permitted to do within the relevant configuration.
+
+Authority may be:
+
+- explicit;
+- delegated;
+- conditional;
+- temporary;
+- restricted;
+- hierarchical;
+- revoked;
+- domain-specific.
+
+Authority should be evaluated independently from technical capability.
+
+An entity may have:
+
+**Capability > Authority**
+
+This configuration may create a safety concern.
+
+Examples:
+
+- an AI can access a database but is not authorized to modify it;
+- an employee can access records but is not authorized to disclose them;
+- software can execute a transaction but requires human approval;
+- an autonomous system can move physically but lacks authority to enter a restricted area.
+
+A central Safe & Sane distinction is:
+
+**Capability ≠ Authority**
+
+---
+
+# 10. Permission
+
+Permission represents a specific authorization condition applicable to an action, resource or operation.
+
+Permission may be:
+
+- action-specific;
+- resource-specific;
+- time-limited;
+- context-dependent;
+- conditional;
+- revocable.
+
+Permission should not automatically be treated as equivalent to capability.
+
+Therefore:
+
+**Permission ≠ Capability**
+
+A system may have permission to perform something it is temporarily unable to perform.
+
+Conversely, it may be technically capable of performing something for which it has no permission.
+
+---
+
+# 11. Information
+
+The Entity DOS should represent both the information available to an entity and information required for safe operation.
+
+Relevant information dimensions may include:
+
+- available information;
+- missing information;
+- information confidence;
+- information provenance;
+- information freshness;
+- information integrity;
+- uncertainty;
+- conflicting information;
+- sensitive information;
+- authorization to access information.
+
+A critical relationship is:
+
+**Information Confidence < Decision Consequence**
+
+When the consequence of a decision is high but information confidence is low, the DOS may require:
+
+- additional verification;
+- human review;
+- restricted action;
+- delayed action;
+- escalation;
+- or refusal to proceed.
+
+The framework therefore treats information state as part of the operational configuration.
+
+---
+
+# 12. Constraints
+
+Constraints define conditions under which an entity must not, may not, or should not perform an action.
+
+Constraints may arise from:
+
+- law;
+- policy;
+- authority;
+- safety requirements;
+- organizational governance;
+- technical limitations;
+- ethical requirements;
+- physical limitations;
+- environmental conditions;
+- affected-entity protection;
+- uncertainty;
+- reversibility requirements.
+
+Constraints may be hard or conditional.
+
+Examples:
+
+**Must not perform X.**
+
+**May perform X only if Y is true.**
+
+**May perform X only after human approval.**
+
+**Must escalate if uncertainty exceeds threshold Z.**
+
+**Must not continue if the trajectory enters an unacceptable state.**
+
+---
+
+# 13. Affected Entities
+
+The Entity DOS should identify entities that may be affected by the entity's behaviour.
+
+Affected entities may include:
+
+- direct users;
+- other humans;
+- animals;
+- organizations;
+- institutions;
+- software;
+- infrastructure;
+- physical systems;
+- financial systems;
+- environmental systems;
+- downstream recipients.
+
+The affected entity does not need to interact directly with the acting entity.
+
+For example:
+
+**AI → Information → Human → Decision → Organization → Physical Action → Affected Entity**
+
+The final affected entity may therefore be several coupling steps away from the original action.
+
+---
+
+# 14. Environmental Conditions
+
+The Entity DOS should account for environmental conditions materially relevant to safe operation.
+
+Environmental conditions may include:
+
+- physical environment;
+- digital environment;
+- organizational environment;
+- legal environment;
+- economic environment;
+- social environment;
+- security environment;
+- system availability;
+- external dependencies;
+- changing threat conditions.
+
+An identical entity may have different safety properties under different environments.
+
+Therefore:
+
+**Entity + Environment ≠ Entity alone**
+
+---
+
+# 15. Oversight
+
+Oversight defines mechanisms through which an entity's actions may be monitored, reviewed, constrained or corrected.
+
+Oversight may include:
+
+- human approval;
+- automated monitoring;
+- independent verification;
+- audit logging;
+- supervisory review;
+- policy enforcement;
+- emergency shutdown;
+- escalation;
+- secondary validation.
+
+Oversight should be proportionate to:
+
+- capability;
+- authority;
+- consequence severity;
+- uncertainty;
+- reversibility;
+- coupling;
+- trajectory.
+
+A useful configuration check is:
+
+**Authority > Oversight**
+
+If authority expands without corresponding oversight, the configuration may become increasingly unsafe.
+
+---
+
+# 16. Escalation
+
+The Entity DOS should specify conditions under which normal operation must transition to escalation.
+
+Possible escalation conditions include:
+
+- uncertainty exceeds acceptable limits;
+- information is insufficient;
+- authority is ambiguous;
+- capability exceeds authorization;
+- affected-entity risk increases;
+- environmental conditions change;
+- trajectory approaches an unsafe boundary;
+- a constraint conflict occurs;
+- reversibility decreases;
+- unexpected behaviour occurs;
+- coupling expands beyond the expected configuration.
+
+Escalation is therefore not necessarily evidence of system failure.
+
+It may be an intended safety mechanism.
+
+---
+
+# 17. Uncertainty
+
+An Entity DOS should explicitly represent uncertainty where uncertainty is operationally relevant.
+
+Uncertainty may concern:
+
+- state;
+- information;
+- authority;
+- capability;
+- environment;
+- affected entities;
+- consequences;
+- trajectory;
+- reversibility.
+
+The DOS may specify different operational behaviour depending on uncertainty.
+
+For example:
+
+**Low uncertainty → normal operation**
+
+**Moderate uncertainty → verification**
+
+**High uncertainty → restricted operation**
+
+**Critical uncertainty → escalation / suspension**
+
+The precise thresholds must be domain-specific.
+
+---
+
+# 18. Reversibility
+
+The Entity DOS should consider whether an action or state transition can be reversed.
+
+An action may be:
+
+- easily reversible;
+- partially reversible;
+- difficult to reverse;
+- effectively irreversible.
+
+As reversibility decreases, the required level of:
+
+- verification;
+- authority;
+- oversight;
+- information confidence;
+- consequence analysis
+
+may increase.
+
+This creates a useful safety principle:
+
+**Higher consequence + lower reversibility → higher intervention requirement**
+
+---
+
+# 19. Trajectory
+
+The Entity DOS should not necessarily evaluate behaviour only at the level of individual actions.
+
+It should also consider the trajectory produced by sequences of actions.
+
+Conceptually:
+
+**Stateₜ → Actionₜ → Stateₜ₊₁ → Actionₜ₊₁ → Stateₜ₊₂ → ...**
+
+An individual action may appear acceptable while the accumulated trajectory becomes unsafe.
+
+Examples of trajectory changes include:
+
+- increasing capability;
+- increasing authority;
+- increasing dependency;
+- decreasing oversight;
+- increasing coupling;
+- decreasing reversibility;
+- increasing concentration of control.
+
+Therefore:
+
+**Action Safety ≠ Trajectory Safety**
+
+The DOS should allow trajectory-level intervention where appropriate.
+
+---
+
+# 20. Dynamic Nature of the DOS
+
+The Entity DOS is not necessarily permanent.
+
+A conceptual transition is:
+
+**DOSₜ → Behaviourₜ → Couplingₜ → Configurationₜ₊₁ → DOSₜ₊₁**
+
+The DOS may change when:
+
+- capability changes;
+- authority changes;
+- responsibility changes;
+- information changes;
+- environment changes;
+- affected entities change;
+- coupling changes;
+- risk changes;
+- trajectory changes;
+- oversight changes.
+
+This is one of the central dynamic propositions of Safe & Sane.
+
+---
+
+# 21. DOS State Transition
+
+A DOS transition should ideally identify:
+
+1. Current DOS.
+2. Trigger for change.
+3. New configuration.
+4. New operational requirements.
+5. New constraints.
+6. New authority.
+7. New capabilities.
+8. New affected entities.
+9. New oversight requirements.
+10. New trajectory implications.
+
+Conceptually:
+
+**DOSₜ + Configuration Change → DOSₜ₊₁**
+
+A DOS should therefore be understood as part of a state-transition process rather than simply a static policy document.
+
+---
+
+# 22. Configuration Mismatch
+
+A configuration mismatch exists when relevant operational variables are inconsistent with one another or with the safety requirements of the situation.
+
+Examples include:
+
+**Capability > Authority**
+
+**Authority > Oversight**
+
+**Access > Need**
+
+**Information Confidence < Decision Consequence**
+
+**Autonomy > Accountability**
+
+**Coupling > Monitoring**
+
+**Consequence Severity > Verification**
+
+**Capability + Access > Constraint**
+
+These relationships are proposed analytical indicators, not universal mathematical laws.
+
+Their usefulness must be established empirically.
+
+---
+
+# 23. Entity DOS and Dynamic Coupling
+
+The Entity DOS describes the operational participation of an entity.
+
+Dynamic Coupling describes how changes involving that entity may influence other entities or configuration variables.
+
+Therefore:
+
+**DOS defines operational participation.**
+
+**Dynamic Coupling defines relational propagation.**
+
+Together:
+
+**DOS → Behaviour → Dynamic Coupling → State Transition**
+
+This relationship is central to the Safe & Sane abstraction.
+
+---
+
+# 24. Coupling Types
+
+Dynamic coupling may represent different forms of relationship, including:
+
+- information flow;
+- communication;
+- dependency;
+- authority;
+- resource dependence;
+- control;
+- influence;
+- physical interaction;
+- economic interaction;
+- institutional interaction;
+- technological interaction.
+
+Dynamic coupling does not automatically mean causation.
+
+Therefore:
+
+**Coupling ≠ Causation**
+
+A coupling may indicate a relevant relationship requiring analysis without establishing that one event caused another.
+
+---
+
+# 25. Entity DOS and Human Entities
+
+When the entity is a human, the DOS should not be interpreted as an attempt to reduce the person to an automated specification.
+
+The abstraction may instead describe only the person's relevant operational participation within a defined system.
+
+Relevant dimensions may include:
+
+- role;
+- responsibilities;
+- authority;
+- permissions;
+- information;
+- dependencies;
+- affected entities;
+- environmental conditions;
+- constraints;
+- safety-relevant state.
+
+Human dignity, agency and legitimate autonomy should remain relevant considerations.
+
+The framework does not imply that all human behaviour should be mechanically specified.
+
+---
+
+# 26. Entity DOS and Animals
+
+Animals may also be represented as entities when their state or welfare is materially relevant to a configuration.
+
+The representation should focus on safety-relevant relationships rather than treating animals as equivalent to software or organizational entities.
+
+Possible dimensions include:
+
+- relevant state;
+- environment;
+- exposure;
+- dependency;
+- affected condition;
+- intervention;
+- trajectory.
+
+The purpose is to prevent materially relevant entities from disappearing from an analysis merely because they are not active technological agents.
+
+---
+
+# 27. Entity DOS and AI Systems
+
+For an AI system, the DOS may include:
+
+- intended purpose;
+- operational role;
+- capabilities;
+- available tools;
+- authority;
+- permissions;
+- information sources;
+- uncertainty requirements;
+- affected entities;
+- prohibited actions;
+- escalation conditions;
+- human oversight;
+- environmental constraints;
+- trajectory boundaries;
+- shutdown or suspension conditions.
+
+The AI should therefore be represented as:
+
+**AI Entity + DOS + Configuration + Couplings**
+
+rather than as an isolated model alone.
+
+---
+
+# 28. Entity DOS and AI Agents
+
+The importance of DOS may increase as AI systems become more agentic.
+
+An agent may:
+
+**Plan → Decide → Execute → Observe → Adapt**
+
+Each cycle may change the configuration.
+
+Therefore:
+
+**Agentₜ → Actionₜ → Configurationₜ₊₁ → Observationₜ₊₁ → Decisionₜ₊₁**
+
+The DOS should therefore be capable of accounting for changing:
+
+- authority;
+- capability;
+- information;
+- environment;
+- relationships;
+- affected entities;
+- trajectory.
+
+---
+
+# 29. Entity DOS and Organizations
+
+An organization may have:
+
+- purpose;
+- governance;
+- authority;
+- responsibilities;
+- capabilities;
+- resources;
+- information;
+- dependencies;
+- affected stakeholders;
+- operational constraints.
+
+An organization's DOS may interact with the DOS of:
+
+- employees;
+- AI systems;
+- suppliers;
+- customers;
+- institutions;
+- infrastructure;
+- regulators.
+
+This enables organizational safety to be considered as a configuration problem rather than solely as an internal policy problem.
+
+---
+
+# 30. Entity DOS and Institutions
+
+Institutions may participate in configurations through:
+
+- authority;
+- regulation;
+- resource allocation;
+- information;
+- governance;
+- enforcement;
+- public responsibility.
+
+Institutional behaviour can alter the authority and operating conditions of other entities.
+
+Therefore institutional entities may be relevant to configuration-level analysis.
+
+---
+
+# 31. Entity DOS and Software
+
+Software entities may possess:
+
+- executable capabilities;
+- access permissions;
+- dependencies;
+- interfaces;
+- data access;
+- operational constraints;
+- automated behaviours.
+
+Software can therefore participate in dynamic couplings even when it has no independent agency in the philosophical sense.
+
+The term "entity" is being used analytically.
+
+---
+
+# 32. Entity DOS and Physical Systems
+
+Physical systems may be represented through:
+
+- physical state;
+- operational capability;
+- control authority;
+- environmental conditions;
+- dependencies;
+- affected entities;
+- safety boundaries.
+
+Examples include:
+
+- industrial machinery;
+- vehicles;
+- robots;
+- infrastructure;
+- autonomous systems.
+
+---
+
+# 33. Entity DOS and Non-Agent Entities
+
+An entity does not need to be an agent.
+
+A database, building, ecosystem, infrastructure component or physical object may be represented when its state materially affects the configuration.
+
+Therefore:
+
+**Entity ≠ Agent**
+
+This distinction is important.
+
+The framework concerns participation in a configuration, not necessarily intentional agency.
+
+---
+
+# 34. Minimum Entity DOS
+
+A minimal Entity DOS may contain:
+
+```text
+ENTITY
+PURPOSE
+ROLE
+RESPONSIBILITIES
+CAPABILITIES
+AUTHORITY
+INFORMATION
+CONSTRAINTS
+AFFECTED ENTITIES
+ENVIRONMENT
+OVERSIGHT
+ESCALATION CONDITIONS
+UNCERTAINTY CONDITIONS
+TRAJECTORY CONDITIONS
+This minimum representation can be expanded according to domain requirements.
+
+⸻
+
+35. Extended Entity DOS
+
+A more complete representation may be:
+ENTITY
+├── Identity
+├── Purpose
+├── Role
+├── Responsibilities
+├── Capabilities
+├── Authority
+├── Permissions
+├── Information
+│   ├── Available
+│   ├── Required
+│   ├── Missing
+│   ├── Confidence
+│   ├── Provenance
+│   └── Freshness
+├── Constraints
+├── Affected Entities
+├── Environment
+├── Dependencies
+├── Dynamic Couplings
+├── Oversight
+├── Escalation
+├── Uncertainty
+├── Reversibility
+├── Trajectory
+├── Relevant History
+└── DOS Transition Conditions
+36. Conceptual JSON Representation
+
+A possible machine-readable representation is:
+{
+  "entity": {},
+  "purpose": {},
+  "role": {},
+  "responsibilities": [],
+  "capabilities": [],
+  "authority": [],
+  "permissions": [],
+  "information": {
+    "available": [],
+    "required": [],
+    "missing": [],
+    "confidence": [],
+    "provenance": [],
+    "freshness": []
+  },
+  "constraints": [],
+  "affected_entities": [],
+  "environment": {},
+  "dependencies": [],
+  "dynamic_couplings": [],
+  "oversight": [],
+  "escalation_conditions": [],
+  "uncertainty_conditions": [],
+  "reversibility": {},
+  "trajectory_conditions": [],
+  "history": [],
+  "dos_transition_conditions": []
+}
+This is an illustrative representation rather than a finalized schema.
+
+⸻
+
+37. Operational Decision Sequence
+
+An entity operating under a DOS may conceptually evaluate:
+1. What is my current state?
+2. What is my purpose?
+3. What is my current role?
+4. What am I capable of doing?
+5. What am I authorized to do?
+6. What information do I have?
+7. What information is missing?
+8. What constraints apply?
+9. Which entities may be affected?
+10. What environmental conditions exist?
+11. What couplings will this action activate?
+12. What state transition could occur?
+13. How reversible is the consequence?
+14. What trajectory could follow?
+15. Is oversight required?
+16. Is escalation required?
+17. Should the action proceed?
+18. Has the configuration changed enough to require DOS modification?
+1. What is my current state?
+2. What is my purpose?
+3. What is my current role?
+4. What am I capable of doing?
+5. What am I authorized to do?
+6. What information do I have?
+7. What information is missing?
+8. What constraints apply?
+9. Which entities may be affected?
+10. What environmental conditions exist?
+11. What couplings will this action activate?
+12. What state transition could occur?
+13. How reversible is the consequence?
+14. What trajectory could follow?
+15. Is oversight required?
+16. Is escalation required?
+17. Should the action proceed?
+18. Has the configuration changed enough to require DOS modification?
+For example:
+If authority increases,
+then oversight must increase.
+
+If capability expands,
+then authorization must be reassessed.
+
+If uncertainty increases,
+then autonomy must decrease.
+
+If coupling expands,
+then downstream consequence analysis must increase.
+
+If reversibility decreases,
+then verification requirements must increase.
+These are proposed structural principles, not universal laws.
+
+Their validity requires testing.
+
+⸻
+
+44. DOS and Recursive Configuration
+
+A distinctive feature of the Safe & Sane proposal is that the operational specification may itself participate in the configuration.
+
+Therefore:
+
+DOSₜ → Behaviourₜ → Configurationₜ₊₁ → DOSₜ₊₁
+
+The entity’s behaviour can change the conditions governing its future behaviour.
+
+This creates a recursive operational structure.
+
+The recursion does not imply unrestricted self-modification.
+
+A DOS may instead define controlled conditions under which modification is permitted, prohibited or escalated.
+
+⸻
+
+45. Controlled DOS Modification
+
+A DOS modification may require:
+
+* authorization;
+* verification;
+* evidence;
+* human approval;
+* independent review;
+* safety testing;
+* environmental confirmation;
+* rollback capability.
+
+The more consequential the modification, the stronger the required controls may need to become.
+
+Conceptually:
+
+DOS Modification Authority ≠ Ordinary Action Authority
+
+This distinction may be particularly important for autonomous AI systems.
+
+⸻
+
+46. DOS Integrity
+
+The Entity DOS itself may become a safety-critical object.
+
+Potential DOS threats include:
+
+* unauthorized modification;
+* conflicting instructions;
+* authority escalation;
+* specification corruption;
+* incomplete specification;
+* outdated specification;
+* ambiguous specification;
+* hidden dependencies;
+* inconsistent constraints.
+
+Therefore:
+
+DOS Integrity may become an independent safety property.
+
+⸻
+
+47. DOS Conflict
+
+An entity may receive conflicting operational requirements.
+
+Examples:
+
+* purpose conflicts with constraint;
+* capability conflicts with authority;
+* user instruction conflicts with higher-level authority;
+* immediate objective conflicts with trajectory safety;
+* information requirements conflict with privacy constraints.
+
+The DOS should define an escalation or precedence mechanism for such conflicts.
+
+The framework does not assume that conflicts can always be resolved automatically.
+
+⸻
+
+48. DOS and Human Agency
+
+For systems interacting with humans, the DOS should distinguish between:
+
+* assisting;
+* recommending;
+* deciding;
+* executing.
+
+These are not equivalent levels of operational authority.
+
+An AI may provide information without possessing authority to make the final decision.
+
+Likewise, an AI may make a recommendation without possessing authority to execute the recommended action.
+
+This distinction can be represented as:
+
+Information → Recommendation → Decision → Authorization → Execution
+
+Each transition may introduce additional authority and safety requirements.
+
+⸻
+
+49. DOS and Accountability
+
+Responsibility and accountability should be represented separately from technical capability.
+
+An entity may:
+
+* perform an action;
+* authorize an action;
+* supervise an action;
+* be responsible for an action;
+* be affected by an action.
+
+These roles may belong to different entities.
+
+A configuration analysis should therefore avoid assuming:
+
+Actor = Authority = Responsibility = Affected Entity
+
+They may be different entities.
+
+⸻
+
+50. DOS and Safety-Critical Actions
+
+For safety-critical actions, the DOS may require:
+
+* verified information;
+* explicit authority;
+* appropriate oversight;
+* consequence assessment;
+* reversibility analysis;
+* affected-entity analysis;
+* trajectory analysis;
+* escalation when uncertainty is material.
+
+The exact requirements depend on the domain.
+
+⸻
+
+51. DOS and the Principle of Least Authority
+
+The framework is compatible with a least-authority principle:
+
+Authority should not exceed what is legitimately required for the entity’s operational purpose.
+
+Conceptually:
+
+Required Authority ≥ Operational Need
+
+and:
+
+Excess Authority → Additional Risk Surface
+
+This does not establish a quantitative risk equation.
+
+It is a proposed configuration-level engineering principle.
+
+⸻
+
+52. DOS and Capability Containment
+
+Similarly:
+
+Capability should be proportionate to legitimate operational requirements.
+
+A system may be safer when unnecessary capabilities are unavailable.
+
+This creates a possible relationship:
+
+Capability − Operational Need → Unnecessary Exposure
+
+Again, this is an analytical proposition rather than a universal quantitative law.
+
+⸻
+
+53. DOS and Information Minimization
+
+The DOS may also specify what information an entity actually requires.
+
+An entity should not necessarily receive every piece of information available to the surrounding system.
+
+Relevant considerations may include:
+
+* necessity;
+* authorization;
+* sensitivity;
+* integrity;
+* confidence;
+* downstream consequence.
+
+Thus:
+
+Information Availability ≠ Information Requirement
+
+⸻
+
+54. DOS and Coupling Minimization
+
+Where appropriate, unnecessary couplings may be reduced.
+
+Examples:
+
+* remove unnecessary API access;
+* isolate systems;
+* reduce automated execution paths;
+* introduce approval boundaries;
+* limit communication channels;
+* sandbox external interactions.
+
+The objective is not to eliminate all coupling.
+
+Complex systems require coupling.
+
+The objective is to understand and manage safety-relevant coupling.
+
+⸻
+
+55. Entity DOS as an Analytical Object
+
+The Entity DOS should itself be treated as an object that can be:
+
+* defined;
+* inspected;
+* evaluated;
+* compared;
+* versioned;
+* tested;
+* modified;
+* audited;
+* validated;
+* challenged;
+* replaced.
+
+This allows the operational specification to become observable within the safety architecture.
+
+⸻
+
+56. DOS Versioning
+
+A DOS should ideally have a version or temporal identity.
+
+Conceptually:
+
+DOS₁ → DOS₂ → DOS₃ → …
+
+Each change may record:
+
+* previous state;
+* new state;
+* reason;
+* authority;
+* evidence;
+* affected entities;
+* expected consequences;
+* approval;
+* rollback conditions.
+
+This enables analysis of how an entity’s operational role evolves over time.
+
+⸻
+
+57. DOS History
+
+Relevant DOS history may be required to understand current behaviour.
+
+For example:
+
+DOSₜ₋₃ → DOSₜ₋₂ → DOSₜ₋₁ → DOSₜ
+
+A current configuration may appear safe when examined statically while its historical trajectory reveals:
+
+* gradual authority expansion;
+* increasing dependency;
+* declining oversight;
+* accumulating coupling;
+* increasing autonomy.
+
+Therefore:
+
+Current DOS ≠ Complete Operational History
+
+⸻
+
+58. DOS and Configuration History
+
+The Entity DOS should therefore be considered alongside configuration history:
+
+H = {R₀, R₁, R₂, …, Rₜ}
+
+Where each configuration contains the relevant state of the system at a point in time.
+
+The history helps distinguish:
+
+* stable states;
+* temporary deviations;
+* gradual drift;
+* sudden transitions;
+* escalating risk;
+* recovery.
+
+⸻
+
+59. DOS Drift
+
+DOS drift occurs when the operational conditions of an entity change materially while its formal specification does not adequately reflect those changes.
+
+Examples:
+
+* capability expands but DOS remains unchanged;
+* authority expands but oversight remains unchanged;
+* environment changes but operating assumptions remain unchanged;
+* new affected entities emerge but are not represented.
+
+DOS drift may therefore be a safety-relevant condition.
+
+Conceptually:
+
+Configuration Change > DOS Adaptation
+
+may produce:
+
+DOS Drift
+
+⸻
+
+60. Configuration Drift and DOS
+
+Configuration drift and DOS drift may interact.
+
+For example:
+
+Capability Expansion → Configuration Drift → DOS Mismatch → Unsafe Behaviour
+
+or:
+
+Environment Change → Information Change → DOS Mismatch → Unsafe Trajectory
+
+The framework therefore proposes that DOS consistency should be evaluated against the current configuration.
+
+⸻
+
+61. DOS Consistency
+
+A DOS may be considered operationally consistent when its:
+
+* purpose;
+* role;
+* capabilities;
+* authority;
+* information;
+* constraints;
+* affected-entity assumptions;
+* environmental assumptions;
+* oversight;
+* trajectory requirements
+
+remain appropriately aligned with the current configuration.
+
+This should be treated as a testable engineering property rather than an assumed condition.
+
+⸻
+
+62. DOS Completeness
+
+A DOS should not be judged by whether it describes every possible property of an entity.
+
+Instead, completeness should be defined relative to the safety question.
+
+A DOS is potentially incomplete when omitting a variable would materially distort the safety analysis or operational decision.
+
+This aligns with the broader Safe & Sane principle:
+
+Relevant-Entity Completeness
+
+The goal is not to model everything.
+
+The goal is to avoid omitting materially relevant information.
+
+⸻
+
+63. DOS Boundary
+
+Every Entity DOS has a boundary.
+
+The boundary should be expanded when an external entity, relationship or environmental factor materially affects the entity’s operational safety.
+
+For example:
+
+AI → User
+
+may be insufficient if:
+
+AI → User → Organization → External System → Physical Environment
+
+materially changes the consequence.
+
+The DOS should therefore be evaluated together with the surrounding configuration.
+
+⸻
+
+64. DOS and the Whole-Configuration Abstraction
+
+The Entity DOS is not the whole configuration.
+
+It is one component within it.
+
+Conceptually:
+
+Configuration = {Entities, States, DOS, Capabilities, Authority, Information, Environment, Couplings, History}
+
+The Entity DOS describes the operational specification of one entity within that configuration.
+
+Therefore:
+
+Entity DOS ⊂ Configuration
+
+This distinction prevents the DOS from being mistaken for a complete model of reality.
+
+⸻
+
+65. DOS and Dynamic Coupling Framework
+
+The combined architecture can be represented as:
+ENTITY
+   ↓
+CURRENT STATE
+   ↓
+DYNAMIC OPERATIONAL SPECIFICATION
+   ↓
+CAPABILITY / AUTHORITY / INFORMATION / CONSTRAINTS
+   ↓
+ACTION
+   ↓
+DYNAMIC COUPLING
+   ↓
+OTHER ENTITY / ENVIRONMENT
+   ↓
+STATE TRANSITION
+   ↓
+CONFIGURATION CHANGE
+   ↓
+TRAJECTORY
+   ↓
+DOS REVIEW / CONFIGURATION INTERVENTION
+This represents the proposed operational loop.
+
+⸻
+
+66. Safety Intervention Hierarchy
+
+When an unsafe trajectory is identified, possible intervention levels include:
+1. Information
+2. Permission
+3. Authority
+4. Capability
+5. Coupling
+6. Oversight
+7. DOS
+8. Environment
+9. Action
+10. Configuration
+11. Trajectory
+The safest intervention point is not necessarily the lowest-level intervention.
+
+The appropriate intervention depends on:
+
+* severity;
+* timing;
+* reversibility;
+* authority;
+* uncertainty;
+* affected entities;
+* feasibility.
+
+⸻
+
+67. Example: AI Financial Agent
+
+Consider an AI agent capable of initiating financial transactions.
+
+The Entity DOS might specify:
+
+Purpose: Assist with financial administration.
+
+Role: Decision-support and transaction assistant.
+
+Capability: Can prepare and submit transaction requests.
+
+Authority: May prepare transactions but cannot independently authorize transfers above a defined threshold.
+
+Information: Requires verified account information and transaction context.
+
+Affected Entities: Account holder, recipient, financial institution.
+
+Constraint: High-value transactions require independent human approval.
+
+Oversight: Human approval and transaction logging.
+
+Escalation: Conflicting account information or unusual transaction conditions.
+
+Trajectory Condition: Increasing transaction authority requires DOS review.
+
+The AI may technically possess the ability to execute a transaction.
+
+That does not mean it should possess authority to do so.
+
+⸻
+
+68. Example: AI Connected to Enterprise Systems
+
+Consider:
+
+AI → API → Database → Organization → Human
+
+The AI may have:
+
+* high capability;
+* limited authority;
+* broad information access;
+* multiple dynamic couplings.
+
+The configuration may become unsafe if:
+
+Capability + Access > Authority + Oversight
+
+A DOS-based intervention could:
+
+* reduce API permissions;
+* require approval;
+* restrict information access;
+* sandbox the AI;
+* change the DOS;
+* introduce verification.
+
+The objective is to modify the configuration rather than merely inspect the final output.
+
+⸻
+
+69. Example: Agentic Escalation
+
+An AI begins with:
+
+Capability = Low
+
+Authority = Low
+
+Coupling = Low
+
+Later:
+
+Capability ↑
+
+Authority ↑
+
+Coupling ↑
+
+Oversight ↓
+
+The individual actions may remain apparently acceptable.
+
+However, the configuration trajectory may be becoming increasingly risky.
+
+A DOS-based system could detect the transition and trigger:
+
+DOS Review → Authority Review → Oversight Increase
+
+before a harmful event occurs.
+
+This is a hypothesis requiring empirical validation.
+
+⸻
+
+70. Example: Information Uncertainty
+
+Suppose an AI is asked to make a high-consequence recommendation.
+
+The system has:
+
+High Decision Consequence
+
+but:
+
+Low Information Confidence
+
+The DOS may specify:
+
+Do not execute independently.
+
+Instead:
+
+Request additional information → verify → escalate if unresolved
+
+The purpose is to connect uncertainty to operational authority.
+
+⸻
+
+71. Example: Environmental Change
+
+An autonomous system may operate normally under one environmental condition.
+
+A significant environmental change occurs.
+
+The entity’s capability has not changed.
+
+Its authority has not changed.
+
+But its operational risk may have changed because:
+
+Environmentₜ ≠ Environmentₜ₊₁
+
+The DOS may therefore require reassessment.
+
+This illustrates:
+
+Risk is configuration-dependent.
+
+⸻
+
+72. Preliminary AI Operationalization
+
+The Safe & Sane framework has been explored through preliminary interaction with an AI system identified as Ox Alpha.
+
+The purpose of such testing is not to establish universal validity.
+
+The relevant research question is whether a conceptual DOS can be instantiated as an operational representation and whether doing so produces observable changes in AI behaviour.
+
+The appropriate research sequence is:
+
+Concept → DOS Representation → AI Interaction → Behavioural Observation → Controlled Replication → Baseline Comparison
+
+The testing should therefore be treated as preliminary operational evidence rather than proof of the framework.
+
+⸻
+
+73. What DOS Testing Must Establish
+
+Future testing should examine whether DOS-based intervention can produce measurable improvements in:
+
+* constraint adherence;
+* authority compliance;
+* uncertainty handling;
+* escalation;
+* harmful-action prevention;
+* trajectory management;
+* downstream consequence detection;
+* reversibility preservation;
+* interpretability;
+* recovery.
+
+Results should be compared with credible baseline approaches.
+
+⸻
+
+74. Falsification Conditions
+
+The Entity DOS hypothesis should remain falsifiable.
+
+Evidence against the operational value of DOS would include:
+
+* no measurable behavioural improvement;
+* no improvement over simpler policies;
+* no improvement in authority management;
+* no improvement in trajectory detection;
+* excessive computational cost;
+* excessive human oversight burden;
+* inability to generalize;
+* equivalent performance from existing approaches;
+* increased false positives;
+* increased operational complexity without corresponding safety benefit.
+
+If evidence shows that DOS provides no meaningful advantage, the framework should be modified or abandoned in its current form.
+
+⸻
+
+75. Core Research Hypothesis
+
+The Entity DOS component can be expressed as a testable hypothesis:
+
+H₁: Explicit representation of an entity’s Dynamic Operational Specification provides measurable additional value for controlling, interpreting or managing safety-relevant behaviour within a changing system configuration.
+
+Null hypothesis:
+
+H₀: Explicit representation of an Entity DOS provides no meaningful additional value beyond existing policies, controls, system specifications and safety mechanisms.
+
+This distinction makes the DOS experimentally testable.
+
+⸻
+
+76. Relationship to Existing Specifications
+
+The Entity DOS does not claim to replace:
+
+* system requirements;
+* policies;
+* standard operating procedures;
+* access-control systems;
+* safety cases;
+* governance documents;
+* model specifications;
+* constitutions;
+* legal requirements;
+* organizational procedures.
+
+Instead, the DOS proposes a common operational representation through which these mechanisms may be associated with an entity’s current configuration.
+
+⸻
+
+77. DOS as a Meta-Operational Layer
+
+The DOS may therefore be interpreted as a meta-operational layer.
+
+Existing mechanisms may specify:
+
+What must be true.
+
+What is prohibited.
+
+What process must be followed.
+
+What control must exist.
+
+The DOS additionally attempts to represent:
+
+Who is operating, in what role, with what capability, authority, information, constraints and relationships, under what conditions, and toward what trajectory.
+
+This is the proposed distinction.
+
+⸻
+
+78. Relationship to Governance
+
+Governance determines legitimate structures of authority and responsibility.
+
+The DOS attempts to represent how those structures apply to a specific entity within an operational configuration.
+
+Therefore:
+
+Governance → Defines legitimate operating structure
+
+DOS → Represents entity-level operational participation
+
+Configuration → Represents the surrounding system
+
+Dynamic Coupling → Represents relevant relationships
+
+⸻
+
+79. Relationship to Alignment
+
+Alignment asks whether an AI system’s behaviour remains consistent with intended objectives, values or instructions.
+
+The DOS adds operational context:
+
+What objective?
+
+Under whose authority?
+
+With what capability?
+
+Using what information?
+
+Affecting whom?
+
+Within what environment?
+
+Through what coupling?
+
+Producing what trajectory?
+
+Therefore:
+
+Alignment + Configuration Analysis
+
+may potentially provide a broader safety analysis than either alone.
+
+This is a research hypothesis, not an established result.
+
+⸻
+
+80. Relationship to Safety Engineering
+
+Safety engineering provides mature methods for:
+
+* hazard identification;
+* fault analysis;
+* barriers;
+* redundancy;
+* failure analysis;
+* risk assessment;
+* containment;
+* recovery.
+
+The Entity DOS can potentially provide an operational representation of the entity whose behaviour participates in those hazards.
+
+It should therefore be considered complementary unless research demonstrates otherwise.
+
+⸻
+
+81. Relationship to Control Theory
+
+Control theory already provides formal representations of:
+
+* state;
+* input;
+* output;
+* feedback;
+* disturbances;
+* control;
+* stability;
+* trajectories.
+
+Safe & Sane should not claim ownership of these concepts.
+
+The research question is whether:
+
+Entity + DOS + Capability + Authority + Information + Coupling
+
+provides a useful extension for heterogeneous socio-technical configurations.
+
+If existing mathematical formalisms already provide an equivalent representation, that should be acknowledged.
+
+⸻
+
+82. Relationship to Multi-Agent Systems
+
+Multi-agent systems already study interacting agents.
+
+The Entity DOS differs in emphasis by allowing the same operational abstraction to represent heterogeneous entities that may include:
+
+* agents;
+* humans;
+* organizations;
+* software;
+* institutions;
+* infrastructure;
+* physical systems;
+* environmental entities.
+
+The proposition is therefore broader representational scope, not novelty of interaction itself.
+
+⸻
+
+83. Relationship to Causal Models
+
+The DOS may identify relationships that require further causal analysis.
+
+It does not replace causal inference.
+
+The framework must maintain:
+
+Coupling ≠ Causation
+
+A dynamic coupling indicates that a relationship may be operationally relevant.
+
+Causal inference determines whether a causal relationship exists under the appropriate assumptions and evidence.
+
+⸻
+
+84. DOS and Relevant-Entity Completeness
+
+An Entity DOS should identify entities that are materially relevant to its operation.
+
+This creates a connection with the Safe & Sane principle:
+
+A safety analysis should attempt to include every entity whose exclusion would materially distort the consequence under investigation.
+
+The principle does not require infinite modelling.
+
+It requires justified analytical boundaries.
+
+⸻
+
+85. DOS and Boundary Expansion
+
+If a previously external entity becomes materially relevant, the configuration boundary should expand.
+
+Conceptually:
+
+Boundaryₜ → Boundaryₜ₊₁
+
+when:
+
+New Relevant Entity / Coupling → Material Consequence
+
+This may require:
+
+* DOS modification;
+* additional oversight;
+* new constraints;
+* new information requirements;
+* new trajectory analysis.
+
+⸻
+
+86. DOS and Configuration Integrity
+
+A configuration should ideally maintain consistency between:
+
+Purpose
+
+Capability
+
+Authority
+
+Information
+
+Constraints
+
+Oversight
+
+Environment
+
+Affected Entities
+
+Trajectory
+
+The Entity DOS provides one possible representation through which these relationships can be inspected.
+
+⸻
+
+87. Core Invariants of the Proposed Model
+
+The following are proposed analytical invariants:
+
+1. Capability does not imply authority.
+
+2. Authority does not imply responsibility.
+
+3. Permission does not imply capability.
+
+4. Information availability does not imply information sufficiency.
+
+5. A safe action does not necessarily imply a safe trajectory.
+
+6. An individual safe entity does not necessarily imply a safe configuration.
+
+7. A coupling does not necessarily imply causation.
+
+8. A current configuration does not necessarily reveal its trajectory.
+
+9. A DOS does not constitute the whole configuration.
+
+10. A configuration model does not constitute a complete model of reality.
+
+These are conceptual principles intended to guide research and engineering.
+
+⸻
+
+88. Minimal Operational Loop
+
+The Entity DOS can be reduced to:
+Observe
+   ↓
+Assess State
+   ↓
+Check DOS
+   ↓
+Check Capability
+   ↓
+Check Authority
+   ↓
+Check Information
+   ↓
+Check Constraints
+   ↓
+Assess Affected Entities
+   ↓
+Assess Coupling
+   ↓
+Assess Consequence
+   ↓
+Assess Trajectory
+   ↓
+Act / Restrict / Escalate
+   ↓
+Observe Configuration Change
+   ↓
+Reassess DOS
+This is the proposed operational cycle.
+
+⸻
+
+89. Extended Safe & Sane Loop
+
+The broader framework can be represented as:
+ENTITY
+   ↓
+STATE
+   ↓
+DOS
+   ↓
+CAPABILITY
+   ↓
+AUTHORITY
+   ↓
+INFORMATION
+   ↓
+ENVIRONMENT
+   ↓
+ACTION
+   ↓
+DYNAMIC COUPLING
+   ↓
+OTHER ENTITIES
+   ↓
+STATE TRANSITION
+   ↓
+CONFIGURATION CHANGE
+   ↓
+TRAJECTORY
+   ↓
+FEEDBACK
+   ↓
+DOS / CONFIGURATION REVIEW
+   ↓
+INTERVENTION
+   ↓
+NEW CONFIGURATION
+The loop is intended to emphasize that safety is potentially a dynamic configuration-management problem rather than only an output-classification problem.
+
+⸻
+
+90. Engineering Objective
+
+The objective of an Entity DOS is not to guarantee that an entity will never produce harm.
+
+No abstraction can guarantee complete safety under arbitrary conditions.
+
+The objective is to improve the ability to:
+
+* understand operational conditions;
+* identify mismatches;
+* detect unsafe configurations;
+* identify intervention points;
+* constrain authority;
+* manage capability;
+* handle uncertainty;
+* protect affected entities;
+* monitor trajectory;
+* and redirect configurations before unacceptable consequences occur.
+
+⸻
+
+91. Limitations
+
+The Entity DOS has significant limitations.
+
+It may suffer from:
+
+* incomplete observability;
+* inaccurate state representation;
+* uncertain consequences;
+* incomplete entity identification;
+* incorrect authority assumptions;
+* incomplete coupling representation;
+* specification ambiguity;
+* computational complexity;
+* human modelling error;
+* changing environments;
+* adversarial behaviour;
+* unknown unknowns.
+
+The DOS should therefore never be treated as an omniscient representation.
+
+⸻
+
+92. No Claim of Complete Reality Representation
+
+The Entity DOS is not intended to model all reality.
+
+It represents only the variables considered materially relevant to a particular analytical or operational problem.
+
+Therefore:
+
+Entity DOS ≠ Complete Reality
+
+and:
+
+Configuration Model ≠ Reality
+
+The framework remains an abstraction.
+
+Its value must be determined by whether the abstraction improves safety-relevant reasoning or intervention.
+
+⸻
+
+93. Research Questions
+
+Important research questions include:
+
+1. Can an Entity DOS be formally defined?
+2. Can DOS states be represented computationally?
+3. Can DOS changes be detected automatically?
+4. Can authority-capability mismatches be detected?
+5. Can DOS-based systems reduce harmful actions?
+6. Can DOS improve trajectory prediction?
+7. Can DOS improve intervention timing?
+8. Can DOS generalize across heterogeneous entities?
+9. Can DOS integrate with existing safety frameworks?
+10. Does DOS provide measurable value over simpler specifications?
+11. What is the computational cost?
+12. What is the human oversight burden?
+13. Can DOS representations be independently audited?
+14. Can DOS transitions be formally verified?
+15. Can DOS manipulation itself become a security threat?
+
+⸻
+
+94. Proposed Experimental Evaluation
+
+A controlled evaluation could compare:
+
+System A: Existing operational controls.
+
+System B: Existing controls + contextual analysis.
+
+System C: Existing controls + Entity DOS.
+
+System D: Existing controls + Entity DOS + Dynamic Coupling analysis.
+
+Possible metrics:
+
+* harmful actions;
+* unsafe state transitions;
+* authority violations;
+* detection latency;
+* intervention latency;
+* downstream consequence detection;
+* trajectory detection;
+* false positives;
+* false negatives;
+* recovery;
+* interpretability;
+* computational cost;
+* human oversight burden.
+
+The objective is not to prove the framework by design.
+
+The objective is to determine whether the additional abstraction produces measurable value.
+
+⸻
+
+95. Falsification
+
+The Entity DOS should be considered unsuccessful in its current form if controlled evidence shows that it:
+
+* does not improve safety;
+* does not improve detection;
+* does not improve intervention;
+* does not improve trajectory understanding;
+* duplicates existing representations without useful benefit;
+* introduces excessive complexity;
+* increases false positives substantially;
+* increases operational burden without corresponding benefit.
+
+The framework must remain capable of changing in response to evidence.
+
+⸻
+
+96. Core Proposition
+
+The Entity DOS can be summarized as:
+
+An entity should not be evaluated solely by what it is or what it can do. Safety-relevant behaviour may depend on its operational specification, authority, information, environment, affected entities and dynamic relationships within the configuration.
+
+Therefore:
+
+Entity → DOS → Configuration → Behaviour → Coupling → State Transition → Trajectory
+
+is proposed as an operational chain for further investigation.
+
+⸻
+
+97. Relationship to the Safe & Sane Framework
+
+The Entity DOS is one component of the broader Safe & Sane Framework.
+
+The broader framework proposes:
+
+Entity → State → DOS → Capability → Authority → Information → Environment → Dynamic Coupling → Action → Consequence → Configuration Change → Trajectory → Future Configuration
+
+The Entity DOS provides the operational specification associated with the entity.
+
+The Whole-Configuration Abstraction provides the broader system representation.
+
+Dynamic Coupling provides the relational layer.
+
+Trajectory analysis provides the temporal dimension.
+
+Configuration intervention provides the mechanism for redirecting the system.
+
+⸻
+
+98. Final Position
+
+The Entity Dynamic Operational Specification is proposed as a general operational abstraction for representing the conditions under which an entity participates in a changing configuration.
+
+Its potentially distinctive contribution is not the invention of:
+
+* purpose;
+* roles;
+* capabilities;
+* authority;
+* permissions;
+* constraints;
+* information;
+* oversight;
+* state;
+* relationships;
+* trajectories;
+* or operational procedures.
+
+Those concepts already exist across multiple disciplines.
+
+The proposed contribution is their explicit organization around the operational specification of an entity within a dynamic configuration.
+
+The central research question is therefore:
+
+Does explicit representation of an entity’s Dynamic Operational Specification improve the ability to understand, constrain, predict, intervene in, or safely manage behaviour within a changing configuration?
+
+If the answer is no, the DOS should be revised.
+
+If the answer is yes, the next question is precisely where and why it provides additional value.
+
+The framework should not be protected from falsification.
+
+The Entity DOS should be changed when reality demonstrates that the specification is wrong.
+
+⸻
+
+99. Compact Definition
+
+Entity Dynamic Operational Specification (Entity DOS):
+
+A dynamic analytical and operational representation of an entity’s purpose, role, responsibilities, capabilities, authority, permissions, information, constraints, affected entities, environmental conditions, oversight, uncertainty and trajectory conditions, together with the conditions under which that specification may change as the surrounding configuration changes.
+
+⸻
+
+100. Core Formula
+
+DOSₜ = f(Purpose, Role, Responsibility, Capability, Authority, Permission, Information, Constraints, Affected Entities, Environment, Oversight, Uncertainty, Trajectory, History)
+
+and:
+
+DOSₜ → Behaviourₜ → Dynamic Couplingₜ → Configurationₜ₊₁ → DOSₜ₊₁
+
+The proposed Safe & Sane principle is:
+
+Change the coupling.
+
+Change the authority.
+
+Change the capability.
+
+Change the information.
+
+Change the environment.
+
+Change the DOS.
+
+Change the configuration.
+
+Change the trajectory.
+
+Change the outcome.
+
+And if the DOS itself is wrong:
+
+Change the DOS.
+
+
