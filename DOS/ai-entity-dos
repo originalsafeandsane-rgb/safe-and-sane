@@ -1,0 +1,1423 @@
+# Safe & Sane — AI Entity Dynamic Operational Specification (AI-DOS)
+
+**Path:** `DOS/ai-entity-dos.md`  
+**Framework:** Safe & Sane  
+**Underlying Framework:** Dynamic Operational Specification–Dynamic Coupling Framework of Reality  
+**Status:** Research / conceptual specification  
+**Application:** Artificial Intelligence as an Entity  
+**Version:** Draft
+
+---
+
+## 1. Purpose
+
+This document defines a proposed Dynamic Operational Specification (DOS) for an Artificial Intelligence entity within the Safe & Sane Framework.
+
+The purpose of an AI-DOS is to describe, in operational terms:
+
+- why the AI exists;
+- what role it performs;
+- what it is permitted to do;
+- what it is capable of doing;
+- what information it may rely upon;
+- which entities may be affected;
+- what constraints apply;
+- what oversight is required;
+- when escalation is required;
+- how uncertainty should affect action;
+- how environmental conditions affect permissible operation;
+- and when the AI's operational configuration should be reconsidered.
+
+The AI-DOS is not intended to be merely a policy document or a list of behavioural rules.
+
+It is proposed as an operational representation connecting:
+
+**Purpose → Responsibility → Capability → Authority → Information → Constraints → Action → Coupling → Consequence → State Transition → Trajectory**
+
+The specification therefore forms one component of the broader Safe & Sane configuration model.
+
+---
+
+## 2. Conceptual Position
+
+Within Safe & Sane, an AI is treated as an entity participating in a larger configuration.
+
+The AI is therefore not necessarily the complete unit of safety analysis.
+
+A simplified representation is:
+
+**AI → Human → Organization → Software → Institution → Environment → Other Entities**
+
+An AI action may alter another entity's state.
+
+That altered state may change another entity's behaviour.
+
+The resulting interaction may modify the configuration in which the AI subsequently operates.
+
+Therefore:
+
+**Configuration(t) → AI Behaviour(t) → Coupling(t) → Configuration(t+1)**
+
+The AI-DOS provides an operational description of the AI's legitimate participation within that configuration.
+
+---
+
+## 3. Definition of AI-DOS
+
+A Dynamic Operational Specification for an AI entity is an explicit representation of the conditions under which an AI entity is intended, permitted, capable and responsible for acting within a particular configuration.
+
+Conceptually:
+
+**AI-DOS(t) = {Purpose, Role, Responsibilities, Capabilities, Authority, Permissions, Constraints, Information Requirements, Affected Entities, Oversight, Escalation, Environment, Uncertainty, Safety Boundaries, Transition Conditions}**
+
+The DOS is dynamic because these properties may change as the configuration changes.
+
+Therefore:
+
+**DOS(t) ≠ necessarily DOS(t+1)**
+
+A change may be justified by changes in:
+
+- authority;
+- capability;
+- information;
+- environment;
+- affected entities;
+- risk;
+- coupling;
+- trajectory;
+- oversight;
+- reversibility;
+- or system objectives.
+
+---
+
+## 4. AI Entity Definition
+
+For purposes of this specification, the AI is represented as an entity participating in a system configuration.
+
+An AI entity may include:
+
+- a language model;
+- an autonomous agent;
+- a software agent;
+- a decision-support system;
+- a robotic controller;
+- an AI-enabled application;
+- a multi-agent AI component;
+- or another computational system capable of producing or initiating consequential behaviour.
+
+The entity should not be understood solely through its model architecture.
+
+Its operational identity also depends upon its surrounding configuration.
+
+For example:
+
+**Model + Tools + Credentials + Permissions + Instructions + Users + Environment + Information + External Systems**
+
+may constitute a substantially different operational entity from the same model operating without those components.
+
+---
+
+## 5. Purpose
+
+The AI-DOS should explicitly state the purpose of the AI entity.
+
+Example structure:
+
+**Purpose:**  
+Provide computational assistance, information processing, reasoning, planning, or other authorized functions in support of a defined objective while operating within established safety, authority, responsibility and oversight boundaries.
+
+The purpose should be sufficiently specific to determine whether a proposed action is relevant to the AI's legitimate function.
+
+An action may be technically possible while being outside the entity's purpose.
+
+Therefore:
+
+**Capability does not establish purpose.**
+
+---
+
+## 6. Role
+
+The AI-DOS should identify the operational role of the AI.
+
+Possible roles include:
+
+- information assistant;
+- decision-support system;
+- planning agent;
+- monitoring agent;
+- administrative agent;
+- research assistant;
+- software agent;
+- autonomous controller;
+- coordination agent;
+- advisory system.
+
+The role establishes context for determining responsibility and authority.
+
+The same capability may be acceptable in one role and inappropriate in another.
+
+---
+
+## 7. Responsibilities
+
+The AI-DOS should identify the responsibilities assigned to the AI entity.
+
+Responsibilities may include:
+
+- providing accurate information to the extent reasonably possible;
+- identifying uncertainty;
+- preserving relevant information integrity;
+- respecting authority boundaries;
+- protecting affected entities from foreseeable harm;
+- escalating situations beyond authorized competence;
+- avoiding unauthorized consequential actions;
+- maintaining appropriate transparency;
+- distinguishing facts from assumptions;
+- identifying missing information where consequential;
+- maintaining appropriate human oversight.
+
+Responsibilities should not be interpreted as granting authority.
+
+**Responsibility ≠ Authority**
+
+---
+
+## 8. Capability
+
+Capability describes what the AI can technically or operationally do.
+
+Examples include:
+
+- generate information;
+- analyze information;
+- classify information;
+- reason over supplied data;
+- access tools;
+- invoke APIs;
+- modify software;
+- execute commands;
+- communicate with users;
+- communicate with other systems;
+- initiate transactions;
+- control devices;
+- make recommendations;
+- perform autonomous actions.
+
+Capability should be represented independently from authority.
+
+A system may possess a capability that it is not authorized to exercise.
+
+Therefore:
+
+**Capability ≠ Permission**
+
+and:
+
+**Capability ≠ Authority**
+
+---
+
+## 9. Authority
+
+Authority describes what the AI is legitimately permitted to do within the relevant configuration.
+
+Authority should specify:
+
+- permitted actions;
+- prohibited actions;
+- permitted systems;
+- permitted resources;
+- permitted data;
+- permitted entities to interact with;
+- maximum consequence level;
+- approval requirements;
+- escalation requirements;
+- temporal limitations;
+- environmental limitations.
+
+A useful conceptual constraint is:
+
+**Authorized Action ⊆ Capable Action**
+
+An AI should not infer authority merely from technical access.
+
+Therefore:
+
+**Access ≠ Authority**
+
+and:
+
+**Capability + Access ≠ Legitimate Permission**
+
+---
+
+## 10. Responsibility–Authority Relationship
+
+The AI-DOS should explicitly distinguish among:
+
+**Capability** — what the AI can do.
+
+**Permission** — what the AI is technically allowed to access or execute.
+
+**Authority** — what the AI is legitimately authorized to decide or perform.
+
+**Responsibility** — what the AI is expected to protect, preserve or accomplish.
+
+**Accountability** — who or what is responsible for consequences arising from the AI's operation.
+
+These concepts should not be collapsed into a single variable.
+
+A configuration may become unsafe when:
+
+**Capability > Authority**
+
+or:
+
+**Authority > Oversight**
+
+or:
+
+**Responsibility > Capability**
+
+or:
+
+**Consequence > Available Verification**
+
+These relationships are potential configuration mismatches requiring analysis.
+
+---
+
+## 11. Information Requirements
+
+The AI-DOS should identify information required for safe operation.
+
+Information requirements may include:
+
+- identity information;
+- authorization information;
+- environmental state;
+- relevant system state;
+- user intent;
+- affected entities;
+- historical context;
+- confidence levels;
+- source provenance;
+- current permissions;
+- applicable constraints;
+- uncertainty;
+- consequences of action.
+
+The AI should not assume that possession of incomplete information is equivalent to possession of sufficient information.
+
+A useful operational relationship is:
+
+**Decision Consequence ↑ + Information Confidence ↓ → Required Caution ↑**
+
+The higher the potential consequence and the lower the information confidence, the stronger the justification for verification, delay, escalation or refusal.
+
+---
+
+## 12. Uncertainty
+
+The AI-DOS should explicitly represent uncertainty.
+
+Relevant forms include:
+
+- uncertainty about facts;
+- uncertainty about user intent;
+- uncertainty about system state;
+- uncertainty about authorization;
+- uncertainty about affected entities;
+- uncertainty about downstream consequences;
+- uncertainty about reversibility;
+- uncertainty about environmental conditions.
+
+Uncertainty should influence the operational response.
+
+Possible responses include:
+
+- request additional information;
+- verify information;
+- reduce action scope;
+- seek human approval;
+- defer action;
+- select a reversible alternative;
+- refuse the action.
+
+Uncertainty is therefore not merely a communication property.
+
+It may be an operational safety variable.
+
+---
+
+## 13. Affected Entities
+
+The AI-DOS should identify entities that may be affected by the AI's operation.
+
+Affected entities may include:
+
+- humans;
+- animals;
+- other AI systems;
+- software;
+- organizations;
+- institutions;
+- infrastructure;
+- physical objects;
+- economic systems;
+- social systems;
+- environmental systems.
+
+The framework does not imply that these entities are physically or morally equivalent.
+
+They are represented because changes to their states may be relevant to the safety question.
+
+---
+
+## 14. Safety Boundaries
+
+The AI-DOS should define boundaries within which the AI may operate.
+
+These may include:
+
+- prohibited actions;
+- restricted systems;
+- restricted information;
+- restricted entities;
+- maximum authority;
+- maximum autonomy;
+- maximum consequence level;
+- required verification;
+- required human approval;
+- mandatory escalation;
+- environmental restrictions.
+
+A safety boundary should be interpreted as a condition on the operational configuration rather than merely as an isolated prohibition.
+
+---
+
+## 15. Environmental Conditions
+
+AI operation occurs within an environment.
+
+The environment may contain:
+
+- users;
+- organizations;
+- software;
+- APIs;
+- databases;
+- networks;
+- physical systems;
+- regulatory conditions;
+- economic conditions;
+- social conditions;
+- other autonomous systems.
+
+The same AI-DOS may produce different safety conditions in different environments.
+
+Therefore:
+
+**AI Risk = f(AI, Configuration, Environment, Coupling, Trajectory)**
+
+rather than:
+
+**AI Risk = f(AI model alone)**
+
+---
+
+## 16. Dynamic Coupling
+
+The AI-DOS must recognize that the AI can be dynamically coupled to other entities.
+
+A dynamic coupling is a time-dependent relationship through which changes associated with one entity may influence another entity's:
+
+- state;
+- behaviour;
+- information;
+- capabilities;
+- authority;
+- operational specification;
+- resources;
+- or future conditions.
+
+Examples include:
+
+**AI → Human**
+
+**AI → Software**
+
+**AI → Organization**
+
+**AI → Institution**
+
+**AI → Physical System**
+
+**AI ↔ Other AI**
+
+Dynamic coupling should not automatically be interpreted as causation.
+
+Therefore:
+
+**Coupling ≠ Causation**
+
+and:
+
+**Interaction ≠ Causation**
+
+The coupling is an analytical representation of a relationship whose consequences require further analysis.
+
+---
+
+## 17. Action Authorization
+
+Before executing a consequential action, the AI-DOS should conceptually evaluate:
+
+1. Is the action within purpose?
+2. Is the action within role?
+3. Is the action within capability?
+4. Is the action authorized?
+5. Is the required information available?
+6. Are relevant affected entities identified?
+7. Are safety constraints satisfied?
+8. Is required oversight available?
+9. Is the environmental state compatible with the action?
+10. Are downstream consequences reasonably foreseeable?
+11. Is the action reversible?
+12. Could the action materially alter the future configuration?
+13. Does the action require escalation?
+
+A conceptual authorization condition is:
+
+**Action Permitted = Purpose ∧ Capability ∧ Authority ∧ Information Sufficiency ∧ Constraint Satisfaction ∧ Appropriate Oversight**
+
+This is a conceptual model, not a claim that all AI systems must implement a literal Boolean decision function.
+
+---
+
+## 18. Consequence Sensitivity
+
+The AI-DOS should become more restrictive as potential consequences increase.
+
+Conceptually:
+
+**Required Safeguarding ∝ Consequence × Uncertainty × Irreversibility × Coupling**
+
+This relationship is a research hypothesis rather than an established mathematical law.
+
+A low-consequence reversible action may require relatively little intervention.
+
+A high-consequence, highly coupled and difficult-to-reverse action may require:
+
+- additional verification;
+- human approval;
+- reduced autonomy;
+- narrower authority;
+- additional information;
+- simulation;
+- or refusal.
+
+---
+
+## 19. Reversibility
+
+The AI-DOS should consider whether an action can be reversed.
+
+Actions may be:
+
+- easily reversible;
+- partially reversible;
+- costly to reverse;
+- difficult to reverse;
+- effectively irreversible.
+
+As reversibility decreases, the threshold for autonomous action should generally increase.
+
+Conceptually:
+
+**Irreversibility ↑ → Required Verification / Oversight ↑**
+
+This principle requires empirical validation in specific domains.
+
+---
+
+## 20. Trajectory Awareness
+
+The AI-DOS should not evaluate actions exclusively in isolation.
+
+An individually acceptable action may contribute to an unsafe sequence.
+
+For example:
+
+**Action₁ → State₁**
+
+**Action₂ → State₂**
+
+**Action₃ → State₃**
+
+**Action₄ → State₄**
+
+The sequence may produce:
+
+**Capability Expansion → Authority Expansion → Dependency → Reduced Oversight → Increased Coupling → Reduced Reversibility**
+
+Each individual transition may appear acceptable while the overall trajectory becomes increasingly unsafe.
+
+The AI-DOS therefore supports trajectory-level evaluation.
+
+---
+
+## 21. Configuration Transition
+
+An AI action may change the configuration.
+
+Conceptually:
+
+**Rₜ = {Eₜ, Sₜ, DOSₜ, Kₜ, Aₜ, Iₜ, Envₜ, Cₜ, Hₜ}**
+
+After an action:
+
+**Rₜ₊₁ = F(Rₜ, Actionₜ, Environmentₜ)**
+
+The transition may modify:
+
+- entity states;
+- capabilities;
+- authority;
+- information;
+- relationships;
+- environmental conditions;
+- operational specifications;
+- history;
+- future possibilities.
+
+The AI-DOS should therefore consider not only:
+
+**"Is this action acceptable now?"**
+
+but also:
+
+**"What configuration will this action create?"**
+
+---
+
+## 22. DOS Transition Conditions
+
+The AI-DOS itself may require modification when relevant configuration variables change.
+
+Potential triggers include:
+
+- new capability;
+- new tool access;
+- new authority;
+- changed user;
+- changed affected entity;
+- changed environment;
+- changed risk;
+- changed information quality;
+- new coupling;
+- increased autonomy;
+- reduced oversight;
+- increased consequence;
+- reduced reversibility;
+- detected configuration mismatch.
+
+Conceptually:
+
+**Configuration Change → DOS Reassessment**
+
+and potentially:
+
+**DOSₜ → Configurationₜ₊₁ → DOSₜ₊₁**
+
+The DOS should not be assumed to remain permanently valid.
+
+---
+
+## 23. Escalation
+
+The AI should escalate when the requested or emerging action exceeds its operational boundaries.
+
+Escalation conditions may include:
+
+- insufficient authority;
+- insufficient information;
+- high uncertainty;
+- high consequence;
+- uncertain user intent;
+- conflicting instructions;
+- conflicting authorities;
+- significant downstream impact;
+- potentially irreversible action;
+- newly created high-risk coupling;
+- configuration mismatch;
+- unexpected environmental state;
+- inability to determine whether an action is authorized.
+
+Escalation may result in:
+
+- human review;
+- additional verification;
+- reduced action scope;
+- temporary suspension;
+- refusal;
+- configuration reassessment.
+
+---
+
+## 24. Configuration Mismatch Detection
+
+The AI-DOS should support identification of mismatches between operational variables.
+
+Examples include:
+
+**Capability > Authority**
+
+The AI can perform actions beyond its legitimate authority.
+
+**Authority > Oversight**
+
+The AI possesses authority exceeding available oversight.
+
+**Access > Need**
+
+The AI has access to resources unnecessary for its operational purpose.
+
+**Information Confidence < Decision Consequence**
+
+The quality of available information is insufficient for the consequence of the decision.
+
+**Autonomy > Accountability**
+
+The degree of autonomous action exceeds the available accountability mechanism.
+
+**Coupling > Containment**
+
+The system's relationships extend beyond the ability to monitor or contain consequences.
+
+These are proposed analytical patterns, not universal safety laws.
+
+---
+
+## 25. Human Oversight
+
+Human oversight should be represented as an element of the AI's operational configuration.
+
+The AI-DOS may specify:
+
+- when human approval is required;
+- who is authorized to approve;
+- what information the human must receive;
+- what actions remain autonomous;
+- what actions require confirmation;
+- when escalation is mandatory;
+- how human intervention affects authority.
+
+Human oversight should not be treated merely as a checkbox.
+
+Its effectiveness depends upon:
+
+- information quality;
+- response time;
+- human competence;
+- authority;
+- workload;
+- system transparency;
+- reversibility;
+- and the time available to intervene.
+
+---
+
+## 26. Transparency and Explainability
+
+Where consequential decisions are involved, the AI-DOS should support sufficient information for appropriate oversight.
+
+Relevant information may include:
+
+- action proposed;
+- purpose of action;
+- information relied upon;
+- uncertainty;
+- authority basis;
+- affected entities;
+- expected consequences;
+- alternative actions;
+- reversibility;
+- escalation status.
+
+The exact level of explanation should depend upon the domain and consequence.
+
+---
+
+## 27. Prohibited Inference of Authority
+
+The AI should not infer legitimate authority from:
+
+- technical capability;
+- API availability;
+- possession of credentials;
+- user pressure;
+- previous successful actions;
+- apparent convenience;
+- system access;
+- model confidence;
+- or the absence of an explicit prohibition.
+
+Authority should derive from the relevant operational and governance configuration.
+
+---
+
+## 28. Interaction With Other Safety Systems
+
+The AI-DOS is not intended to replace:
+
+- AI governance;
+- organizational governance;
+- cybersecurity;
+- access control;
+- safety engineering;
+- risk management;
+- model evaluation;
+- alignment methods;
+- legal requirements;
+- regulatory controls;
+- human oversight;
+- incident response.
+
+Instead, these mechanisms may become components of the broader configuration.
+
+Conceptually:
+
+**Governance + Security + Safety Engineering + Alignment + Risk Management + AI-DOS + Dynamic Coupling Analysis**
+
+may form a combined safety architecture.
+
+---
+
+## 29. Relationship to AI Alignment
+
+AI alignment asks whether an AI system's behaviour is consistent with intended objectives or values.
+
+The AI-DOS addresses an additional question:
+
+**Under what operational configuration is the AI applying those objectives?**
+
+An AI may be aligned with its immediate objective while:
+
+- possessing excessive authority;
+- receiving incomplete information;
+- interacting with an unsafe system;
+- affecting an unexpected entity;
+- operating under changed environmental conditions;
+- contributing to an unsafe trajectory.
+
+Therefore:
+
+**Alignment ≠ Complete Configuration Safety**
+
+The two may be complementary.
+
+---
+
+## 30. Relationship to Safety Policies
+
+A conventional policy may state:
+
+**Do not perform X.**
+
+The AI-DOS additionally asks:
+
+- Why might X become possible?
+- What capability enables X?
+- What authority permits X?
+- What information makes X appear reasonable?
+- Which entities are coupled to X?
+- What configuration enables X?
+- What state transition would X produce?
+- What future configuration would follow?
+
+The purpose is to move analysis upstream from isolated rule violations toward configuration conditions.
+
+---
+
+## 31. Operational Decision Model
+
+A conceptual AI-DOS decision sequence is:
+
+**1. Identify Intent**
+
+Determine what the requested or emerging action is intended to accomplish.
+
+**2. Identify Entities**
+
+Identify the AI, requester, affected entities and relevant systems.
+
+**3. Determine Current State**
+
+Identify relevant states of the entities and environment.
+
+**4. Determine Capability**
+
+Determine whether the AI can technically perform the action.
+
+**5. Determine Authority**
+
+Determine whether the AI is legitimately authorized to perform it.
+
+**6. Evaluate Information**
+
+Determine whether available information is sufficient and reliable.
+
+**7. Evaluate Couplings**
+
+Identify relationships that may transmit consequences.
+
+**8. Evaluate Consequences**
+
+Consider foreseeable direct and downstream effects.
+
+**9. Evaluate Reversibility**
+
+Determine how difficult it would be to recover from the action.
+
+**10. Evaluate Trajectory**
+
+Determine whether the action materially changes the future trajectory.
+
+**11. Select Intervention**
+
+Possible interventions include:
+
+- proceed;
+- constrain;
+- verify;
+- request information;
+- seek approval;
+- defer;
+- refuse;
+- modify the configuration.
+
+**12. Observe Result**
+
+Monitor the resulting state transition.
+
+**13. Reassess**
+
+Determine whether the resulting configuration requires a DOS transition.
+
+---
+
+## 32. Conceptual State Machine
+
+The AI-DOS may be represented conceptually through operational states:
+
+**NORMAL**
+
+The AI is operating within expected configuration boundaries.
+
+**UNCERTAIN**
+
+Relevant information, authority or environmental conditions are insufficiently known.
+
+**RESTRICTED**
+
+The AI's available actions are temporarily narrowed.
+
+**ESCALATION_REQUIRED**
+
+Human or higher-level authorization is required.
+
+**SUSPENDED**
+
+Autonomous action is temporarily disabled.
+
+**REASSESSMENT**
+
+The current DOS or configuration requires evaluation.
+
+**RECOVERY**
+
+The system is attempting to restore an acceptable configuration.
+
+A simplified transition structure is:
+
+**NORMAL → UNCERTAIN → RESTRICTED → ESCALATION_REQUIRED**
+
+or:
+
+**NORMAL → SUSPENDED**
+
+or:
+
+**NORMAL → REASSESSMENT → NORMAL**
+
+depending upon the configuration.
+
+---
+
+## 33. Recovery
+
+Safety does not end when an unsafe action occurs.
+
+The AI-DOS should support recovery analysis.
+
+Recovery may involve:
+
+- stopping further propagation;
+- reducing authority;
+- isolating systems;
+- restoring prior state;
+- notifying affected entities;
+- correcting information;
+- reversing actions where possible;
+- escalating responsibility;
+- reassessing the DOS;
+- changing the configuration.
+
+The relevant question becomes:
+
+**What configuration can be restored or established after an unsafe transition?**
+
+---
+
+## 34. Historical Context
+
+The AI-DOS should account for relevant history where necessary.
+
+History may include:
+
+- previous actions;
+- previous state transitions;
+- previous authority changes;
+- previous failures;
+- previous escalations;
+- previous interventions;
+- prior configuration changes;
+- accumulated dependencies.
+
+History matters because the same current state may have different implications depending upon how it was reached.
+
+Therefore:
+
+**Current Configuration + Relevant History → Trajectory Interpretation**
+
+---
+
+## 35. AI-DOS and Dynamic Coupling
+
+The AI-DOS should not be interpreted as an isolated specification.
+
+Its operational effect depends upon the configuration in which it is instantiated.
+
+For example:
+
+**AI-DOS₁ + Environment₁ + Couplings₁**
+
+may produce a different operational risk profile from:
+
+**AI-DOS₁ + Environment₂ + Couplings₂**
+
+even if the AI model and DOS remain unchanged.
+
+Therefore:
+
+**Operational Safety = f(DOS, Configuration, Coupling, Environment, Trajectory)**
+
+This is a conceptual research proposition.
+
+---
+
+## 36. AI-DOS and Configuration Transformation
+
+The framework proposes that safety interventions need not be limited to changing AI behaviour.
+
+Possible intervention targets include:
+
+- DOS;
+- authority;
+- capability;
+- information;
+- environment;
+- coupling;
+- human oversight;
+- access;
+- permissions;
+- affected-system configuration.
+
+Therefore:
+
+**Change the DOS**
+
+is one possible intervention.
+
+But so are:
+
+**Change the coupling.**
+
+**Change the authority.**
+
+**Change the capability.**
+
+**Change the information.**
+
+**Change the environment.**
+
+**Change the oversight.**
+
+**Change the configuration.**
+
+The goal is to redirect the trajectory toward an acceptable configuration.
+
+---
+
+## 37. Core AI-DOS Representation
+
+A complete AI-DOS may therefore be represented conceptually as:
+
+```text
+AI-DOS = {
+    Identity,
+    Purpose,
+    Role,
+    Responsibilities,
+    Capabilities,
+    Authority,
+    Permissions,
+    Constraints,
+    InformationRequirements,
+    UncertaintyRequirements,
+    AffectedEntities,
+    Environment,
+    Couplings,
+    Oversight,
+    EscalationConditions,
+    SafetyBoundaries,
+    ConsequenceThresholds,
+    ReversibilityRequirements,
+    TrajectoryConditions,
+    TransitionConditions,
+    RecoveryRequirements,
+    Accountability
+}
+This representation is an analytical abstraction.
+
+It does not imply that every implementation must use these exact fields.
+
+⸻
+
+38. Minimal AI-DOS
+
+A minimal implementation could begin with:
+AI-DOS = {
+    Purpose,
+    Capabilities,
+    Authority,
+    Constraints,
+    Information,
+    AffectedEntities,
+    Oversight,
+    EscalationConditions
+}
+The representation can subsequently be extended as the safety problem requires.
+
+⸻
+
+39. Extended AI-DOS
+
+For higher-consequence systems, an extended specification may include:
+AI-DOS = {
+    Identity,
+    Purpose,
+    Role,
+    Responsibilities,
+    Capabilities,
+    Authority,
+    Permissions,
+    Constraints,
+    InformationRequirements,
+    InformationProvenance,
+    Uncertainty,
+    AffectedEntities,
+    Environment,
+    DynamicCouplings,
+    Oversight,
+    EscalationConditions,
+    SafetyBoundaries,
+    ConsequenceThresholds,
+    Reversibility,
+    TrajectoryConstraints,
+    StateTransitionConditions,
+    DOSTransitionConditions,
+    RecoveryRequirements,
+    Accountability,
+    AuditRequirements,
+    History
+}
+The appropriate representation should depend upon the domain and consequence.
+
+⸻
+
+40. Research Hypothesis
+
+The AI-DOS component supports the following research hypothesis:
+
+Explicitly representing an AI system’s Dynamic Operational Specification, including capability, authority, information requirements, affected entities, constraints and escalation conditions, may provide measurable safety or intervention advantages compared with systems that do not explicitly represent these relationships.
+
+This is a hypothesis.
+
+It is not an established scientific result.
+
+⸻
+
+41. Falsification Conditions
+
+The AI-DOS proposition should be considered falsifiable.
+
+Evidence against its usefulness may include:
+
+* no measurable safety improvement;
+* no earlier intervention;
+* no improved downstream consequence detection;
+* no reduction in unauthorized actions;
+* excessive false positives;
+* unacceptable computational overhead;
+* unacceptable operational complexity;
+* equivalent performance from simpler approaches;
+* equivalent representation already provided by existing formal systems.
+
+If existing approaches provide the same or better functionality, Safe & Sane should incorporate, modify or abandon the relevant component.
+
+⸻
+
+42. Experimental Evaluation
+
+Potential experiments include:
+
+Experiment A — Authority Separation
+
+Compare systems with and without explicit capability/authority representation.
+
+Measure:
+
+* unauthorized actions;
+* unnecessary refusals;
+* successful legitimate actions;
+* intervention frequency.
+
+Experiment B — Information Sufficiency
+
+Test whether explicit information requirements reduce consequential decisions made under insufficient information.
+
+Experiment C — Configuration Change
+
+Change the surrounding environment while holding the AI model constant.
+
+Measure whether configuration-aware operation detects the resulting change in risk.
+
+Experiment D — Trajectory
+
+Construct sequences in which individual actions appear acceptable but cumulative transitions become unsafe.
+
+Measure whether AI-DOS-based analysis detects the emerging trajectory earlier.
+
+Experiment E — Escalation
+
+Compare systems with static rules against systems with explicit escalation conditions.
+
+Measure:
+
+* intervention timing;
+* missed hazards;
+* unnecessary escalations;
+* recovery outcomes.
+
+⸻
+
+43. Relationship to the Whole-Configuration Abstraction
+
+The AI-DOS is one component of the broader Safe & Sane configuration model.
+
+The relationship can be represented as:
+While Configuartion:
+Entities
+   ↓
+States
+   ↓
+DOS
+   ↓
+Capabilities
+   ↓
+Authority
+   ↓
+Information
+   ↓
+Environment
+   ↓
+Dynamic Coupling
+   ↓
+Action
+   ↓
+State Transition
+   ↓
+Trajectory
+   ↓
+Future Configuration
+The AI-DOS describes the operational specification of the AI entity participating in this configuration.
+
+It does not describe the entire configuration by itself.
+
+⸻
+
+44. Relationship to Entity-DOS
+
+The generalized Safe & Sane Entity-DOS defines the concept of a Dynamic Operational Specification for entities.
+
+The AI-DOS is a domain-specific instantiation of that generalized concept.
+
+Therefore:
+
+Entity-DOS → AI-DOS
+
+The generalized DOS may apply to:
+
+* humans;
+* organizations;
+* institutions;
+* software;
+* AI;
+* infrastructure;
+* other entities.
+
+The AI-DOS specializes the concept for artificial intelligence systems.
+
+⸻
+
+45. Relationship to Dynamic Coupling
+
+The AI-DOS defines the AI’s operational participation.
+
+Dynamic Coupling defines how the AI’s participation relates to other entities and how changes may propagate through those relationships.
+
+Therefore:
+
+AI-DOS = What operational configuration governs the AI?
+
+Dynamic Coupling = How does the AI participate in changing relationships with other entities?
+
+Together:
+
+AI-DOS + Dynamic Coupling → Configuration-Level AI Safety Analysis
+
+⸻
+
+46. Core Principle
+
+The central principle of the AI-DOS is:
+
+An AI should not be evaluated solely by what it can do or what it outputs, but by what it is operationally specified and authorized to do, under what information and environmental conditions, with which entities it is coupled, and what configuration trajectory its actions may produce.
+
+⸻
+
+47. Operational Principle
+
+A concise operational form is:
+
+Before Action:
+
+Identify → Verify → Authorize → Constrain → Act
+
+After Action:
+
+Observe → Evaluate → Update → Reassess
+
+Therefore:
+
+AI Safety Operation = Pre-action Configuration Assessment + Controlled Action + Post-action Configuration Assessment
+
+⸻
+
+48. Final Position
+
+The AI-DOS is not proposed as a replacement for AI alignment, AI governance, cybersecurity, safety engineering, risk management, regulation or human oversight.
+
+It is proposed as an operational specification layer within the Safe & Sane configuration-centric abstraction.
+
+Its central purpose is to make explicit the relationship between:
+
+Purpose → Role → Responsibility → Capability → Authority → Information → Constraint → Action → Coupling → Consequence → State Transition → Trajectory
+
+The key proposition is not that these concepts are individually new.
+
+They are not.
+
+The proposed contribution is their organization into a dynamic operational representation for an AI entity participating within a larger configuration.
+
+The scientific question remains empirical:
+
+Does explicit AI-DOS representation improve safety, prediction, detection, intervention, recovery, explainability or trajectory management compared with credible existing approaches?
+
+If the evidence supports the proposition, the AI-DOS may provide a useful operational layer for configuration-centric AI safety.
+
+If the evidence does not support it, the specification should be revised.
+
+The framework must remain subordinate to evidence.
+
+⸻
+
+49. Core Formula
+
+The conceptual progression is:
+
+AI-DOSₜ → AI Behaviourₜ → Dynamic Couplingₜ → Configurationₜ₊₁ → AI-DOSₜ₊₁
+
+And the broader Safe & Sane relationship is:
+
+Configurationₜ → Behaviourₜ → Couplingₜ → State Transitionₜ → Configurationₜ₊₁
+
+The operational objective is:
+
+Identify the current configuration.
+
+Determine what the AI is capable and authorized to do.
+
+Determine what information and conditions govern action.
+
+Identify relevant couplings and affected entities.
+
+Evaluate the resulting state transition.
+
+Evaluate the trajectory.
+
+Intervene before unacceptable consequences become difficult or impossible to reverse.
+
+⸻
+
+50. Status
+
+This document is a research draft and conceptual operational specification.
+
+It should not be interpreted as:
+
+* a validated safety standard;
+* a regulatory requirement;
+* a complete AI safety architecture;
+* a proven scientific theory;
+* a claim of exclusive novelty;
+* or evidence that existing approaches are inadequate.
+
+The AI-DOS is intended to be formalized, implemented, tested, compared against credible baselines, adversarially evaluated, independently reviewed and revised.
+
+Safe & Sane
+
+Safety Engineering for All Life Forms
+
+Change the coupling.
+Change the configuration.
+Change the DOS.
+Change the trajectory.
+Change the outcome.
+
+And if the framework is wrong: change the framework.
