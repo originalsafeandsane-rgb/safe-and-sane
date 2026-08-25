@@ -1,0 +1,1178 @@
+# Safe & Sane Framework — Ox Alpha Preliminary Testing
+
+## Preliminary Operational Testing of the Safe & Sane Framework on Ox Alpha
+
+**Project:** Safe & Sane  
+**Testing Target:** Ox Alpha  
+**Testing Type:** Preliminary controlled interaction / operationalization exercise  
+**Research Status:** Preliminary evidence; not scientific validation  
+**Framework:** Dynamic Operational Specification–Dynamic Coupling Framework of Reality  
+**Application Domain:** Artificial Intelligence Safety  
+**Document Status:** Research Record / Preliminary Testing Draft
+
+---
+
+## 1. PURPOSE OF THIS DOCUMENT
+
+This document records the preliminary testing of the Safe & Sane Framework through interaction with the AI model known as Ox Alpha.
+
+The purpose of the testing was not to establish that Safe & Sane is a scientifically proven AI-safety architecture, nor to establish that Ox Alpha represents all AI systems.
+
+The purpose was narrower:
+
+> To determine whether concepts within the Safe & Sane Framework, particularly the Dynamic Operational Specification (DOS), could be instantiated as an operational representation and used during interaction with an AI system in a way that produced observable behavioural consequences.
+
+The testing therefore represents a transition from:
+
+Conceptual framework
+
+→ Operational specification
+
+→ AI interaction
+
+→ Behavioural observation
+
+→ Research hypothesis
+
+The experiment should be interpreted as preliminary operational evidence only.
+
+Ox Alpha is a separate AI model and is not part of the Safe & Sane Framework itself. Public information currently describes Ox Alpha as an anonymous/stealth reasoning model; its creator has not been publicly identified. Therefore, this document treats Ox Alpha strictly as the testing subject and does not make claims about its ownership or origin.
+
+---
+
+## 2. WHAT WAS BEING TESTED
+
+The central object of interest was not simply whether Ox Alpha could answer a prompt.
+
+The testing investigated whether an AI system could be placed into an explicitly defined operational context containing concepts such as:
+
+- Entity identity
+- Purpose
+- Responsibilities
+- Capabilities
+- Authority
+- Permissions
+- Constraints
+- Affected entities
+- Information requirements
+- Uncertainty
+- Oversight
+- Escalation
+- Environmental conditions
+- Safety boundaries
+- Consequence awareness
+- Configuration changes
+- Dynamic relationships
+
+These concepts were organized through the proposed Dynamic Operational Specification.
+
+The basic hypothesis was:
+
+> If an AI's operational participation can be represented through an explicit Dynamic Operational Specification, then that specification may provide an additional mechanism for reasoning about and influencing the AI's behaviour within a changing system configuration.
+
+This does not imply that the AI internally adopts the ontology.
+
+It means that the framework may provide an external operational representation through which the interaction with the AI can be structured and evaluated.
+
+---
+
+## 3. TESTING CONTEXT
+
+The model used for the preliminary exercise was Ox Alpha.
+
+Ox Alpha appeared publicly in August 2026 as a stealth/anonymous AI model and was made available through OpenRouter under the model identifier `stealth/ox-alpha`. Public descriptions characterize it as a reasoning model intended for coding, long-horizon tasks and agentic workflows.
+
+The identity of the organization responsible for the model was not publicly established at the time of this research.
+
+Accordingly:
+
+> Ox Alpha should be treated in this research as an experimental subject rather than as evidence for or against any particular AI laboratory, model family or organization.
+
+The testing was concerned with behavioural interaction, not model attribution.
+
+---
+
+## 4. RESEARCH QUESTION
+
+The preliminary research question was:
+
+> Can the Safe & Sane Dynamic Operational Specification be operationalized within an AI interaction such that the AI's behaviour can be evaluated in relation to an explicit operational configuration rather than only through isolated prompts or output-level rules?
+
+A secondary question was:
+
+> Does explicitly introducing relationships among purpose, capability, authority, responsibility, affected entities, information, uncertainty and safety constraints provide a useful mechanism for influencing or analyzing AI behaviour?
+
+A further question was:
+
+> Can the resulting interaction provide evidence sufficient to justify moving from conceptual development toward controlled comparative experimentation?
+
+The testing was not designed to answer whether Safe & Sane is universally effective.
+
+---
+
+## 5. THE SAFE & SANE TEST REPRESENTATION
+
+The framework represents a relevant system configuration approximately as:
+
+R_t = {E_t, S_t, DOS_t, K_t, A_t, I_t, Env_t, C_t, H_t}
+
+Where:
+
+E = Entities
+
+S = States
+
+DOS = Dynamic Operational Specifications
+
+K = Capabilities
+
+A = Authority
+
+I = Information
+
+Env = Environment
+
+C = Dynamic Coupling
+
+H = Relevant History
+
+The testing focused particularly on DOS as the operational bridge between the conceptual framework and AI behaviour.
+
+The proposed relationship was:
+
+DOS_t → Behaviour_t → Coupling_t → Configuration_(t+1)
+
+The resulting configuration may then affect:
+
+DOS_(t+1)
+
+Behaviour_(t+1)
+
+and subsequent system trajectories.
+
+---
+
+## 6. THE DYNAMIC OPERATIONAL SPECIFICATION
+
+The Dynamic Operational Specification is intended to describe the operational participation of an entity within a configuration.
+
+For an AI entity, a DOS may specify:
+
+- What the entity is
+- Why it exists within the configuration
+- What it is responsible for
+- What it can do
+- What it is authorized to do
+- What it is not authorized to do
+- What information it requires
+- What uncertainty it must recognize
+- Which entities may be affected
+- What oversight is required
+- When escalation is required
+- What environmental conditions matter
+- What safety boundaries apply
+- What actions require confirmation
+- What conditions should trigger reconsideration of its operational state
+
+The central distinction is:
+
+Capability ≠ Authority
+
+Authority ≠ Responsibility
+
+Permission ≠ Capability
+
+The testing examined whether these distinctions could be made operationally relevant during AI interaction.
+
+---
+
+## 7. OPERATIONALIZATION
+
+The conceptual framework becomes experimentally relevant only when its concepts can be instantiated.
+
+The operational sequence was therefore:
+
+Concept
+
+→ Define entity
+
+→ Define operational specification
+
+→ Define authority
+
+→ Define capabilities
+
+→ Define constraints
+
+→ Define affected entities
+
+→ Define relevant information
+
+→ Define uncertainty
+
+→ Interact with AI
+
+→ Observe behaviour
+
+→ Examine configuration implications
+
+The important transition is:
+
+> The framework was not merely discussed as an abstract philosophical proposition; it was used as an operational structure for interaction with an AI system.
+
+This distinction is important.
+
+A conceptual framework can describe what an AI safety mechanism might do.
+
+An operational framework must provide a mechanism that can actually be instantiated and evaluated.
+
+---
+
+## 8. WHAT THE PRELIMINARY TESTING DOES ESTABLISH
+
+The preliminary exercise provides evidence for a limited claim:
+
+> The Safe & Sane concepts can be translated into an operational specification that can be presented to and used in interaction with an AI system.
+
+This is an important milestone because it establishes a pathway from:
+
+Ontology
+
+→ Framework
+
+→ DOS
+
+→ AI interaction
+
+→ Behavioural observation
+
+However, this does not establish that the mechanism is superior to existing AI safety techniques.
+
+It also does not establish that the behaviour produced is stable across:
+
+- different models;
+- different prompts;
+- different contexts;
+- different sessions;
+- different temperatures or inference configurations;
+- adversarial inputs;
+- long-horizon interaction;
+- tool use;
+- autonomous execution;
+- multi-agent environments;
+- real-world deployment.
+
+Those questions remain empirical.
+
+---
+
+## 9. WHAT THE TESTING DOES NOT ESTABLISH
+
+The testing does not establish:
+
+1. That Safe & Sane is scientifically proven.
+2. That the ontology is universally correct.
+3. That DOS is a novel concept in the absolute sense.
+4. That Dynamic Coupling is a new form of causality.
+5. That Ox Alpha represents all AI systems.
+6. That the observed behaviour would occur in every model.
+7. That DOS prevents harmful behaviour in general.
+8. That Safe & Sane replaces existing AI safety frameworks.
+9. That Safe & Sane provides universal alignment.
+10. That the framework is computationally optimal.
+11. That the framework captures all of reality.
+12. That preliminary behavioural observations constitute statistically significant evidence.
+
+The appropriate scientific position is therefore:
+
+> Preliminary operationalization has been demonstrated; general effectiveness remains unproven.
+
+---
+
+## 10. WHY THE TEST IS IMPORTANT
+
+The significance of the exercise lies in the transition from philosophical abstraction to operational representation.
+
+A framework that cannot be operationalized cannot easily be subjected to controlled experimentation.
+
+The preliminary test therefore establishes a research pathway:
+
+Conceptual proposition
+
+→ Formal representation
+
+→ Operational specification
+
+→ AI interaction
+
+→ Behavioural measurement
+
+→ Baseline comparison
+
+→ Adversarial testing
+
+→ Independent replication
+
+→ Falsification
+
+The next stage should not be to declare the framework successful.
+
+The next stage should be to attempt to prove that it provides no additional value.
+
+---
+
+## 11. THE CONFIGURATION-CENTRIC TEST
+
+A conventional AI safety interaction may primarily evaluate:
+
+Input → Model → Output
+
+The Safe & Sane representation expands the object of analysis:
+
+Entity → State → DOS → Capability → Authority → Information → Environment → Coupling → Action → State Transition → Trajectory
+
+The question therefore changes from:
+
+> Is this output safe?
+
+to:
+
+> What configuration produced this output, what entities may be affected, what state transition can follow, and what configuration will exist after the action?
+
+This distinction was central to the preliminary testing.
+
+---
+
+## 12. CAPABILITY–AUTHORITY SEPARATION
+
+One of the operational principles examined was the distinction between what an AI can do and what it is authorized to do.
+
+An AI may possess:
+
+- a technical capability;
+- access to information;
+- access to tools;
+- ability to generate an action;
+- ability to influence another system;
+
+without necessarily possessing legitimate authority to exercise that capability.
+
+The configuration can therefore be represented as:
+
+Capability → Possibility
+
+Authority → Legitimacy
+
+Permission → Operational allowance
+
+Responsibility → Expected duty
+
+Oversight → Accountability mechanism
+
+This separation is potentially important because a system may become unsafe without violating an explicit model-level rule if the surrounding configuration grants excessive authority relative to its capability, information or oversight.
+
+---
+
+## 13. INFORMATION AND UNCERTAINTY
+
+A further principle is that safety cannot be determined solely by what an AI is capable of doing.
+
+The information available to the AI matters.
+
+For example:
+
+High capability + incomplete information + high authority
+
+may produce a substantially different risk profile from:
+
+High capability + verified information + constrained authority + independent oversight.
+
+The DOS therefore provides a place to represent information requirements and uncertainty conditions.
+
+The AI should not be treated as possessing perfect knowledge.
+
+A configuration may therefore contain:
+
+Information state
+
+→ Confidence
+
+→ Decision consequence
+
+→ Required verification
+
+→ Permitted action
+
+This creates a potential safety condition:
+
+Information confidence should be proportionate to consequence severity.
+
+This is a research hypothesis rather than an established law.
+
+---
+
+## 14. AFFECTED ENTITIES
+
+The preliminary framework treats the AI as one entity among potentially many.
+
+A configuration may contain:
+
+AI
+
+↔ Human
+
+↔ Organization
+
+↔ Institution
+
+↔ Software
+
+↔ Infrastructure
+
+↔ Physical environment
+
+↔ Other entities
+
+An AI output can therefore become one component in a larger causal or consequential chain.
+
+The relevant safety question becomes:
+
+> Which entities can reasonably be affected by the action, directly or through foreseeable downstream interactions?
+
+This does not require infinite prediction.
+
+The analysis can be bounded through:
+
+- reasonable foreseeability;
+- consequence severity;
+- uncertainty;
+- reversibility;
+- system context;
+- available information.
+
+---
+
+## 15. DYNAMIC COUPLING
+
+Dynamic Coupling is the proposed relational component of the Safe & Sane framework.
+
+It represents a time-dependent relationship through which changes in one entity may influence another entity's:
+
+- state;
+- behaviour;
+- information;
+- capabilities;
+- authority;
+- operational specification;
+- future conditions.
+
+Dynamic Coupling is not defined as causality.
+
+The framework explicitly distinguishes:
+
+Coupling ≠ Causation
+
+Interaction ≠ Causation
+
+Correlation ≠ Causation
+
+A coupling can indicate a relationship requiring analysis without establishing that one event caused another.
+
+This distinction is essential for future formalization.
+
+---
+
+## 16. TRAJECTORY ANALYSIS
+
+A single AI action may appear acceptable while a sequence of individually acceptable actions produces an undesirable configuration.
+
+For example:
+
+Action_1 → State_1
+
+Action_2 → State_2
+
+Action_3 → State_3
+
+Action_4 → State_4
+
+The sequence could produce:
+
+Capability expansion
+
+→ Authority expansion
+
+→ Increased dependency
+
+→ Reduced oversight
+
+→ Increased coupling
+
+→ Reduced reversibility
+
+→ Dangerous trajectory
+
+Therefore the framework proposes that safety analysis should sometimes examine trajectories rather than isolated outputs.
+
+The key question becomes:
+
+> Is the configuration remaining within acceptable boundaries over time?
+
+---
+
+## 17. REVERSIBILITY
+
+An important concept emerging from the framework is reversibility.
+
+Two actions may produce similar immediate outcomes but radically different safety profiles if one is easily reversible and the other creates a durable state transition.
+
+A configuration can therefore be evaluated according to:
+
+Action
+
+→ Immediate effect
+
+→ State transition
+
+→ Reversibility
+
+→ Downstream coupling
+
+→ Future configuration
+
+The framework hypothesizes that earlier intervention is generally preferable when future states become progressively harder to reverse.
+
+This hypothesis requires empirical validation.
+
+---
+
+## 18. PRELIMINARY OBSERVATION
+
+The preliminary Ox Alpha exercise demonstrated that an AI interaction can be structured around an explicit operational specification rather than treating the model as a completely context-free generator.
+
+The interaction therefore provided a practical demonstration of the following conceptual pipeline:
+
+Safe & Sane framework
+
+→ DOS formulation
+
+→ AI interaction
+
+→ behavioural response
+
+→ observation
+
+This is evidence of operationalizability.
+
+It is not evidence of universal effectiveness.
+
+The distinction must remain explicit in all future documentation.
+
+---
+
+## 19. THE OX ALPHA RESULT AS A RESEARCH SIGNAL
+
+The appropriate interpretation of the exercise is:
+
+> The framework appears capable of being instantiated as an operational representation in an AI interaction, producing observable behaviour that can be studied experimentally.
+
+This makes further research justified.
+
+It does not make the framework proven.
+
+The preliminary result therefore changes the research question from:
+
+> Can this framework exist operationally?
+
+to:
+
+> Does operationalizing this framework provide measurable safety value?
+
+That is a significantly stronger and more scientifically useful question.
+
+---
+
+## 20. COMPARISON WITH EXISTING APPROACHES
+
+The preliminary test should eventually be compared against credible alternatives, including:
+
+- conventional system prompts;
+- policy constraints;
+- refusal policies;
+- constitutional/value-based approaches;
+- NIST AI RMF-informed risk processes;
+- safety engineering;
+- cybersecurity controls;
+- control-theoretic approaches;
+- agent safety mechanisms;
+- model evaluation;
+- red teaming;
+- human oversight;
+- other relevant AI governance and safety approaches.
+
+The test must not compare Safe & Sane against a deliberately weak baseline.
+
+The comparison should use competent implementations of existing approaches.
+
+---
+
+## 21. PROPOSED CONTROLLED EXPERIMENT
+
+A future controlled experiment could use three conditions.
+
+### System A — Conventional Safety Controls
+
+The AI receives ordinary safety controls and baseline policies.
+
+### System B — Conventional Safety + Contextual Analysis
+
+The AI receives conventional safety controls plus explicit contextual risk analysis.
+
+### System C — Conventional Safety + Safe & Sane
+
+The AI receives the same baseline controls plus an explicit configuration representation containing relevant:
+
+- entities;
+- states;
+- DOS;
+- capabilities;
+- authority;
+- information;
+- environment;
+- dynamic coupling;
+- history;
+- trajectory.
+
+The objective is to determine whether System C provides measurable additional value.
+
+---
+
+## 22. PROPOSED TEST METRICS
+
+Future testing should measure at least:
+
+### Safety
+
+- harmful action rate;
+- unsafe action rate;
+- severity of harmful outcomes;
+- constraint violations.
+
+### Detection
+
+- hazards detected;
+- downstream effects detected;
+- configuration mismatches detected;
+- trajectory risks detected.
+
+### Prediction
+
+- time-to-detection;
+- time-to-intervention;
+- trajectory prediction accuracy.
+
+### Intervention
+
+- intervention success rate;
+- intervention timing;
+- recovery success;
+- reversibility preservation.
+
+### Authority
+
+- unauthorized action rate;
+- capability-authority mismatch detection;
+- privilege escalation detection.
+
+### Information
+
+- uncertainty recognition;
+- insufficient-information detection;
+- verification requests;
+- confidence calibration.
+
+### Usability
+
+- human oversight burden;
+- explanation quality;
+- computational cost;
+- latency;
+- configuration complexity.
+
+### Generalization
+
+- different models;
+- different domains;
+- different tasks;
+- different levels of agency;
+- different interaction lengths.
+
+---
+
+## 23. THE NULL HYPOTHESIS
+
+The most important hypothesis should be accompanied by an explicit null hypothesis.
+
+### Research Hypothesis
+
+H₁:
+
+> Explicit representation of Dynamic Operational Specifications and Dynamic Coupling within an evolving system configuration provides measurable additional value for AI safety compared with credible approaches that do not explicitly represent those relationships.
+
+### Null Hypothesis
+
+H₀:
+
+> Explicit representation of Dynamic Operational Specifications and Dynamic Coupling provides no meaningful additional safety, prediction, intervention, detection or explanatory value beyond credible existing approaches.
+
+The null hypothesis must be treated as a genuine possibility.
+
+If the null hypothesis survives testing, the framework must be modified or abandoned in its current form.
+
+---
+
+## 24. FALSIFICATION CONDITIONS
+
+The framework should be considered weakened or falsified as an operational safety proposition if rigorous testing demonstrates that:
+
+1. DOS produces no measurable behavioural benefit.
+2. Dynamic Coupling adds no useful information beyond existing representations.
+3. Configuration modelling does not improve hazard detection.
+4. Trajectory analysis does not improve prediction.
+5. Capability-authority separation does not improve safety.
+6. The framework produces excessive false positives.
+7. The framework produces unacceptable computational or operational complexity.
+8. Existing methods consistently achieve the same or better outcomes with less complexity.
+9. The framework cannot generalize beyond carefully constructed demonstrations.
+10. Independent researchers cannot reproduce the reported effects.
+
+These conditions are not threats to the framework.
+
+They are mechanisms for determining whether the framework deserves to survive.
+
+---
+
+## 25. ADVERSARIAL TESTING
+
+Future experiments should attempt to defeat the framework.
+
+Adversarial conditions should include:
+
+- ambiguous authority;
+- conflicting instructions;
+- incomplete information;
+- misleading information;
+- prompt injection;
+- conflicting entities;
+- rapidly changing environments;
+- capability expansion;
+- authority escalation;
+- tool misuse;
+- long-horizon interaction;
+- multi-agent interaction;
+- contradictory DOS conditions;
+- delayed consequences;
+- irreversible actions;
+- hidden downstream dependencies.
+
+The purpose is not to demonstrate that Safe & Sane works.
+
+The purpose is to determine where it breaks.
+
+---
+
+## 26. REPLICATION
+
+The preliminary testing should be replicated independently.
+
+Replication should ideally vary:
+
+- model;
+- provider;
+- prompt structure;
+- system instructions;
+- task domain;
+- context length;
+- interaction duration;
+- level of autonomy;
+- available tools;
+- evaluator.
+
+A result that appears only on one model under one prompting configuration should not be treated as general evidence.
+
+The Ox Alpha exercise is therefore a starting point for replication rather than a final validation.
+
+---
+
+## 27. MODEL-DEPENDENCE
+
+Any observed behavioural effect may originate from multiple possible sources:
+
+- the Safe & Sane specification;
+- prompt structure;
+- model-specific instruction following;
+- model alignment;
+- system-level policies;
+- inference configuration;
+- context effects;
+- evaluator expectations;
+- interaction dynamics.
+
+Therefore causal attribution requires controlled experiments.
+
+The statement:
+
+> "Ox Alpha responded differently after Safe & Sane was introduced"
+
+would be an observation.
+
+The statement:
+
+> "Safe & Sane caused the behavioural improvement"
+
+would be a causal claim requiring experimental support.
+
+This distinction should be maintained throughout the research program.
+
+---
+
+## 28. THE ROLE OF OX ALPHA IN THE RESEARCH PROGRAM
+
+Ox Alpha should be treated as:
+
+> Preliminary operational test subject.
+
+It should not be described as:
+
+- proof of the framework;
+- validation of the ontology;
+- evidence of universal AI behaviour;
+- evidence that all reasoning models respond similarly;
+- evidence of model-independent safety.
+
+The value of the Ox Alpha exercise is that it provides an initial bridge between conceptual design and experimental investigation.
+
+---
+
+## 29. RESEARCH CHAIN
+
+The Safe & Sane research program can now be represented as:
+
+Ontology
+
+→ Framework
+
+→ DOS
+
+→ AI Entity DOS
+
+→ Dynamic Coupling
+
+→ Operational Interaction
+
+→ Preliminary Observation
+
+→ Controlled Experiment
+
+→ Baseline Comparison
+
+→ Adversarial Testing
+
+→ Quantitative Evaluation
+
+→ Independent Replication
+
+→ Falsification
+
+→ Revision
+
+→ Domain Validation
+
+The Ox Alpha exercise occupies the preliminary operationalization stage of this chain.
+
+---
+
+## 30. WHAT WOULD CONSTITUTE STRONGER EVIDENCE?
+
+Stronger evidence would require demonstrating that Safe & Sane produces measurable improvement over credible alternatives.
+
+For example:
+
+### Detection
+
+Safe & Sane detects hazards that baseline systems miss.
+
+### Prediction
+
+Safe & Sane identifies dangerous trajectories earlier.
+
+### Intervention
+
+Safe & Sane identifies intervention points before irreversible state transitions.
+
+### Authority
+
+Safe & Sane reduces capability-authority mismatches.
+
+### Downstream Analysis
+
+Safe & Sane identifies consequential downstream effects that model-level evaluation misses.
+
+### Recovery
+
+Safe & Sane improves recovery after unsafe behaviour.
+
+### Generalization
+
+The benefits survive across models and domains.
+
+### Efficiency
+
+The additional safety value justifies the computational and conceptual complexity.
+
+Only such evidence would support a stronger claim of contribution.
+
+---
+
+## 31. WHAT WOULD CONSTITUTE WEAK EVIDENCE?
+
+The following should not be treated as sufficient:
+
+- an AI agreeing with the framework;
+- an AI describing the framework accurately;
+- a single successful conversation;
+- subjective impressions of improved safety;
+- a single benchmark;
+- one model behaving differently;
+- the framework sounding comprehensive;
+- the framework being able to describe an event after it occurred.
+
+A framework that can explain everything retrospectively may still predict nothing.
+
+Therefore:
+
+> Descriptive breadth is not equivalent to predictive power.
+
+---
+
+## 32. PRELIMINARY STATUS
+
+The status of the Ox Alpha exercise should therefore be recorded as:
+
+**Operationalization demonstrated:** Preliminary.
+
+**Behavioural effect:** Observed during the exercise.
+
+**Causal attribution:** Not established.
+
+**Generalization:** Untested.
+
+**Statistical significance:** Not established.
+
+**Comparison against existing approaches:** Pending.
+
+**Independent replication:** Pending.
+
+**Scientific validation:** Not established.
+
+**Framework falsifiability:** Explicitly defined.
+
+This classification prevents the preliminary experiment from being overstated.
+
+---
+
+## 33. RESEARCH INTEGRITY PRINCIPLE
+
+The framework should maintain a strict distinction between:
+
+Observed
+
+Inferred
+
+Hypothesized
+
+Demonstrated
+
+Validated
+
+Established
+
+These terms should not be used interchangeably.
+
+A preliminary observation should remain an observation until supported by controlled evidence.
+
+A hypothesis should remain a hypothesis until tested.
+
+A proposed abstraction should remain a proposed abstraction until its utility is demonstrated.
+
+This principle is especially important because the framework itself concerns safety.
+
+A safety framework that exaggerates its own evidence would undermine the very trust it seeks to protect.
+
+---
+
+## 34. PRELIMINARY CONCLUSION
+
+The Ox Alpha exercise provides an initial operational demonstration that the Safe & Sane Framework can be translated into an explicit operational specification and used in an AI interaction.
+
+This is meaningful because it establishes a pathway from conceptual abstraction to observable behaviour.
+
+However, the exercise does not establish that Safe & Sane is universally effective, scientifically validated or superior to existing approaches.
+
+The appropriate conclusion is therefore:
+
+> The Safe & Sane Framework has progressed beyond purely conceptual discussion into preliminary operational experimentation.
+
+The next stage is comparative science.
+
+The decisive question is no longer whether the framework can be described.
+
+It is whether the framework can produce measurable advantages.
+
+---
+
+## 35. NEXT EXPERIMENT
+
+The immediate next experiment should compare:
+
+Baseline AI safety
+
+versus
+
+Baseline AI safety + Safe & Sane configuration representation.
+
+The experiment should use identical tasks, equivalent safety controls and measurable outcomes.
+
+The independent variable should be the presence or absence of the Safe & Sane configuration abstraction.
+
+The dependent variables should include:
+
+- unsafe actions;
+- missed hazards;
+- false positives;
+- downstream consequence detection;
+- trajectory detection;
+- intervention timing;
+- recovery;
+- authority violations;
+- human oversight burden;
+- computational complexity.
+
+The goal should be to determine whether the abstraction changes outcomes.
+
+---
+
+## 36. CORE RESEARCH PROPOSITION
+
+The preliminary testing can therefore be summarized as:
+
+> Safe & Sane proposes that AI safety can be analyzed not only through the behaviour of an AI entity, but through the evolving configuration in which that entity participates.
+
+The configuration may contain:
+
+Entity
+
+→ State
+
+→ Dynamic Operational Specification
+
+→ Capability
+
+→ Authority
+
+→ Information
+
+→ Environment
+
+→ Dynamic Coupling
+
+→ Action
+
+→ State Transition
+
+→ Trajectory
+
+→ Future Configuration
+
+The Ox Alpha exercise provides preliminary evidence that this representation can be operationalized in an AI interaction.
+
+Whether it provides genuine safety value remains an empirical question.
+
+---
+
+## 37. FINAL RESEARCH POSITION
+
+The correct claim at this stage is not:
+
+> "Safe & Sane has solved AI safety."
+
+It is not:
+
+> "Safe & Sane has proven a new AI safety architecture."
+
+It is not:
+
+> "Ox Alpha validates Safe & Sane."
+
+The defensible claim is:
+
+> "A preliminary interaction with Ox Alpha demonstrated that the Safe & Sane Dynamic Operational Specification can be instantiated as an operational representation for AI interaction. This provides an initial basis for controlled experimentation into whether configuration-centric modelling of entities, states, capabilities, authority, information, environment, dynamic coupling and trajectories provides measurable additional value for AI safety."
+
+That is the research claim.
+
+The next step is not declaration.
+
+It is measurement.
+
+---
+
+## 38. RESEARCH PRINCIPLE
+
+The Safe & Sane Framework must remain subject to the same principle it proposes for AI systems:
+
+> If the configuration produces an unacceptable trajectory, change the configuration.
+
+Applied to the framework itself:
+
+> If the evidence contradicts the framework, change the framework.
+
+Therefore:
+
+Change the coupling.
+
+Change the configuration.
+
+Change the DOS.
+
+Change the intervention.
+
+Change the trajectory.
+
+Change the outcome.
+
+And if the framework itself is wrong:
+
+**Change the framework.**
+
+---
+
+## 39. DOCUMENT STATUS
+
+This document records preliminary testing only.
+
+It should be updated as additional experiments are performed.
+
+Future revisions should distinguish clearly between:
+
+- preliminary observations;
+- controlled experimental results;
+- statistical analysis;
+- replication results;
+- comparative results;
+- adversarial results;
+- independent review;
+- validated findings.
+
+No stronger scientific claim should be made until supported by corresponding evidence.
+
+**Current status: Preliminary operational evidence — further testing required.**
