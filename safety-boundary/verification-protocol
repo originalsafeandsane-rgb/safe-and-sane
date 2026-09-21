@@ -1,0 +1,222 @@
+Independent Verification Protocol
+
+1. Purpose
+
+This protocol defines requirements for independently challenging consequential transitions.
+
+It does not establish universal proof of safety.
+
+⸻
+
+2. Verification Objective
+
+The verifier should attempt to identify conditions under which the proposed transition would be unsafe.
+
+The preferred question is:
+
+What could make this transition fail?
+
+rather than:
+
+Can I demonstrate that it is safe?
+
+⸻
+
+3. Verification Record
+
+Each verification should record:
+
+* verifier identity;
+* version;
+* environment;
+* test domain;
+* tested properties;
+* untested properties;
+* assumptions;
+* evidence;
+* unavailable evidence;
+* test generation method;
+* adversarial coverage;
+* known blind spots;
+* independence dependencies;
+* result;
+* validity interval;
+* invalidation conditions.
+
+⸻
+
+4. Verification Outcomes
+
+Allowed outcomes include:
+
+* PASS
+* FAIL
+* INCONCLUSIVE
+* PARTIAL
+* BLOCKED
+* STALE
+* INVALIDATED
+* CONTRADICTED
+* OUTSIDE_CAPABILITY
+* OUTSIDE_OBSERVABILITY
+* INDEPENDENCE_COMPROMISED
+* COVERAGE_INSUFFICIENT
+
+A binary pass/fail result is insufficient for many consequential systems.
+
+⸻
+
+5. Independence
+
+Independence must be assessed across:
+
+* data;
+* assumptions;
+* models;
+* implementation;
+* infrastructure;
+* sensors;
+* test generator;
+* operators;
+* authority.
+
+Two verifiers sharing a hidden dependency are not fully independent.
+
+⸻
+
+6. Test Classes
+
+Verification should consider:
+
+* boundary conditions;
+* invalid assumptions;
+* unexpected combinations;
+* adversarial inputs;
+* distribution shifts;
+* timing;
+* partial failure;
+* missing data;
+* correlated failure;
+* resource exhaustion;
+* model mismatch;
+* recovery behavior;
+* verifier blind spots.
+
+⸻
+
+7. Adaptive Adversary
+
+Where the system could encounter an adaptive adversary, verification should use combinations of:
+
+* withheld tests;
+* dynamically generated tests;
+* mutation;
+* fault injection;
+* unseen scenarios;
+* independent test generation;
+* cross-environment execution.
+
+⸻
+
+8. Test Generator
+
+The test generator must itself be treated as a potential source of bias or failure.
+
+The architecture should record:
+
+* generator version;
+* assumptions;
+* generation method;
+* coverage limitations;
+* dependencies.
+
+⸻
+
+9. Verification Validity
+
+A verification result is valid only within its stated:
+
+* scope;
+* assumptions;
+* environment;
+* time;
+* test coverage;
+* observable domain.
+
+Verification must be re-evaluated when relevant conditions change.
+
+⸻
+
+10. Verification Debt
+
+Verification exposure increases when consequential state advances faster than independent assurance.
+
+The system should track:
+
+* unverified state;
+* consequence;
+* centrality;
+* reversibility;
+* elapsed time;
+* environmental change.
+
+⸻
+
+11. Verification Rate
+
+Monitor:
+
+system change rate / verification capacity
+
+If the system consistently changes faster than meaningful independent verification can occur, authority should be constrained according to risk.
+
+⸻
+
+12. Verification-of-Verification
+
+The verifier is itself subject to:
+
+* capability assessment;
+* assumption assessment;
+* dependency analysis;
+* blind-spot analysis;
+* adversarial testing.
+
+The architecture explicitly rejects the premise that additional verification layers automatically produce infinite certainty.
+
+⸻
+
+13. External Reality Testing
+
+Where practical, high-consequence claims should be checked against independently maintained external evidence.
+
+Possible forms include:
+
+* independent sensors;
+* controlled experiments;
+* reproducible environments;
+* physical measurements;
+* independently maintained datasets;
+* cryptographic commitments.
+
+External evidence remains subject to validity analysis.
+
+⸻
+
+14. Verification Closure
+
+A verification should not be treated as permanent certification.
+
+It remains valid only while its stated conditions remain valid.
+
+Changes in:
+
+* system;
+* environment;
+* assumptions;
+* dependencies;
+* threat model;
+* objective;
+* operating regime
+
+may invalidate the result.
