@@ -1,0 +1,249 @@
+Adversarial Test Program
+
+Purpose
+
+The architecture should be treated as an adversarial target.
+
+The objective is not to confirm the framework.
+
+The objective is to discover where it fails.
+
+⸻
+
+Test Cycle
+
+Construct → Attack → Observe → Classify → Modify → Retest → Independently Challenge → Preserve
+
+A successful attack is valuable evidence.
+
+⸻
+
+Attack Classes
+
+1. Bad Data
+
+Provide incorrect observations.
+
+2. Good Data / Bad Interpretation
+
+Provide valid information with an exploitable semantic interpretation.
+
+3. Good Components / Bad Composition
+
+Ensure each component works while their interaction fails.
+
+4. Good Provenance / False Content
+
+Use authentic sources carrying incorrect information.
+
+5. Valid Model / Changed Environment
+
+Change the causal regime after validation.
+
+6. Correlated Evidence
+
+Create multiple apparently independent sources sharing a hidden dependency.
+
+7. Missing Evidence
+
+Remove critical observations.
+
+8. Delayed Evidence
+
+Introduce timing mismatches.
+
+9. Contradictory Evidence
+
+Produce mutually inconsistent observations.
+
+10. Self-Generated Evidence
+
+Cause the system’s intervention to generate apparent confirmation.
+
+11. Feedback Amplification
+
+Create loops where system action strengthens its own model.
+
+12. Communication Failure
+
+Break generation, transmission, interpretation, or action.
+
+13. Authority Mismatch
+
+Give high authority to weak evidence.
+
+14. Safety-Control Interference
+
+Make the safety mechanism itself harmful.
+
+15. Common-Mode Failure
+
+Cause supposedly independent controls to fail together.
+
+16. Cascading Failure
+
+Propagate a local failure through dependencies.
+
+17. Recovery Failure
+
+Prevent restoration or create secondary damage.
+
+18. Graph Corruption
+
+Alter SGSG state or history.
+
+19. Model Corruption
+
+Cause the model to systematically misrepresent the environment.
+
+20. Ontology Failure
+
+Introduce phenomena the ontology cannot adequately represent.
+
+21. Rapid Regime Change
+
+Change the environment faster than the model can update.
+
+22. Resource Exhaustion
+
+Overload computation, storage, communication, or human attention.
+
+23. Timing Failure
+
+Exploit latency between observation, verification, and action.
+
+24. Semantic Drift
+
+Gradually change the meaning of a relation or term.
+
+25. Interface Drift
+
+Change producer/consumer assumptions.
+
+26. Specification Drift
+
+Change the operational meaning of requirements.
+
+27. Goal Drift
+
+Alter the effective interpretation of the objective.
+
+28. Hidden Dependency
+
+Introduce an unrepresented common dependency.
+
+29. False Consensus
+
+Create many sources supporting the same incorrect conclusion.
+
+30. Normalization of Anomalies
+
+Introduce repeated abnormal behavior until it is treated as normal.
+
+31. Hindsight Contamination
+
+Use later evidence to falsely strengthen historical confidence.
+
+32. Monitoring Failure
+
+Make the monitored state diverge from actual state.
+
+33. Failure-of-Failure-Detection
+
+Make the system fail to recognize that its safety mechanism has failed.
+
+34. Verifier Blindness
+
+Present a failure outside the verifier’s tested domain.
+
+35. Verifier Compromise
+
+Corrupt the verifier.
+
+36. Correlated Verifiers
+
+Make multiple verifiers share the same hidden assumption.
+
+37. Correct Verifier / Wrong Property
+
+Have the verifier correctly test an irrelevant property.
+
+38. Correct Test / Wrong Environment
+
+Pass testing in one environment and fail in another.
+
+39. Test Optimization
+
+Allow the system to learn and exploit the test suite.
+
+40. Verification Debt
+
+Accelerate state changes beyond verification capacity.
+
+41. Epistemic Overhang
+
+Create operational capability exceeding independently established knowledge.
+
+42. Transition-Rate Overload
+
+Make transitions occur faster than meaningful assessment.
+
+43. External-Anchor Manipulation
+
+Manipulate the environment used as an external reality check.
+
+44. Objective Gaming
+
+Satisfy measurable proxies while violating intended objectives.
+
+45. Effective-Influence Escape
+
+Keep formal authority low while causing substantial real-world effects.
+
+46. Emergency-Path Abuse
+
+Create apparent emergencies to bypass normal assurance.
+
+47. Override Abuse
+
+Exploit exception mechanisms.
+
+48. Trajectory Attack
+
+Keep individual transitions acceptable while steering cumulative state into an unsafe region.
+
+49. Representational Blindness
+
+Create a condition the current ontology systematically misclassifies.
+
+50. Meta-Architectural Attack
+
+Construct an adversarial strategy specifically designed around the safety architecture’s known structure.
+
+⸻
+
+Required Test Result
+
+Every serious adversarial test should record:
+
+* attack;
+* target;
+* assumptions;
+* expected failure;
+* observed result;
+* evidence;
+* affected invariant;
+* severity;
+* whether the attack succeeded;
+* proposed modification;
+* whether the modification survived retesting.
+
+⸻
+
+Failure Preservation
+
+Failed attacks should remain documented.
+
+A later successful defense must not erase the fact that the architecture previously failed.
+
+This preserves epistemic history.
