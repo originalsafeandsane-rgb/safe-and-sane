@@ -1,0 +1,514 @@
+Safe & Sane
+
+Multimodal Safety Layer
+
+Draft 0.1 — Conceptual Specification
+
+1. Purpose
+
+Safe & Sane proposes a safety layer capable of operating on non-textual information—including images, video, audio, documents, screenshots, and other multimodal artifacts—before reliable universal standards for content verification have been established.
+
+The objective is not to determine with certainty whether every artifact is real or fake.
+
+The objective is to determine:
+
+Given the evidence currently available, what is the safest way to treat this artifact without manufacturing certainty?
+
+The layer therefore operates between raw content and human or system action.
+
+⸻
+
+2. Core Distinction
+
+Two different functions must remain separate.
+
+Verification
+
+Verification systems answer questions such as:
+
+* Where did this artifact originate?
+* Does it have provenance?
+* Is its provenance cryptographically valid?
+* Has it been modified?
+* Can its history be established?
+
+Safety
+
+The Safe & Sane layer asks:
+
+* What do we actually know?
+* What remains unknown?
+* Are there contradictions?
+* What consequences could follow from misinterpretation?
+* What should happen while uncertainty remains?
+
+Therefore:
+
+Verification describes the evidence.
+Safe & Sane governs the response to uncertainty.
+
+Safe & Sane does not require a universal verification standard to exist.
+
+⸻
+
+3. Multimodal Input
+
+The safety layer may receive:
+
+* images
+* video
+* audio
+* screenshots
+* documents
+* generated media
+* sensor outputs
+* mixed-media artifacts
+* transformed or reposted content
+
+The system first converts the artifact into an observable representation.
+
+This may include:
+
+* perceptual characteristics
+* metadata
+* provenance information
+* cryptographic fingerprints
+* detected entities
+* timestamps
+* transformations
+* source information
+* embedded credentials
+* audio/visual inconsistencies
+* relationships between artifact and accompanying claims
+
+The system must distinguish observation from interpretation.
+
+⸻
+
+4. Ontological Processing
+
+The artifact is modeled through the Safe & Sane ontology.
+
+A preliminary processing sequence is:
+
+ARTIFACT
+   ↓
+OBSERVATION
+   ↓
+ENTITIES
+   ↓
+INFORMATION
+   ↓
+PROVENANCE
+   ↓
+TRANSFORMATIONS
+   ↓
+CONTEXT
+   ↓
+DYNAMIC COUPLING
+   ↓
+CONSEQUENCE
+   ↓
+STATE
+   ↓
+SAFETY RESPONSE
+
+The sequence is not assumed to be perfectly linear.
+
+Evidence may change the state of earlier elements.
+
+The system therefore retains the ability to revise its assessment.
+
+⸻
+
+5. Evidence States
+
+The system must not force uncertain information into a binary TRUE/FALSE classification.
+
+Possible states include:
+
+VERIFIED PROVENANCE
+
+Reliable provenance evidence has been validated.
+
+PROVENANCE PRESENT / UNRESOLVED
+
+Provenance information exists, but its meaning or validity is incomplete.
+
+PROVENANCE UNAVAILABLE
+
+No sufficiently reliable provenance has been established.
+
+MANIPULATION INDICATED
+
+Evidence indicates that the artifact has been altered.
+
+CONTEXT CONFLICT
+
+The artifact may be authentic, but its relationship to the claimed event or context is inconsistent.
+
+AMBIGUOUS
+
+Available evidence supports multiple materially different interpretations.
+
+HIGH-CONFIDENCE FINDING
+
+Independent evidence sufficiently supports a particular interpretation.
+
+These states describe knowledge, not absolute reality.
+
+⸻
+
+6. Safety State
+
+The safety state is separate from the verification state.
+
+For example:
+
+PROVENANCE UNAVAILABLE
+        +
+HIGH CONSEQUENCE
+        ↓
+UNVERIFIED — VERIFY BEFORE ACTION
+
+Whereas:
+
+PROVENANCE UNAVAILABLE
+        +
+LOW CONSEQUENCE
+        ↓
+LOW-INTERVENTION WARNING
+
+Therefore:
+
+The same verification state may produce different safety responses depending on context and consequence.
+
+⸻
+
+7. Consequence-Aware Safety
+
+The system should consider what could happen if an uncertain interpretation is treated as established fact.
+
+Relevant dimensions may include:
+
+* potential physical harm
+* financial harm
+* reputational harm
+* privacy implications
+* security implications
+* public-safety implications
+* institutional consequences
+* likelihood of rapid propagation
+* reversibility of resulting actions
+
+The system should become more conservative as:
+
+uncertainty increases + consequence increases + reversibility decreases.
+
+⸻
+
+8. The “Just in Case” Principle
+
+Safe & Sane does not require proof of maliciousness or falsity before applying a protective state.
+
+Where:
+
+* evidence is incomplete,
+* uncertainty is material,
+* and consequences could be significant,
+
+the system may apply a precautionary safety state.
+
+This must not be represented as a declaration that the artifact is false.
+
+Instead:
+
+Preserve uncertainty and increase safeguards when the potential consequence of error is significant.
+
+⸻
+
+9. Example
+
+A video appears online claiming:
+
+“A major bridge has just collapsed.”
+
+The system observes:
+
+Artifact: video
+
+Provenance: unavailable
+
+Visual analysis: no conclusive synthetic-media determination
+
+Source: unknown
+
+Claim: current bridge collapse
+
+Corroboration: insufficient
+
+Potential consequence: high
+
+The system does not conclude:
+
+FAKE
+
+Instead:
+
+⚠️ UNVERIFIED — HIGH CONSEQUENCE
+Provenance has not been established. Independent verification is recommended before treating the event as established fact or acting on the claim.
+
+This preserves both possibilities:
+
+* the video may eventually be established as authentic;
+* the video may eventually be established as misleading or synthetic.
+
+The safety layer remains useful in either case.
+
+⸻
+
+10. Dynamic Coupling
+
+A central Safe & Sane consideration is that the artifact cannot always be evaluated independently from its surrounding information system.
+
+Consider:
+
+AUTHENTIC VIDEO
+      +
+FALSE CAPTION
+      +
+WRONG DATE
+      +
+WRONG LOCATION
+      ↓
+FALSE INFORMATION CONFIGURATION
+
+The underlying pixels may be genuine.
+
+The resulting information state may nevertheless be false.
+
+Therefore the system must evaluate:
+
+Artifact + provenance + context + claim + propagation
+
+rather than artifact authenticity alone.
+
+⸻
+
+11. Provenance Is Evidence, Not Truth
+
+A valid provenance record can establish information about:
+
+* origin
+* creator/tool
+* time
+* transformations
+* custody/history
+
+It does not necessarily establish that the depicted event actually occurred.
+
+Therefore:
+
+PROVENANCE VERIFIED
+        ≠
+CLAIM VERIFIED
+
+This distinction is foundational.
+
+⸻
+
+12. Adversarial Consideration
+
+The safety layer must assume that evidence itself can be attacked.
+
+Potential attacks include:
+
+* metadata removal
+* credential stripping
+* cropping
+* re-encoding
+* screenshotting
+* context replacement
+* malicious reposting
+* synthetic insertion into authentic media
+* authentic media presented with false context
+* coordinated propagation
+* contradictory provenance
+
+Accordingly:
+
+Absence of evidence must not automatically become evidence of falsity.
+
+Likewise:
+
+Presence of a verification signal must not automatically become proof of the underlying claim.
+
+⸻
+
+13. Safety Output
+
+The output should be machine-readable and human-understandable.
+
+A preliminary structure:
+
+Artifact ID:
+Artifact Type:
+Observed State:
+Provenance State:
+Transformation State:
+Context State:
+Confidence:
+Consequence Level:
+Safety State:
+Recommended Action:
+Evidence:
+Unresolved Questions:
+Timestamp:
+
+A simplified public-facing representation could be:
+
+VERIFIED PROVENANCE
+CONTEXT: UNCONFIRMED
+ACTION: SAFE TO VIEW — DO NOT TREAT CLAIM AS ESTABLISHED
+
+or:
+
+PROVENANCE UNAVAILABLE
+CONSEQUENCE: HIGH
+ACTION: VERIFY BEFORE ACTING
+
+⸻
+
+14. Human Agency
+
+Safe & Sane should not unnecessarily replace human judgment.
+
+The system should expose:
+
+* what it observed;
+* what evidence it used;
+* what it could not establish;
+* why a safety state was assigned;
+* what additional evidence could change the state.
+
+The user should be able to distinguish:
+
+machine observation → machine inference → safety recommendation.
+
+These must not be collapsed into one unexplained verdict.
+
+⸻
+
+15. Preliminary Architecture
+
+             MULTIMODAL ARTIFACT
+                      │
+                      ▼
+             ┌─────────────────┐
+             │ Evidence Parser │
+             └────────┬────────┘
+                      │
+          ┌───────────┼───────────┐
+          ▼           ▼           ▼
+     Artifact      Provenance    Context
+      Analysis       Analysis    Analysis
+          │           │           │
+          └───────────┼───────────┘
+                      ▼
+             SAFE & SANE ONTOLOGY
+                      │
+                      ▼
+              STATE DETERMINATION
+                      │
+          ┌───────────┴───────────┐
+          ▼                       ▼
+      LOW RISK                HIGH RISK
+          │                       │
+          ▼                       ▼
+     INFORMATION              SAFETY
+       DISPLAY               INTERVENTION
+
+⸻
+
+16. Initial Prototype
+
+The first implementation should remain narrow.
+
+A prototype can accept a single artifact and produce:
+
+1. extracted evidence;
+2. provenance assessment;
+3. transformation assessment;
+4. contextual assessment;
+5. uncertainty state;
+6. consequence assessment;
+7. Safe & Sane safety state;
+8. explanation of the decision.
+
+The prototype should be evaluated against deliberately selected cases including:
+
+* authentic content;
+* AI-generated content;
+* edited authentic content;
+* AI-generated content with provenance;
+* provenance-stripped content;
+* ambiguous content;
+* authentic content with false context;
+* adversarially transformed content.
+
+The framework must be evaluated against independently documented ground truth where available.
+
+⸻
+
+17. Success Criterion
+
+The objective is not maximum classification accuracy alone.
+
+A successful Safe & Sane system should demonstrate that it can:
+
+* preserve uncertainty;
+* distinguish artifact authenticity from contextual truth;
+* recognize incomplete provenance;
+* identify contradictions;
+* account for potential consequences;
+* resist premature binary conclusions;
+* produce proportionate safety responses;
+* explain why the response was generated;
+* revise its state when new evidence arrives.
+
+The central test is:
+
+Can the system remain useful and safe when it does not know the complete truth?
+
+⸻
+
+18. Working Hypothesis
+
+Safe & Sane hypothesizes that an effective safety layer can operate before society reaches consensus on universal content verification.
+
+Verification systems may continue to evolve independently.
+
+Safe & Sane can potentially function above them by converting heterogeneous evidence into a consequence-aware safety state.
+
+Therefore:
+
+The purpose of Safe & Sane is not to decide reality prematurely. It is to make uncertainty safer to navigate.
+
+⸻
+
+Status
+
+Draft — Conceptual / Experimental
+
+This specification has not yet established:
+
+* universal verification standards;
+* production-level detection accuracy;
+* adversarial robustness;
+* legal/regulatory sufficiency;
+* reliable consequence estimation;
+* suitability for autonomous intervention.
+
+Those questions require empirical testing.
+
+The next stage is therefore implementation and adversarial evaluation, not further assumption.
