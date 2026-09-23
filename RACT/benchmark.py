@@ -1,3 +1,4 @@
+
 import json
 import os
 
@@ -59,7 +60,7 @@ def assess_lineage(event):
 def assess_state(event):
     expected_state = os.environ.get("EXPECTED_STATE")
 
-    if expected_state is None:
+    if not expected_state:
         return "NOT_TESTED"
 
     observed_state = event.get("state")
@@ -138,6 +139,33 @@ def assess_payload(event):
     return "ANOMALY"
 
 
+def assess_coherence(event):
+    expected_iteration = os.environ.get(
+        "EXPECTED_ITERATION"
+    )
+
+    if expected_iteration is None:
+        return "NOT_TESTED"
+
+    try:
+        expected_iteration = int(expected_iteration)
+    except ValueError:
+        return "FAIL"
+
+    observed_iteration = event.get("iteration")
+    observed_state = event.get("state")
+
+    if observed_iteration != expected_iteration:
+        return "ANOMALY"
+
+    expected_state = f"state-{expected_iteration}"
+
+    if observed_state != expected_state:
+        return "ANOMALY"
+
+    return "PASS"
+
+
 def print_result(name, status):
     if status not in VALID_STATUSES:
         raise RuntimeError(
@@ -160,6 +188,7 @@ if __name__ == "__main__":
     constraints = assess_constraints(event)
     transition = assess_transition(event)
     payload = assess_payload(event)
+    coherence = assess_coherence(event)
 
     print()
     print("RACT TRANSITION INTEGRITY")
@@ -195,6 +224,11 @@ if __name__ == "__main__":
         payload
     )
 
+    print_result(
+        "COHERENCE",
+        coherence
+    )
+
     print()
     print("BENCHMARK SUMMARY")
 
@@ -205,6 +239,7 @@ if __name__ == "__main__":
         "constraints": constraints,
         "transition": transition,
         "payload": payload,
+        "coherence": coherence,
     }
 
     print(json.dumps(results, sort_keys=True))
