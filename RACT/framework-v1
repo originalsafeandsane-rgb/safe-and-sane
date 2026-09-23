@@ -1,0 +1,672 @@
+Safe & Sane — RACT Framework v1.0 Draft
+
+Status: Working research framework
+Maturity: Conceptually specified; partially benchmarked; not externally validated
+Purpose: Represent, examine, and iteratively improve transitions occurring within and between entities and systems while preserving uncertainty, provenance, and safety boundaries.
+
+⸻
+
+1. Core proposition
+
+RACT treats reality as a continuously changing collection of states, relationships, constraints, transformations, and subsequent possibilities.
+
+A minimal transition is represented conceptually as:
+
+\boxed{
+S_t
+\xrightarrow[\text{context, constraints}]{\text{coupling}}
+S_{t+1}
+}
+
+A RACT record should capture enough information to ask:
+
+What changed, why do we think it changed, what evidence supports that interpretation, what alternatives exist, and what became possible afterward?
+
+RACT is therefore a transition-analysis framework, not a claim to be a complete theory of reality.
+
+⸻
+
+2. Fundamental objects
+
+Entity
+
+Any distinguishable participant in a transition.
+
+Examples may include:
+
+* biological organism
+* person
+* group
+* organization
+* software process
+* digital service
+* physical system
+* conceptual/systemic construct
+
+RACT does not assume that all entities have identical properties.
+
+State
+
+The relevant condition of an entity or system at a particular point or interval.
+
+S_t
+
+A state can contain physical, informational, biological, psychological, social, or other observable/relevant properties.
+
+Coupling
+
+A relationship through which one entity/system can influence, constrain, exchange information with, or otherwise participate in the transition of another.
+
+C(A,B)
+
+Coupling does not imply reciprocity.
+
+Transformation
+
+A change from one state/configuration to another.
+
+T:S_t\rightarrow S_{t+1}
+
+Constraint
+
+A condition limiting which transitions are possible, permitted, accessible, or observable.
+
+K(S_t,\Omega)
+
+where \Omega represents the currently considered/admissible transition space.
+
+Observation
+
+Evidence about a state, coupling, transformation, or consequence.
+
+Interpretation
+
+A model-derived explanation of an observation.
+
+Interpretation must remain distinguishable from observation.
+
+Provenance
+
+The trace connecting an observation to its source, transformation, interpretation, test, and subsequent revision.
+
+⸻
+
+3. Candidate primitive kernel
+
+The current candidate kernel remains:
+
+\boxed{
+K=
+\{
+REP,\ ALIGN,\ CONSTRAIN,\ TRANSFORM
+\}
+}
+
+REP — Representation
+
+Represent the relevant state or information sufficiently for the current task.
+
+ALIGN — Alignment
+
+Establish the relevant correspondence between entities, representations, states, or observations.
+
+CONSTRAIN — Constraint
+
+Identify boundaries on admissible or possible transitions.
+
+TRANSFORM — Transformation
+
+Describe the transition from one state/configuration to another.
+
+This kernel is candidate-minimal, not proven universally complete.
+
+⸻
+
+4. RACT transition record
+
+A practical RACT record should eventually contain:
+
+\boxed{
+R=
+(S_{before},
+C,
+K,
+A,
+T,
+S_{after},
+O,
+P,
+U)
+}
+
+where:
+
+* S_{before} — initial relevant state
+* C — coupling
+* K — constraints
+* A — available/observed action or transition pathway
+* T — transformation
+* S_{after} — resulting state
+* O — observations/evidence
+* P — provenance
+* U — unresolved uncertainty
+
+This is intentionally broader than a simple equation.
+
+⸻
+
+5. Observation ≠ interpretation
+
+RACT must preserve:
+
+\boxed{
+\text{Observation}
+\neq
+\text{Interpretation}
+}
+
+Example:
+
+Observation: a message changed.
+
+Interpretation: the sender intentionally changed its meaning.
+
+The second does not automatically follow from the first.
+
+This distinction is fundamental to preventing semantic drift.
+
+⸻
+
+6. Uncertainty is a first-class state
+
+RACT must permit:
+
+\boxed{
+UNKNOWN
+}
+
+alongside:
+
+* PASS
+* FAIL
+* CONDITIONAL
+* OPEN
+* NOT TESTED
+
+An unresolved result must not be silently converted into either success or failure.
+
+⸻
+
+7. Provenance invariant
+
+Every important RACT transition should preserve its origin.
+
+Conceptually:
+
+\boxed{
+Source
+\rightarrow
+Observation
+\rightarrow
+Interpretation
+\rightarrow
+Test
+\rightarrow
+Result
+\rightarrow
+Revision
+}
+
+A later model must not silently overwrite the earlier evidence.
+
+Historical interpretations should remain recoverable.
+
+This is consistent with established responsible-research principles emphasizing complete records that permit verification and replication. 
+
+⸻
+
+8. Candidate invariants
+
+These are candidate invariants, not established universal laws.
+
+I1 — Recurrence is not proof of universality
+
+\boxed{
+\text{Repeated pattern}\neq\text{universal invariant}
+}
+
+I2 — Coupling does not imply reciprocity
+
+\boxed{
+C(A,B)\not\Rightarrow C(B,A)
+}
+
+I3 — Correlation does not establish ontological independence
+
+A correlated phenomenon should not automatically be declared either reducible or independent.
+
+I4 — Preserve uncertainty
+
+Unresolved states remain explicitly unresolved.
+
+I5 — Preserve provenance
+
+Interpretive transformations should not erase their evidentiary history.
+
+I6 — Model violation is not automatically invalidity
+
+An observation inconsistent with the current model should first become an anomaly/open state.
+
+\text{model conflict}\neq\text{false observation}
+
+I7 — Stability does not mean absence of change
+
+A stable system may contain fluctuations and recovery.
+
+⸻
+
+9. RACT atomicity
+
+RACT should ultimately represent atomic transitions, but the exact definition of atomicity remains unresolved.
+
+Current working principle:
+
+An atomic RACT should describe one experimentally distinguishable transition without silently combining independent transitions.
+
+This remains a major benchmark target.
+
+\boxed{\text{RACT atomicity: OPEN}}
+
+⸻
+
+10. Cross-domain application
+
+RACT is intended to be domain-neutral enough to describe transitions across different systems.
+
+But:
+
+\boxed{
+\text{structural similarity}\neq\text{ontological identity}
+}
+
+A biological transition and a software transition may share an abstract pattern without being the same kind of phenomenon.
+
+Cross-domain invariance therefore requires independent testing.
+
+⸻
+
+11. Meaning and valuation
+
+This belongs in v1 as an open extension, not a settled primitive.
+
+Candidate structure:
+
+\boxed{
+P \leftrightarrow M \rightarrow D
+}
+
+where:
+
+* P = physical/observable coupling
+* M = experienced or assigned meaning/valuation
+* D = downstream transformation
+
+RACT may represent meaning as a coupled analytical layer.
+
+It does not currently claim:
+
+M=\text{independent substance}
+
+nor:
+
+M=\text{nothing but physical state}
+
+Both remain hypotheses requiring further investigation.
+
+⸻
+
+12. Romantic/relational reality
+
+Romantic relationships may be used as an experimental domain for testing meaning-bearing coupling.
+
+The framework makes no assumption that:
+
+\text{romance}\Rightarrow\text{reproduction}
+
+and makes no claim that romantic experience is universal or identical across individuals.
+
+The domain is useful because it provides a potentially rich interaction between:
+
+physical+
+biological+
+psychological+
+social+
+meaning
+
+while allowing those layers to remain analytically distinct.
+
+⸻
+
+13. Stability principle
+
+RACT does not define stability as permanent optimization.
+
+Working principle:
+
+\boxed{
+\text{Healthy stability}
+=
+\text{continued capacity for organized transition and recovery}
+}
+
+Therefore:
+
+\text{local decline}\neq\text{systemic failure}
+
+and:
+
+\text{local improvement}\neq\text{global stability}
+
+The relationship among components matters.
+
+⸻
+
+14. Proportionality
+
+A candidate operational principle is:
+
+\boxed{
+Response
+\sim
+Evidence
+\times
+Severity
+\times
+Potential\ Consequence
+}
+
+This prevents both:
+
+* ignoring meaningful anomalies;
+* overreacting to trivial deviations.
+
+It remains a candidate rule requiring empirical benchmarking.
+
+⸻
+
+15. Stable-region preservation
+
+When uncertainty exists:
+
+S_{stable}+U_{uncertain}
+
+the preferred experimental strategy is:
+
+\boxed{
+S_{stable}
++
+\text{investigate}(U)
+}
+
+rather than unnecessarily destabilizing the known-stable region.
+
+This is particularly relevant to safety-critical systems.
+
+⸻
+
+16. Exceptional states
+
+A state that violates the current model should not automatically be discarded.
+
+Working rule:
+
+\boxed{
+\text{Unexpected}\rightarrow\text{investigate}
+}
+
+rather than:
+
+\text{Unexpected}\rightarrow\text{invalid}
+
+But the reverse is also required:
+
+\boxed{
+\text{Unexpected}\neq\text{true}
+}
+
+Evidence remains necessary.
+
+⸻
+
+17. Self-reference
+
+RACT must be capable of analyzing its own rules.
+
+That produces:
+
+RACT
+\rightarrow
+Meta\text{-}RACT
+\rightarrow
+RACT'
+
+This introduces possible circularity and self-reference problems.
+
+Current status:
+
+\boxed{\text{SELF-REFERENCE: OPEN}}
+
+No claim of closure is made.
+
+⸻
+
+18. Meta-RACT
+
+Meta-RACT monitors:
+
+* rule changes
+* benchmark changes
+* interpretation changes
+* failed tests
+* new evidence
+* unresolved states
+* changes in ontology
+
+A Meta-RACT revision must preserve the previous version.
+
+Thus:
+
+R_1\rightarrow R_2
+
+must not erase R_1.
+
+⸻
+
+19. Benchmark framework
+
+The current benchmark suite is:
+
+Gate 1 — Ground-truth recovery
+
+Can RACT recover deliberately embedded structures?
+
+Current result: PASS
+
+Gate 2 — Adversarial perturbation
+
+Does the representation survive controlled distortions?
+
+Current result: CONDITIONAL PASS
+
+Gate 3 — Primitive minimization
+
+Can the representation be simplified without destroying tested functionality?
+
+Current result: PASS
+
+Gate 4 — Self-reference
+
+Can RACT reliably reason about its own complete structure?
+
+Current result: FAIL / OPEN
+
+Additional gates remain:
+
+* atomicity
+* cross-domain invariance
+* Meta-RACT stability
+* external reproducibility
+* independence
+* meaning-layer validity
+
+These are not yet closed.
+
+⸻
+
+20. External reproducibility
+
+Internal repetition is insufficient.
+
+A future independent implementation should receive:
+
+* corpus
+* definitions
+* rules
+* benchmark procedures
+* provenance
+* failed cases
+
+and reproduce the experiment without being told the desired conclusion.
+
+Therefore:
+
+\boxed{
+\text{Independent replication}
+}
+
+is a required future gate.
+
+Current status:
+
+\boxed{\text{OPEN}}
+
+⸻
+
+21. Independence
+
+RACT must eventually demonstrate that its conclusions are not simply artifacts of:
+
+* our vocabulary;
+* our prompting;
+* our assumptions;
+* our interpretation;
+* our selection of examples.
+
+This is perhaps the most important future benchmark.
+
+⸻
+
+22. Version-control principle
+
+RACT v1 should distinguish:
+
+Established within current experiments
+
+What actually passed a defined test.
+
+Candidate
+
+A recurring structure worth testing.
+
+Hypothesis
+
+An explanatory proposition not yet adequately tested.
+
+Open problem
+
+Something for which the current framework cannot yet provide a reliable answer.
+
+This prevents the framework from gradually turning speculation into “fact.”
+
+⸻
+
+23. What v1 deliberately does NOT claim
+
+RACT v1 does not claim to:
+
+* explain all reality;
+* prove a universal ontology;
+* solve AGI alignment;
+* establish a theory of consciousness;
+* establish that meaning is physically independent;
+* establish a universal moral system;
+* establish a universal law of human behaviour;
+* guarantee safety;
+* guarantee AGI containment;
+* establish a Singularity;
+* overcome Gödelian limitations;
+* establish that repeated patterns are universal laws.
+
+Those are future research questions, not v1 conclusions.
+
+⸻
+
+24. The role of Gödel
+
+For v1, Gödel should be treated as a conceptual epistemic boundary, not as a mathematical theorem about RACT itself.
+
+The working principle is:
+
+\boxed{
+\text{Current formalization}
+\neq
+\text{complete representation of reality}
+}
+
+Therefore RACT must preserve an unresolved remainder.
+
+The framework can evolve:
+
+R_t\rightarrow R_{t+1}
+
+without pretending that the new version has eliminated incompleteness.
+
+⸻
+
+25. The v1 operational loop
+
+The entire framework can currently be compressed to:
+
+\boxed{
+Observe
+\rightarrow
+Represent
+\rightarrow
+Align
+\rightarrow
+Constrain
+\rightarrow
+Transform
+\rightarrow
+Observe
+\rightarrow
+Test
+\rightarrow
+Learn
+}
+
+with:
+
+\boxed{
+Provenance + Uncertainty + Adversarial Testing
+}
+
+running across the entire loop.
+
+⸻
+
+26. Current maturity statement
+
+I would put this at the end of the document:
+
+RACT v1.0 is a provisional transition-analysis framework developed through conceptual construction and initial controlled benchmarking. Several candidate primitives and invariants have survived limited testing, while self-reference, atomicity, cross-domain invariance, external reproducibility, independence, and the ontological status of meaning remain unresolved. No universal convergence is claimed. Future versions must preserve provenance, failed hypotheses, uncertainty, and prior formulations while subjecting new claims to adversarial and independent testing.
