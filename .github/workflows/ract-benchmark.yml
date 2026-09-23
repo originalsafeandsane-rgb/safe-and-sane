@@ -32,7 +32,7 @@ jobs:
       - name: Run RACT benchmark
         run: python RACT/benchmark.py
 
-          - name: Sandbox iteration 1
+            - name: Sandbox iteration 1
         id: sandbox_1
         env:
           RACT_EVENT: >-
