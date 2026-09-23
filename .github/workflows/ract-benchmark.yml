@@ -35,7 +35,7 @@ jobs:
           RACT_PERTURBATION: ${{ steps.sandbox_1.outputs.perturbation }}
         run: python RACT/benchmark.py
 
-            - name: Sandbox iteration 2
+      - name: Sandbox iteration 2
         id: sandbox_2
         env:
           RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
