@@ -25,14 +25,15 @@ jobs:
           RACT_EVENT: >-
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
           RACT_ITERATION: "1"
-          RACT_PERTURBATION: "state"
+          RACT_PERTURBATIONS: >-
+            ["payload","state"]
         run: python RACT/sandbox.py
 
       - name: Run RACT benchmark
         env:
           RACT_CANONICAL_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
           RACT_EXPERIMENT_EVENT: ${{ steps.sandbox_1.outputs.experiment_event }}
-          RACT_PERTURBATION: ${{ steps.sandbox_1.outputs.perturbation }}
+          RACT_PERTURBATIONS: ${{ steps.sandbox_1.outputs.perturbations }}
         run: python RACT/benchmark.py
 
       - name: Sandbox iteration 2
@@ -40,5 +41,6 @@ jobs:
         env:
           RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
           RACT_ITERATION: "2"
-          RACT_PERTURBATION: "none"
+          RACT_PERTURBATIONS: >-
+            []
         run: python RACT/sandbox.py
