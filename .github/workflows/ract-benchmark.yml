@@ -28,14 +28,22 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: python RACT/engine.py
-      - name: Run additional benchmark
-        run: python RACT/benchmark.py
-
-      - name: Send dynamic event to sandbox
+            - name: Initialize dynamic coupling
+        id: init
         env:
           RACT_EVENT: >-
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
-        run: python RACT/sandbox.py
+          RACT_ITERATION: "1"
+        run: |
+          python RACT/sandbox.py
+
+      - name: Continue dynamic coupling
+        id: iterate
+        env:
+          RACT_EVENT: ${{ steps.init.outputs.next_event }}
+          RACT_ITERATION: "2"
+        run: |
+          python RACT/sandbox.py
 
 
       # Runs a set of commands using the runners shell
