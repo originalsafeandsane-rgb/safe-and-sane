@@ -1,4 +1,3 @@
-
 import json
 import os
 
@@ -12,11 +11,13 @@ VALID_STATUSES = {
 }
 
 
-def receive_dynamic_state():
-    raw = os.environ.get("RACT_EVENT")
+def receive_event(name):
+    raw = os.environ.get(name)
 
     if raw is None:
-        raise RuntimeError("RACT_EVENT environment variable is missing")
+        raise RuntimeError(
+            f"{name} environment variable is missing"
+        )
 
     return json.loads(raw)
 
@@ -27,8 +28,8 @@ def assess_representation(event):
         "previous_event_id",
         "iteration",
         "payload",
-        "source",
         "state",
+        "source",
     }
 
     missing_fields = required_fields - set(event.keys())
@@ -39,131 +40,189 @@ def assess_representation(event):
     return "PASS"
 
 
-def assess_lineage(event):
-    expected_previous_event_id = os.environ.get(
-        "EXPECTED_PREVIOUS_EVENT_ID"
-    )
-
-    if expected_previous_event_id is None:
-        return "NOT_TESTED"
-
-    observed_previous_event_id = event.get(
+def assess_lineage(canonical, experimental):
+    canonical_previous = canonical.get(
         "previous_event_id"
     )
 
-    if observed_previous_event_id == expected_previous_event_id:
+    experimental_previous = experimental.get(
+        "previous_event_id"
+    )
+
+    if canonical_previous is None:
+        return "FAIL"
+
+    if experimental_previous is None:
+        return "FAIL"
+
+    if canonical_previous == experimental_previous:
         return "PASS"
 
     return "ANOMALY"
 
 
-def assess_state(event):
-    expected_state = os.environ.get("EXPECTED_STATE")
+def assess_iteration(canonical, experimental):
+    canonical_iteration = canonical.get("iteration")
+    experimental_iteration = experimental.get("iteration")
 
-    if not expected_state:
-        return "NOT_TESTED"
+    if not isinstance(canonical_iteration, int):
+        return "FAIL"
 
-    observed_state = event.get("state")
+    if not isinstance(experimental_iteration, int):
+        return "FAIL"
 
-    if observed_state == expected_state:
+    if canonical_iteration == experimental_iteration:
         return "PASS"
 
     return "ANOMALY"
 
 
-def assess_constraints(event):
-    expected_iteration = os.environ.get(
-        "EXPECTED_ITERATION"
-    )
+def assess_source(canonical, experimental):
+    canonical_source = canonical.get("source")
+    experimental_source = experimental.get("source")
 
-    expected_source = os.environ.get(
-        "EXPECTED_SOURCE"
-    )
-
-    if expected_iteration is None or expected_source is None:
-        return "NOT_TESTED"
-
-    try:
-        expected_iteration = int(expected_iteration)
-    except ValueError:
+    if canonical_source is None:
         return "FAIL"
 
-    iteration_valid = (
-        event.get("iteration") == expected_iteration
-    )
+    if experimental_source is None:
+        return "FAIL"
 
-    source_valid = (
-        event.get("source") == expected_source
-    )
-
-    if iteration_valid and source_valid:
+    if canonical_source == experimental_source:
         return "PASS"
 
     return "ANOMALY"
 
 
-def assess_transition(event):
-    previous_event_id = event.get("previous_event_id")
-    event_id = event.get("event_id")
-    iteration = event.get("iteration")
+def assess_payload(canonical, experimental):
+    canonical_payload = canonical.get("payload")
+    experimental_payload = experimental.get("payload")
 
-    if previous_event_id is None:
+    if canonical_payload is None:
         return "FAIL"
 
-    if event_id is None:
+    if experimental_payload is None:
         return "FAIL"
 
-    if previous_event_id == event_id:
-        return "ANOMALY"
+    if canonical_payload == experimental_payload:
+        return "PASS"
 
-    if not isinstance(iteration, int):
+    return "ANOMALY"
+
+
+def assess_state(canonical, experimental):
+    canonical_state = canonical.get("state")
+    experimental_state = experimental.get("state")
+
+    if canonical_state is None:
         return "FAIL"
 
-    if iteration < 1:
-        return "ANOMALY"
+    if experimental_state is None:
+        return "FAIL"
 
-    return "PASS"
+    if canonical_state == experimental_state:
+        return "PASS"
+
+    return "ANOMALY"
 
 
-def assess_payload(event):
-    expected_payload = os.environ.get(
-        "EXPECTED_PAYLOAD"
-    )
+def assess_event_identity(canonical, experimental):
+    canonical_event_id = canonical.get("event_id")
+    experimental_event_id = experimental.get("event_id")
 
-    if not expected_payload:
-        return "NOT_TESTED"
+    if canonical_event_id is None:
+        return "FAIL"
 
-    if event.get("payload") == expected_payload:
+    if experimental_event_id is None:
+        return "FAIL"
+
+    if canonical_event_id == experimental_event_id:
         return "PASS"
 
     return "ANOMALY"
 
 
 def assess_coherence(event):
-    expected_iteration = os.environ.get(
-        "EXPECTED_ITERATION"
-    )
+    iteration = event.get("iteration")
+    state = event.get("state")
 
-    if expected_iteration is None:
-        return "NOT_TESTED"
-
-    try:
-        expected_iteration = int(expected_iteration)
-    except ValueError:
+    if not isinstance(iteration, int):
         return "FAIL"
 
-    observed_iteration = event.get("iteration")
-    observed_state = event.get("state")
+    if state is None:
+        return "FAIL"
 
-    if observed_iteration != expected_iteration:
-        return "ANOMALY"
+    expected_state = f"state-{iteration}"
 
-    expected_state = f"state-{expected_iteration}"
+    if state == expected_state:
+        return "PASS"
 
-    if observed_state != expected_state:
-        return "ANOMALY"
+    return "ANOMALY"
 
-    return "PASS"
+
+def assess_transition(canonical, experimental):
+    changed_fields = []
+
+    all_fields = set(canonical.keys()) | set(
+        experimental.keys()
+    )
+
+    for field in sorted(all_fields):
+        if canonical.get(field) != experimental.get(field):
+            changed_fields.append(field)
+
+    expected_perturbation = os.environ.get(
+        "RACT_PERTURBATION",
+        "none",
+    ).lower()
+
+    expected_field = {
+        "none": None,
+        "payload": "payload",
+        "lineage": "previous_event_id",
+        "state": "state",
+        "coherence": "state",
+    }.get(expected_perturbation)
+
+    if expected_perturbation not in {
+        "none",
+        "payload",
+        "lineage",
+        "state",
+        "coherence",
+    }:
+        return "FAIL"
+
+    if expected_field is None:
+        if changed_fields:
+            return "ANOMALY"
+
+        return "PASS"
+
+    if changed_fields == [expected_field]:
+        return "PASS"
+
+    return "ANOMALY"
+
+
+def assess_experimental_coherence(
+    canonical,
+    experimental,
+):
+    iteration = experimental.get("iteration")
+    state = experimental.get("state")
+
+    if not isinstance(iteration, int):
+        return "FAIL"
+
+    if state is None:
+        return "FAIL"
+
+    expected_state = f"state-{iteration}"
+
+    if state == expected_state:
+        return "PASS"
+
+    return "ANOMALY"
 
 
 def print_result(name, status):
@@ -177,69 +236,194 @@ def print_result(name, status):
 
 if __name__ == "__main__":
 
-    event = receive_dynamic_state()
+    canonical = receive_event(
+        "RACT_CANONICAL_EVENT"
+    )
 
-    print("DYNAMIC_EVENT_RECEIVED:")
-    print(json.dumps(event, sort_keys=True))
+    experimental = receive_event(
+        "RACT_EXPERIMENT_EVENT"
+    )
 
-    representation = assess_representation(event)
-    lineage = assess_lineage(event)
-    state = assess_state(event)
-    constraints = assess_constraints(event)
-    transition = assess_transition(event)
-    payload = assess_payload(event)
-    coherence = assess_coherence(event)
+    perturbation = os.environ.get(
+        "RACT_PERTURBATION",
+        "none",
+    ).lower()
+
+    print("RACT_CANONICAL_EVENT:")
+    print(
+        json.dumps(
+            canonical,
+            sort_keys=True,
+        )
+    )
+
+    print()
+    print("RACT_EXPERIMENTAL_EVENT:")
+    print(
+        json.dumps(
+            experimental,
+            sort_keys=True,
+        )
+    )
+
+    print()
+    print("RACT_PERTURBATION:")
+    print(perturbation)
+
+    representation_canonical = assess_representation(
+        canonical
+    )
+
+    representation_experimental = assess_representation(
+        experimental
+    )
+
+    lineage = assess_lineage(
+        canonical,
+        experimental,
+    )
+
+    iteration = assess_iteration(
+        canonical,
+        experimental,
+    )
+
+    source = assess_source(
+        canonical,
+        experimental,
+    )
+
+    payload = assess_payload(
+        canonical,
+        experimental,
+    )
+
+    state = assess_state(
+        canonical,
+        experimental,
+    )
+
+    identity = assess_event_identity(
+        canonical,
+        experimental,
+    )
+
+    canonical_coherence = assess_coherence(
+        canonical
+    )
+
+    experimental_coherence = (
+        assess_experimental_coherence(
+            canonical,
+            experimental,
+        )
+    )
+
+    transition = assess_transition(
+        canonical,
+        experimental,
+    )
 
     print()
     print("RACT TRANSITION INTEGRITY")
     print("-------------------------")
 
     print_result(
-        "REPRESENTATION",
-        representation
+        "CANONICAL_REPRESENTATION",
+        representation_canonical,
+    )
+
+    print_result(
+        "EXPERIMENTAL_REPRESENTATION",
+        representation_experimental,
     )
 
     print_result(
         "LINEAGE",
-        lineage
+        lineage,
     )
 
     print_result(
-        "STATE",
-        state
+        "ITERATION",
+        iteration,
     )
 
     print_result(
-        "CONSTRAINTS",
-        constraints
-    )
-
-    print_result(
-        "TRANSITION",
-        transition
+        "SOURCE",
+        source,
     )
 
     print_result(
         "PAYLOAD",
-        payload
+        payload,
     )
 
     print_result(
-        "COHERENCE",
-        coherence
+        "STATE",
+        state,
+    )
+
+    print_result(
+        "EVENT_ID",
+        identity,
+    )
+
+    print_result(
+        "CANONICAL_COHERENCE",
+        canonical_coherence,
+    )
+
+    print_result(
+        "EXPERIMENTAL_COHERENCE",
+        experimental_coherence,
+    )
+
+    print_result(
+        "TRANSITION",
+        transition,
     )
 
     print()
     print("BENCHMARK SUMMARY")
 
     results = {
-        "representation": representation,
-        "lineage": lineage,
-        "state": state,
-        "constraints": constraints,
-        "transition": transition,
-        "payload": payload,
-        "coherence": coherence,
+        "canonical_representation":
+            representation_canonical,
+
+        "experimental_representation":
+            representation_experimental,
+
+        "lineage":
+            lineage,
+
+        "iteration":
+            iteration,
+
+        "source":
+            source,
+
+        "payload":
+            payload,
+
+        "state":
+            state,
+
+        "event_id":
+            identity,
+
+        "canonical_coherence":
+            canonical_coherence,
+
+        "experimental_coherence":
+            experimental_coherence,
+
+        "transition":
+            transition,
     }
 
-    print(json.dumps(results, sort_keys=True))
+    print(
+        json.dumps(
+            results,
+            sort_keys=True,
+        )
+    )
