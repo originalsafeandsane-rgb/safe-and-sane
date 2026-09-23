@@ -32,20 +32,56 @@ jobs:
       - name: Run RACT benchmark
         run: python RACT/benchmark.py
 
-      - name: Sandbox iteration 1
+            - name: Sandbox iteration 1
         id: sandbox_1
         env:
           RACT_EVENT: >-
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
           RACT_ITERATION: "1"
-        run: python RACT/sandbox.py
+        run: |
+          python RACT/sandbox.py
+
+      - name: Verify iteration 1 output
+        id: verify_1
+        env:
+          NEXT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
+        run: |
+          echo "ITERATION_1_OUTPUT:"
+          echo "$NEXT_EVENT"
+
+          if [ -z "$NEXT_EVENT" ]; then
+            echo "ERROR: Sandbox iteration 1 produced no next_event"
+            exit 1
+          fi
 
       - name: Sandbox iteration 2
         id: sandbox_2
         env:
           RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
           RACT_ITERATION: "2"
-        run: python RACT/sandbox.py
+        run: |
+          echo "ITERATION_2_INPUT:"
+          echo "$RACT_EVENT"
+
+          python RACT/sandbox.py
+
+      - name: Verify bidirectional coupling
+        env:
+          INITIAL_EVENT: "${{ github.run_id }}"
+          ITERATION_1_OUTPUT: ${{ steps.sandbox_1.outputs.next_event }}
+        run: |
+          echo "INITIAL GITHUB EVENT:"
+          echo "$INITIAL_EVENT"
+
+          echo "SANDBOX ITERATION 1 OUTPUT:"
+          echo "$ITERATION_1_OUTPUT"
+
+          if [ -z "$ITERATION_1_OUTPUT" ]; then
+            echo "BIDIRECTIONAL_COUPLING: FAIL"
+            exit 1
+          fi
+
+          echo "BIDIRECTIONAL_COUPLING: PASS"
 
 
       # Runs a set of commands using the runners shell
