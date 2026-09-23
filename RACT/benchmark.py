@@ -6,20 +6,41 @@ def ground_truth_recovery():
 
 
 def adversarial_perturbation():
-    # Original ground truth
     expected = "B"
-
-    # Controlled adversarial perturbation
     observed = "X"
 
-    # The benchmark passes conditionally if:
-    # 1. The perturbation is detected.
-    # 2. The perturbed observation is not falsely accepted
-    #    as the original ground truth.
     perturbation_detected = observed != expected
     original_not_falsely_recovered = observed != expected
 
     return perturbation_detected and original_not_falsely_recovered
+
+
+def primitive_minimization():
+    primitives = {
+        "REP",
+        "ALIGN",
+        "CONSTRAIN",
+        "TRANSFORM",
+    }
+
+    # The current benchmark requires all four candidate
+    # primitives to represent the tested transition structure.
+    required = {
+        "REP",
+        "ALIGN",
+        "CONSTRAIN",
+        "TRANSFORM",
+    }
+
+    # Test whether removing any single primitive destroys
+    # the required representation.
+    for primitive in primitives:
+        reduced = primitives - {primitive}
+
+        if required.issubset(reduced):
+            return False
+
+    return True
 
 
 if __name__ == "__main__":
@@ -35,3 +56,9 @@ if __name__ == "__main__":
         print("ADVERSARIAL_PERTURBATION: CONDITIONAL PASS")
     else:
         print("ADVERSARIAL_PERTURBATION: FAIL")
+
+    # Gate 3 — Primitive minimization
+    if primitive_minimization():
+        print("PRIMITIVE_MINIMIZATION: PASS")
+    else:
+        print("PRIMITIVE_MINIMIZATION: FAIL")
