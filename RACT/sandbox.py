@@ -13,10 +13,14 @@ def receive_event():
 
 
 def run_iteration(state, iteration):
+    previous_event_id = state["event_id"]
+
+    new_event_id = str(uuid.uuid4())
+
     return {
+        "event_id": new_event_id,
+        "previous_event_id": previous_event_id,
         "iteration": iteration,
-        "previous_event_id": state["event_id"],
-        "sandbox_event_id": str(uuid.uuid4()),
         "payload": state["payload"],
         "state": "state-" + str(iteration),
         "source": "sandbox",
@@ -25,14 +29,16 @@ def run_iteration(state, iteration):
 
 if __name__ == "__main__":
 
-    event = receive_event()
+    initial_event = receive_event()
 
     print("SANDBOX_INITIAL_EVENT:")
-    print(json.dumps(event, sort_keys=True))
+    print(json.dumps(initial_event, sort_keys=True))
 
+    # Normalize the external GitHub event into the
+    # sandbox's internal event schema.
     state = {
-        "event_id": event["event_id"],
-        "payload": event["payload"],
+        "event_id": initial_event["event_id"],
+        "payload": initial_event["payload"],
     }
 
     for iteration in range(1, 11):
