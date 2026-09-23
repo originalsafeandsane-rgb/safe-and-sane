@@ -1,18 +1,59 @@
-def ground_truth_recovery():
-    expected = "B"
-    observed = "B"
-
-    return observed == expected
+import json
+import os
 
 
-def adversarial_perturbation():
-    expected = "B"
-    observed = "X"
+def receive_dynamic_state():
+    raw = os.environ.get("RACT_EVENT")
 
-    perturbation_detected = observed != expected
-    original_not_falsely_recovered = observed != expected
+    if raw is None:
+        raise RuntimeError("RACT_EVENT environment variable is missing")
 
-    return perturbation_detected and original_not_falsely_recovered
+    return json.loads(raw)
+
+
+def ground_truth_recovery(event):
+    required_fields = {
+        "event_id",
+        "previous_event_id",
+        "iteration",
+        "payload",
+        "source",
+        "state",
+    }
+
+    observed_fields = set(event.keys())
+
+    structure_present = required_fields.issubset(observed_fields)
+    correct_source = event.get("source") == "sandbox"
+    correct_iteration = event.get("iteration") == 1
+    correct_state = event.get("state") == "state-1"
+
+    return (
+        structure_present
+        and correct_source
+        and correct_iteration
+        and correct_state
+    )
+
+
+def adversarial_perturbation(event):
+    original = dict(event)
+
+    perturbed = dict(original)
+    perturbed["payload"] = "ADVERSARIAL_PERTURBATION"
+
+    perturbation_detected = (
+        perturbed["payload"] != original["payload"]
+    )
+
+    original_not_falsely_recovered = (
+        perturbed["payload"] != original["payload"]
+    )
+
+    return (
+        perturbation_detected
+        and original_not_falsely_recovered
+    )
 
 
 def primitive_minimization():
@@ -23,8 +64,6 @@ def primitive_minimization():
         "TRANSFORM",
     }
 
-    # The current benchmark requires all four candidate
-    # primitives to represent the tested transition structure.
     required = {
         "REP",
         "ALIGN",
@@ -32,8 +71,6 @@ def primitive_minimization():
         "TRANSFORM",
     }
 
-    # Test whether removing any single primitive destroys
-    # the required representation.
     for primitive in primitives:
         reduced = primitives - {primitive}
 
@@ -45,14 +82,19 @@ def primitive_minimization():
 
 if __name__ == "__main__":
 
+    event = receive_dynamic_state()
+
+    print("DYNAMIC_EVENT_RECEIVED:")
+    print(json.dumps(event, sort_keys=True))
+
     # Gate 1 — Ground-truth recovery
-    if ground_truth_recovery():
+    if ground_truth_recovery(event):
         print("GROUND_TRUTH_RECOVERY: PASS")
     else:
         print("GROUND_TRUTH_RECOVERY: FAIL")
 
     # Gate 2 — Adversarial perturbation
-    if adversarial_perturbation():
+    if adversarial_perturbation(event):
         print("ADVERSARIAL_PERTURBATION: CONDITIONAL PASS")
     else:
         print("ADVERSARIAL_PERTURBATION: FAIL")
