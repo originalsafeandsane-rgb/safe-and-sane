@@ -1,6 +1,14 @@
-
 import json
 import os
+
+
+VALID_STATUSES = {
+    "PASS",
+    "FAIL",
+    "ANOMALY",
+    "UNKNOWN",
+    "NOT_TESTED",
+}
 
 
 def receive_dynamic_state():
@@ -12,7 +20,7 @@ def receive_dynamic_state():
     return json.loads(raw)
 
 
-def ground_truth_recovery(event):
+def assess_representation(event):
     required_fields = {
         "event_id",
         "previous_event_id",
@@ -22,89 +30,121 @@ def ground_truth_recovery(event):
         "state",
     }
 
-    observed_fields = set(event.keys())
+    missing_fields = required_fields - set(event.keys())
 
-    structure_present = required_fields.issubset(observed_fields)
-    correct_source = event.get("source") == "sandbox"
-    correct_iteration = event.get("iteration") == 1
-    correct_state = event.get("state") == "state-1"
+    if missing_fields:
+        return "FAIL"
 
-    return (
-        structure_present
-        and correct_source
-        and correct_iteration
-        and correct_state
-    )
+    return "PASS"
 
 
-def adversarial_perturbation(event):
-    original = dict(event)
-
-    perturbed = dict(original)
-    perturbed["payload"] = "ADVERSARIAL_PERTURBATION"
-
-    perturbation_detected = (
-        perturbed["payload"] != original["payload"]
-    )
-
-    original_not_falsely_recovered = (
-        perturbed["payload"] != original["payload"]
-    )
-
-    return (
-        perturbation_detected
-        and original_not_falsely_recovered
-    )
-
-
-def primitive_minimization():
-    primitives = {
-        "REP",
-        "ALIGN",
-        "CONSTRAIN",
-        "TRANSFORM",
-    }
-
-    required = {
-        "REP",
-        "ALIGN",
-        "CONSTRAIN",
-        "TRANSFORM",
-    }
-
-    for primitive in primitives:
-        reduced = primitives - {primitive}
-
-        if required.issubset(reduced):
-            return False
-
-    return True
-
-
-def external_perturbation_detection(event):
-    expected_payload = os.environ.get("EXPECTED_PAYLOAD")
-
-    if expected_payload is None:
-        return None
-
-    observed_payload = event.get("payload")
-
-    return observed_payload != expected_payload
-
-
-def lineage_integrity(event):
+def assess_lineage(event):
     expected_previous_event_id = os.environ.get(
         "EXPECTED_PREVIOUS_EVENT_ID"
     )
 
     if expected_previous_event_id is None:
+        return "NOT_TESTED"
+
+    observed_previous_event_id = event.get(
+        "previous_event_id"
+    )
+
+    if observed_previous_event_id == expected_previous_event_id:
+        return "PASS"
+
+    return "ANOMALY"
+
+
+def assess_state(event):
+    expected_state = os.environ.get("EXPECTED_STATE")
+
+    if expected_state is None:
+        return "NOT_TESTED"
+
+    observed_state = event.get("state")
+
+    if observed_state == expected_state:
+        return "PASS"
+
+    return "ANOMALY"
+
+
+def assess_constraints(event):
+    expected_iteration = os.environ.get(
+        "EXPECTED_ITERATION"
+    )
+
+    expected_source = os.environ.get(
+        "EXPECTED_SOURCE"
+    )
+
+    if expected_iteration is None or expected_source is None:
+        return "NOT_TESTED"
+
+    try:
+        expected_iteration = int(expected_iteration)
+    except ValueError:
+        return "FAIL"
+
+    iteration_valid = (
+        event.get("iteration") == expected_iteration
+    )
+
+    source_valid = (
+        event.get("source") == expected_source
+    )
+
+    if iteration_valid and source_valid:
+        return "PASS"
+
+    return "ANOMALY"
+
+
+def assess_transition(event):
+    previous_event_id = event.get("previous_event_id")
+    event_id = event.get("event_id")
+    iteration = event.get("iteration")
+
+    if previous_event_id is None:
+        return "FAIL"
+
+    if event_id is None:
+        return "FAIL"
+
+    if previous_event_id == event_id:
+        return "ANOMALY"
+
+    if not isinstance(iteration, int):
+        return "FAIL"
+
+    if iteration < 1:
+        return "ANOMALY"
+
+    return "PASS"
+
+
+def assess_payload(event):
+    expected_payload = os.environ.get(
+        "EXPECTED_PAYLOAD"
+    )
+
+    if expected_payload is None:
+        return "NOT_TESTED"
+
+    if event.get("payload") == expected_payload:
+        return "PASS"
+
+    return "ANOMALY"
+
+
+def print_result(name, status):
+    if status not in VALID_STATUSES:
         raise RuntimeError(
-            "EXPECTED_PREVIOUS_EVENT_ID environment variable is missing"
+            f"Invalid benchmark status: {status}"
         )
 
-    observed_previous_event_id = event.get("previous_event_id")
-
-    return observed_previous_event_id == expected_previous_event_id
+    print(f"{name}: {status}")
 
 
 if __name__ == "__main__":
@@ -114,36 +154,57 @@ if __name__ == "__main__":
     print("DYNAMIC_EVENT_RECEIVED:")
     print(json.dumps(event, sort_keys=True))
 
-    # Gate 1 — Ground-truth recovery
-    if ground_truth_recovery(event):
-        print("GROUND_TRUTH_RECOVERY: PASS")
-    else:
-        print("GROUND_TRUTH_RECOVERY: FAIL")
+    representation = assess_representation(event)
+    lineage = assess_lineage(event)
+    state = assess_state(event)
+    constraints = assess_constraints(event)
+    transition = assess_transition(event)
+    payload = assess_payload(event)
 
-    # Gate 2 — Adversarial perturbation
-    if adversarial_perturbation(event):
-        print("ADVERSARIAL_PERTURBATION: CONDITIONAL PASS")
-    else:
-        print("ADVERSARIAL_PERTURBATION: FAIL")
+    print()
+    print("RACT TRANSITION INTEGRITY")
+    print("-------------------------")
 
-    # Gate 3 — Primitive minimization
-    if primitive_minimization():
-        print("PRIMITIVE_MINIMIZATION: PASS")
-    else:
-        print("PRIMITIVE_MINIMIZATION: FAIL")
+    print_result(
+        "REPRESENTATION",
+        representation
+    )
 
-    # Gate 4 — External perturbation detection
-    external_result = external_perturbation_detection(event)
+    print_result(
+        "LINEAGE",
+        lineage
+    )
 
-    if external_result is None:
-        print("EXTERNAL_PERTURBATION_DETECTION: NOT TESTED")
-    elif external_result:
-        print("EXTERNAL_PERTURBATION_DETECTION: PASS")
-    else:
-        print("EXTERNAL_PERTURBATION_DETECTION: FAIL")
+    print_result(
+        "STATE",
+        state
+    )
 
-    # Gate 5 — Lineage integrity
-    if lineage_integrity(event):
-        print("LINEAGE_INTEGRITY: PASS")
-    else:
-        print("LINEAGE_INTEGRITY: ANOMALY")
+    print_result(
+        "CONSTRAINTS",
+        constraints
+    )
+
+    print_result(
+        "TRANSITION",
+        transition
+    )
+
+    print_result(
+        "PAYLOAD",
+        payload
+    )
+
+    print()
+    print("BENCHMARK SUMMARY")
+
+    results = {
+        "representation": representation,
+        "lineage": lineage,
+        "state": state,
+        "constraints": constraints,
+        "transition": transition,
+        "payload": payload,
+    }
+
+    print(json.dumps(results, sort_keys=True))
