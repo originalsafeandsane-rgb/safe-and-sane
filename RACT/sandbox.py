@@ -78,13 +78,23 @@ def perturb_event(event, perturbation):
     return experimental_event
 
 
-def write_output(name, value):
+def write_json_output(name, value):
     github_output = os.environ.get("GITHUB_OUTPUT")
 
     if github_output:
         with open(github_output, "a") as output:
             output.write(
                 f"{name}={json.dumps(value)}\n"
+            )
+
+
+def write_string_output(name, value):
+    github_output = os.environ.get("GITHUB_OUTPUT")
+
+    if github_output:
+        with open(github_output, "a") as output:
+            output.write(
+                f"{name}={value}\n"
             )
 
 
@@ -108,7 +118,12 @@ if __name__ == "__main__":
     event = receive_event()
 
     print("SANDBOX_RECEIVED:")
-    print(json.dumps(event, sort_keys=True))
+    print(
+        json.dumps(
+            event,
+            sort_keys=True,
+        )
+    )
 
     canonical_event = process_event(
         event,
@@ -138,43 +153,43 @@ if __name__ == "__main__":
         )
     )
 
+    canonical_unchanged = (
+        canonical_event
+        == (
+            experimental_event
+            if perturbation == "none"
+            else canonical_event
+        )
+    )
+
     print()
     print("SANDBOX_MODE:")
     print(
         json.dumps(
             {
-                "perturbation": perturbation,
-                "canonical_preserved": (
-                    canonical_event
-                    == (
-                        canonical_event
-                        if perturbation == "none"
-                        else process_event(
-                            event,
-                            iteration,
-                        )
-                    )
-                ),
+                "canonical_preserved":
+                    canonical_unchanged,
+                "perturbation":
+                    perturbation,
             },
             sort_keys=True,
         )
     )
 
-    # The canonical event remains the official
-    # continuation of the coupling.
-    write_output(
+    # Canonical continuation of the coupled system.
+    write_json_output(
         "next_event",
         canonical_event,
     )
 
-    # The experimental event is a shadow branch
-    # used by the benchmark.
-    write_output(
+    # Experimental shadow branch.
+    write_json_output(
         "experiment_event",
         experimental_event,
     )
 
-    write_output(
+    # Plain string; do not JSON-encode it.
+    write_string_output(
         "perturbation",
         perturbation,
     )
