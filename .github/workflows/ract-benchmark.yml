@@ -26,24 +26,20 @@ jobs:
       - uses: actions/checkout@v4
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: python RACT/engine.py
-            - name: Initialize dynamic coupling
-        id: init
+          - name: Sandbox iteration 1
+        id: sandbox_1
         env:
           RACT_EVENT: >-
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
           RACT_ITERATION: "1"
-        run: |
-          python RACT/sandbox.py
+        run: python RACT/sandbox.py
 
-      - name: Continue dynamic coupling
-        id: iterate
+      - name: Sandbox iteration 2
+        id: sandbox_2
         env:
-          RACT_EVENT: ${{ steps.init.outputs.next_event }}
+          RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
           RACT_ITERATION: "2"
-        run: |
-          python RACT/sandbox.py
+        run: python RACT/sandbox.py
 
 
       # Runs a set of commands using the runners shell
