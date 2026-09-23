@@ -10,14 +10,13 @@ def receive_event():
     if not raw:
         raise RuntimeError("No RACT_EVENT received")
 
-    event = json.loads(raw)
-
-    return event
+    return json.loads(raw)
 
 
 def process_event(event):
     return {
         "event_id": event["event_id"],
+        "sandbox_event_id": str(uuid.uuid4()),
         "received_at": time.time(),
         "source": "sandbox",
         "payload": event["payload"],
