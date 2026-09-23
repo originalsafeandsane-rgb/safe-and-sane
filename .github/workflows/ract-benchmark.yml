@@ -25,29 +25,14 @@ jobs:
           RACT_EVENT: >-
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
           RACT_ITERATION: "1"
+          RACT_PERTURBATION: "coherence"
         run: python RACT/sandbox.py
-
-      - name: Coherence perturbation
-        id: perturb
-        env:
-          NEXT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
-        run: |
-          echo "ORIGINAL_EVENT:"
-          echo "$NEXT_EVENT"
-
-          PERTURBED_EVENT=$(python -c 'import json,sys; e=json.loads(sys.argv[1]); e["state"]="state-2"; print(json.dumps(e))' "$NEXT_EVENT")
-
-          echo "PERTURBED_EVENT:"
-          echo "$PERTURBED_EVENT"
-
-          echo "next_event=$PERTURBED_EVENT" >> "$GITHUB_OUTPUT"
 
       - name: Run RACT benchmark
         env:
-          RACT_EVENT: ${{ steps.perturb.outputs.next_event }}
-          EXPECTED_PREVIOUS_EVENT_ID: ${{ github.run_id }}
-          EXPECTED_ITERATION: "1"
-          EXPECTED_SOURCE: "sandbox"
+          RACT_CANONICAL_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
+          RACT_EXPERIMENT_EVENT: ${{ steps.sandbox_1.outputs.experiment_event }}
+          RACT_PERTURBATION: ${{ steps.sandbox_1.outputs.perturbation }}
         run: python RACT/benchmark.py
 
       - name: Sandbox iteration 2
@@ -55,4 +40,5 @@ jobs:
         env:
           RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
           RACT_ITERATION: "2"
+          RACT_PERTURBATION: "none"
         run: python RACT/sandbox.py
