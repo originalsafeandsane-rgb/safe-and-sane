@@ -11,6 +11,15 @@ VALID_STATUSES = {
 }
 
 
+VALID_PERTURBATIONS = {
+    "none",
+    "payload",
+    "lineage",
+    "state",
+    "coherence",
+}
+
+
 def receive_event(name):
     raw = os.environ.get(name)
 
@@ -20,6 +29,53 @@ def receive_event(name):
         )
 
     return json.loads(raw)
+
+
+def receive_perturbations():
+    raw = os.environ.get(
+        "RACT_PERTURBATIONS",
+        '["none"]',
+    )
+
+    try:
+        perturbations = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            "RACT_PERTURBATIONS must be valid JSON"
+        ) from exc
+
+    if not isinstance(perturbations, list):
+        raise RuntimeError(
+            "RACT_PERTURBATIONS must be a JSON list"
+        )
+
+    if not perturbations:
+        perturbations = ["none"]
+
+    normalized = []
+
+    for perturbation in perturbations:
+        if not isinstance(perturbation, str):
+            raise RuntimeError(
+                "Every perturbation must be a string"
+            )
+
+        perturbation = perturbation.lower()
+
+        if perturbation not in VALID_PERTURBATIONS:
+            raise RuntimeError(
+                f"Invalid perturbation: {perturbation}"
+            )
+
+        if perturbation not in normalized:
+            normalized.append(perturbation)
+
+    if "none" in normalized and len(normalized) > 1:
+        raise RuntimeError(
+            "'none' cannot be combined with other perturbations"
+        )
+
+    return normalized
 
 
 def assess_representation(event):
@@ -159,51 +215,6 @@ def assess_coherence(event):
     return "ANOMALY"
 
 
-def assess_transition(canonical, experimental):
-    changed_fields = []
-
-    all_fields = set(canonical.keys()) | set(
-        experimental.keys()
-    )
-
-    for field in sorted(all_fields):
-        if canonical.get(field) != experimental.get(field):
-            changed_fields.append(field)
-
-    expected_perturbation = os.environ.get(
-        "RACT_PERTURBATION",
-        "none",
-    ).lower()
-
-    expected_field = {
-        "none": None,
-        "payload": "payload",
-        "lineage": "previous_event_id",
-        "state": "state",
-        "coherence": "state",
-    }.get(expected_perturbation)
-
-    if expected_perturbation not in {
-        "none",
-        "payload",
-        "lineage",
-        "state",
-        "coherence",
-    }:
-        return "FAIL"
-
-    if expected_field is None:
-        if changed_fields:
-            return "ANOMALY"
-
-        return "PASS"
-
-    if changed_fields == [expected_field]:
-        return "PASS"
-
-    return "ANOMALY"
-
-
 def assess_experimental_coherence(
     canonical,
     experimental,
@@ -220,6 +231,47 @@ def assess_experimental_coherence(
     expected_state = f"state-{iteration}"
 
     if state == expected_state:
+        return "PASS"
+
+    return "ANOMALY"
+
+
+def assess_transition(canonical, experimental):
+    changed_fields = []
+
+    all_fields = set(canonical.keys()) | set(
+        experimental.keys()
+    )
+
+    for field in sorted(all_fields):
+        if canonical.get(field) != experimental.get(field):
+            changed_fields.append(field)
+
+    perturbations = receive_perturbations()
+
+    expected_fields = set()
+
+    if "payload" in perturbations:
+        expected_fields.add("payload")
+
+    if "lineage" in perturbations:
+        expected_fields.add("previous_event_id")
+
+    if "state" in perturbations:
+        expected_fields.add("state")
+
+    if "coherence" in perturbations:
+        expected_fields.add("state")
+
+    expected_fields = sorted(expected_fields)
+
+    if perturbations == ["none"]:
+        if changed_fields:
+            return "ANOMALY"
+
+        return "PASS"
+
+    if changed_fields == expected_fields:
         return "PASS"
 
     return "ANOMALY"
@@ -244,10 +296,7 @@ if __name__ == "__main__":
         "RACT_EXPERIMENT_EVENT"
     )
 
-    perturbation = os.environ.get(
-        "RACT_PERTURBATION",
-        "none",
-    ).lower()
+    perturbations = receive_perturbations()
 
     print("RACT_CANONICAL_EVENT:")
     print(
@@ -267,8 +316,13 @@ if __name__ == "__main__":
     )
 
     print()
-    print("RACT_PERTURBATION:")
-    print(perturbation)
+    print("RACT_PERTURBATIONS:")
+    print(
+        json.dumps(
+            perturbations,
+            sort_keys=True,
+        )
+    )
 
     representation_canonical = assess_representation(
         canonical
