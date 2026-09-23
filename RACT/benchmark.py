@@ -80,6 +80,19 @@ def primitive_minimization():
     return True
 
 
+def external_perturbation_detection(event):
+    expected_payload = os.environ.get("EXPECTED_PAYLOAD")
+
+    if expected_payload is None:
+        raise RuntimeError(
+            "EXPECTED_PAYLOAD environment variable is missing"
+        )
+
+    observed_payload = event.get("payload")
+
+    return observed_payload != expected_payload
+
+
 if __name__ == "__main__":
 
     event = receive_dynamic_state()
@@ -104,3 +117,9 @@ if __name__ == "__main__":
         print("PRIMITIVE_MINIMIZATION: PASS")
     else:
         print("PRIMITIVE_MINIMIZATION: FAIL")
+
+    # Gate 4 — External perturbation detection
+    if external_perturbation_detection(event):
+        print("EXTERNAL_PERTURBATION_DETECTION: PASS")
+    else:
+        print("EXTERNAL_PERTURBATION_DETECTION: FAIL")
