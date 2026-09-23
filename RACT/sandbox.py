@@ -23,6 +23,54 @@ def receive_event():
     return json.loads(raw)
 
 
+def receive_perturbations():
+    raw = os.environ.get(
+        "RACT_PERTURBATIONS",
+        '["none"]',
+    )
+
+    try:
+        perturbations = json.loads(raw)
+    except json.JSONDecodeError as exc:
+        raise RuntimeError(
+            "RACT_PERTURBATIONS must be valid JSON"
+        ) from exc
+
+    if not isinstance(perturbations, list):
+        raise RuntimeError(
+            "RACT_PERTURBATIONS must be a JSON list"
+        )
+
+    if not perturbations:
+        perturbations = ["none"]
+
+    normalized = []
+
+    for perturbation in perturbations:
+        if not isinstance(perturbation, str):
+            raise RuntimeError(
+                "Every perturbation must be a string"
+            )
+
+        perturbation = perturbation.lower()
+
+        if perturbation not in VALID_PERTURBATIONS:
+            raise RuntimeError(
+                f"Invalid perturbation: {perturbation}. "
+                f"Valid values: {sorted(VALID_PERTURBATIONS)}"
+            )
+
+        if perturbation not in normalized:
+            normalized.append(perturbation)
+
+    if "none" in normalized and len(normalized) > 1:
+        raise RuntimeError(
+            "'none' cannot be combined with other perturbations"
+        )
+
+    return normalized
+
+
 def process_event(event, iteration):
     return {
         "event_id": str(uuid.uuid4()),
@@ -34,31 +82,23 @@ def process_event(event, iteration):
     }
 
 
-def perturb_event(event, perturbation):
-    """
-    Create an experimental copy of the canonical event.
-
-    The canonical event is never modified.
-    """
-
-    experimental_event = dict(event)
-
+def apply_perturbation(event, perturbation):
     if perturbation == "none":
-        return experimental_event
+        return
 
     if perturbation == "payload":
-        experimental_event["payload"] = "adversarial-test"
+        event["payload"] = "adversarial-test"
 
     elif perturbation == "lineage":
-        experimental_event["previous_event_id"] = (
+        event["previous_event_id"] = (
             "FAKE-PREVIOUS-EVENT"
         )
 
     elif perturbation == "state":
-        experimental_event["state"] = "INVALID-STATE"
+        event["state"] = "INVALID-STATE"
 
     elif perturbation == "coherence":
-        iteration = experimental_event.get("iteration")
+        iteration = event.get("iteration")
 
         if iteration is None:
             raise RuntimeError(
@@ -66,13 +106,30 @@ def perturb_event(event, perturbation):
                 "without iteration"
             )
 
-        experimental_event["state"] = (
+        event["state"] = (
             f"state-{iteration + 1}"
         )
 
     else:
         raise RuntimeError(
             f"Unknown perturbation: {perturbation}"
+        )
+
+
+def perturb_event(event, perturbations):
+    """
+    Create an experimental copy of the canonical event.
+
+    All perturbations are applied to the experimental copy.
+    The canonical event is never modified.
+    """
+
+    experimental_event = dict(event)
+
+    for perturbation in perturbations:
+        apply_perturbation(
+            experimental_event,
+            perturbation,
         )
 
     return experimental_event
@@ -88,32 +145,13 @@ def write_json_output(name, value):
             )
 
 
-def write_string_output(name, value):
-    github_output = os.environ.get("GITHUB_OUTPUT")
-
-    if github_output:
-        with open(github_output, "a") as output:
-            output.write(
-                f"{name}={value}\n"
-            )
-
-
 if __name__ == "__main__":
 
     iteration = int(
         os.environ.get("RACT_ITERATION", "1")
     )
 
-    perturbation = os.environ.get(
-        "RACT_PERTURBATION",
-        "none",
-    ).lower()
-
-    if perturbation not in VALID_PERTURBATIONS:
-        raise RuntimeError(
-            f"Invalid perturbation: {perturbation}. "
-            f"Valid values: {sorted(VALID_PERTURBATIONS)}"
-        )
+    perturbations = receive_perturbations()
 
     event = receive_event()
 
@@ -141,7 +179,7 @@ if __name__ == "__main__":
 
     experimental_event = perturb_event(
         canonical_event,
-        perturbation,
+        perturbations,
     )
 
     print()
@@ -153,13 +191,10 @@ if __name__ == "__main__":
         )
     )
 
-    canonical_unchanged = (
+    canonical_preserved = (
         canonical_event
-        == (
-            experimental_event
-            if perturbation == "none"
-            else canonical_event
-        )
+        != experimental_event
+        or perturbations == ["none"]
     )
 
     print()
@@ -168,9 +203,9 @@ if __name__ == "__main__":
         json.dumps(
             {
                 "canonical_preserved":
-                    canonical_unchanged,
-                "perturbation":
-                    perturbation,
+                    canonical_preserved,
+                "perturbations":
+                    perturbations,
             },
             sort_keys=True,
         )
@@ -188,8 +223,8 @@ if __name__ == "__main__":
         experimental_event,
     )
 
-    # Plain string; do not JSON-encode it.
-    write_string_output(
-        "perturbation",
-        perturbation,
+    # Preserve the perturbation set as structured JSON.
+    write_json_output(
+        "perturbations",
+        perturbations,
     )
