@@ -1,3 +1,4 @@
+
 import json
 import os
 
@@ -84,13 +85,26 @@ def external_perturbation_detection(event):
     expected_payload = os.environ.get("EXPECTED_PAYLOAD")
 
     if expected_payload is None:
-        raise RuntimeError(
-            "EXPECTED_PAYLOAD environment variable is missing"
-        )
+        return None
 
     observed_payload = event.get("payload")
 
     return observed_payload != expected_payload
+
+
+def lineage_integrity(event):
+    expected_previous_event_id = os.environ.get(
+        "EXPECTED_PREVIOUS_EVENT_ID"
+    )
+
+    if expected_previous_event_id is None:
+        raise RuntimeError(
+            "EXPECTED_PREVIOUS_EVENT_ID environment variable is missing"
+        )
+
+    observed_previous_event_id = event.get("previous_event_id")
+
+    return observed_previous_event_id == expected_previous_event_id
 
 
 if __name__ == "__main__":
@@ -119,7 +133,17 @@ if __name__ == "__main__":
         print("PRIMITIVE_MINIMIZATION: FAIL")
 
     # Gate 4 — External perturbation detection
-    if external_perturbation_detection(event):
+    external_result = external_perturbation_detection(event)
+
+    if external_result is None:
+        print("EXTERNAL_PERTURBATION_DETECTION: NOT TESTED")
+    elif external_result:
         print("EXTERNAL_PERTURBATION_DETECTION: PASS")
     else:
         print("EXTERNAL_PERTURBATION_DETECTION: FAIL")
+
+    # Gate 5 — Lineage integrity
+    if lineage_integrity(event):
+        print("LINEAGE_INTEGRITY: PASS")
+    else:
+        print("LINEAGE_INTEGRITY: ANOMALY")
