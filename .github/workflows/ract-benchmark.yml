@@ -27,9 +27,25 @@ jobs:
           RACT_ITERATION: "1"
         run: python RACT/sandbox.py
 
+      - name: External perturbation
+        id: perturb
+        env:
+          NEXT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
+        run: |
+          echo "ORIGINAL_EVENT:"
+          echo "$NEXT_EVENT"
+
+          PERTURBED_EVENT="${NEXT_EVENT/dynamic-test/adversarial-test}"
+
+          echo "PERTURBED_EVENT:"
+          echo "$PERTURBED_EVENT"
+
+          echo "next_event=$PERTURBED_EVENT" >> "$GITHUB_OUTPUT"
+
       - name: Run RACT benchmark
         env:
-          RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
+          RACT_EVENT: ${{ steps.perturb.outputs.next_event }}
+          EXPECTED_PAYLOAD: "dynamic-test"
         run: python RACT/benchmark.py
 
       - name: Sandbox iteration 2
