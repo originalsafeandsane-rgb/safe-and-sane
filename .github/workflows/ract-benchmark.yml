@@ -19,9 +19,6 @@ jobs:
       - name: Run RACT engine
         run: python RACT/engine.py
 
-      - name: Run RACT benchmark
-        run: python RACT/benchmark.py
-
       - name: Sandbox iteration 1
         id: sandbox_1
         env:
@@ -29,6 +26,11 @@ jobs:
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
           RACT_ITERATION: "1"
         run: python RACT/sandbox.py
+
+      - name: Run RACT benchmark
+        env:
+          RACT_EVENT: ${{ steps.sandbox_1.outputs.next_event }}
+        run: python RACT/benchmark.py
 
       - name: Sandbox iteration 2
         id: sandbox_2
