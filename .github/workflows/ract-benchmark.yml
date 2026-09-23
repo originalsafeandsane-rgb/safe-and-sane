@@ -30,6 +30,14 @@ jobs:
         run: python RACT/engine.py
       - name: Run additional benchmark
         run: python RACT/benchmark.py
+
+      - name: Send dynamic event to sandbox
+        env:
+          RACT_EVENT: >-
+            {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
+        run: python RACT/sandbox.py
+
+
       # Runs a set of commands using the runners shell
     #  - name: Run a multi-line script
       #  run: |
