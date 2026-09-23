@@ -129,7 +129,7 @@ def assess_payload(event):
         "EXPECTED_PAYLOAD"
     )
 
-    if expected_payload is None:
+    if not expected_payload:
         return "NOT_TESTED"
 
     if event.get("payload") == expected_payload:
