@@ -25,7 +25,7 @@ jobs:
           RACT_EVENT: >-
             {"event_id":"${{ github.run_id }}","payload":"dynamic-test"}
           RACT_ITERATION: "1"
-          RACT_PERTURBATION: "payload"
+          RACT_PERTURBATION: "lineage'
         run: python RACT/sandbox.py
 
       - name: Run RACT benchmark
