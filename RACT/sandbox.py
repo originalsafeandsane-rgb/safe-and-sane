@@ -12,41 +12,38 @@ def receive_event():
     return json.loads(raw)
 
 
-def run_iteration(state, iteration):
-    previous_event_id = state["event_id"]
-
-    new_event_id = str(uuid.uuid4())
-
+def process_event(event, iteration):
     return {
-        "event_id": new_event_id,
-        "previous_event_id": previous_event_id,
+        "event_id": str(uuid.uuid4()),
+        "previous_event_id": event["event_id"],
         "iteration": iteration,
-        "payload": state["payload"],
-        "state": "state-" + str(iteration),
+        "payload": event["payload"],
+        "state": f"state-{iteration}",
         "source": "sandbox",
     }
 
 
 if __name__ == "__main__":
+    iteration = int(os.environ.get("RACT_ITERATION", "1"))
 
-    initial_event = receive_event()
+    event = receive_event()
 
-    print("SANDBOX_INITIAL_EVENT:")
-    print(json.dumps(initial_event, sort_keys=True))
+    print("SANDBOX_RECEIVED:")
+    print(json.dumps(event, sort_keys=True))
 
-    # Normalize the external GitHub event into the
-    # sandbox's internal event schema.
-    state = {
-        "event_id": initial_event["event_id"],
-        "payload": initial_event["payload"],
-    }
+    new_state = process_event(event, iteration)
 
-    for iteration in range(1, 11):
+    print("SANDBOX_GENERATED:")
+    print(json.dumps(new_state, sort_keys=True))
 
-        state = run_iteration(state, iteration)
+    # Return the new state to GitHub Actions.
+    github_output = os.environ.get("GITHUB_OUTPUT")
 
-        print("SANDBOX_ITERATION:")
-        print(json.dumps(state, sort_keys=True))
-
-    print("SANDBOX_ITERATIONS_COMPLETED: 10")
+    if github_output:
+        with open(github_output, "a") as output:
+            output.write(
+                "next_event="
+                + json.dumps(new_state)
+                + "\n"
+            )
 
