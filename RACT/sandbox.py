@@ -39,11 +39,11 @@ if __name__ == "__main__":
     # Return the new state to GitHub Actions.
     github_output = os.environ.get("GITHUB_OUTPUT")
 
+    i    github_output = os.environ.get("GITHUB_OUTPUT")
+
     if github_output:
         with open(github_output, "a") as output:
             output.write(
-                "next_event="
-                + json.dumps(new_state)
-                + "\n"
+                f"next_event_id={new_state['event_id']}\n"
             )
 
