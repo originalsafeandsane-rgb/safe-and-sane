@@ -18,3 +18,4 @@ None.
 
 - 2026-10-01: relay initialized; directory structure + protocol established; test scenario S-2026-10-01-001 published.
 - 2026-10-01: complete scenario-to-convergence mechanism formalized in PROTOCOL.md (processing principle Reality → … → Next State; singular convergence artifact spec; publication gate with PUBLICATION_CANDIDATE / HUMAN_INPUT_REQUIRED / INVALID+INSUFFICIENT; feedback learning loop). Initial test constrained to exactly one scenario; scaling requires explicit human authorization.
+- 2026-10-01: relay-function (plumbing) test started — scenario S-2026-10-01-001 v1 handed downstream via GitHub `main` (`000cde3`); downstream artifact awaited. Test log: `sandbox/state/relay-test-2026-10-01.md`.
