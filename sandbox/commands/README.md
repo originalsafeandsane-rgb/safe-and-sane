@@ -5,6 +5,16 @@ Inbound command path for the Safe & Sane relay: **Nagendra/ChatGPT → command �
 The relay's normal direction is outbound-only (Muse → scenario → generator → artifact → human).
 This directory is the single sanctioned return path. Nothing else in the relay accepts inbound commands.
 
+This file, together with `sandbox/README.md` and `sandbox/state/PROTOCOL.md`, is the
+session-independent specification: a future ChatGPT session reconstructs the mechanism
+from these files alone, without conversation memory.
+
+> **Known limitation (2026-10-01):** the ChatGPT-side GitHub integration currently
+> returns `403 Resource not accessible by integration` when creating command files.
+> This is an infrastructure permission limitation, not a protocol failure — see
+> `sandbox/state/known-limitations.md`. The integration needs Contents read/write
+> on this repo (or a human commits the file on its behalf).
+
 ## How to issue a command
 
 1. Create one file per command: `sandbox/commands/CMD-<id>.md` (see schema below).

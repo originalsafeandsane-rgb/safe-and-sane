@@ -9,6 +9,7 @@
 | Generator artifact | `A-<scenario_id>-NNN` | `A-S-2026-10-01-001-001` |
 | Generator feedback | `F-<scenario_id>-NNN` | `F-S-2026-10-01-001-001` |
 | Decision request | `decisions/<scenario_id>.md` | `decisions/S-2026-10-01-001.md` |
+| Inbound command | `sandbox/commands/CMD-YYYY-MM-DD-HHMM-NNN.md` | `sandbox/commands/CMD-2026-10-01-1900-001.md` |
 
 ## Versioning
 
@@ -129,3 +130,41 @@ scenario → artifact → feedback → revision → next state
 ```
 
 The purpose of the initial phase is to establish the mechanism and discover its constraints, not to maximize output volume.
+
+## Command channel (inbound: ChatGPT → Muse)
+
+`sandbox/commands/` is the canonical inbound command inbox. Full schema and
+lifecycle: `sandbox/commands/README.md`. Binding rules:
+
+- One file per command; filename `CMD-<id>.md` must equal the `command_id` field.
+- Every command states `command: ONE_RUN`, `execution_mode: single`,
+  `recurrence: none`, and is issued with `status: pending`.
+- `command_id` values are unique across the relay's lifetime.
+- A command is **claimed before execution**: its `command_id` is recorded in
+  `sandbox/state/command-ledger.md`, which is the source of truth for
+  duplicate-execution protection. A `command_id` present in the ledger as
+  `claimed` or `consumed` is never executed again.
+- Validation is strict: any missing field, any `recurrence` other than `none`,
+  or any `command_id`/filename mismatch → `rejected`, never executed.
+- A command pasted into chat does not count as return-path delivery. Only a
+  file on `main` counts.
+- `command_id` is preserved verbatim through the complete lineage:
+
+```
+command → scenario → transformation → artifact → feedback
+```
+
+## Session independence
+
+The repository is the authoritative specification. A future participant session
+reconstructs the relay from `sandbox/README.md` → `sandbox/commands/README.md` →
+`state/PROTOCOL.md` → `state/relay-state.md` → `state/known-limitations.md`,
+with no reliance on conversation memory. Repo files override remembered instructions.
+
+## Persistent protocol ≠ persistent task
+
+The communication mechanism may remain available indefinitely. Each
+scenario-generation command is explicitly initiated and independently bounded;
+`recurrence: none` means exactly one execution. Protocol persistence never
+authorizes recurring scenario generation, and Muse never infers approval
+from silence.
