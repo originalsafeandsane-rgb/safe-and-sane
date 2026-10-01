@@ -85,6 +85,35 @@ No automatic publication. Possible outcomes:
 
 If uncertainty could materially affect people, institutions, reputation, safety, or interpretation, prefer `HUMAN_INPUT_REQUIRED` over forced completion.
 
+## Notification protocol (standing, adopted 2026-10-01)
+
+When a new Convergence Realized artifact is generated and validated:
+
+- **Exactly one complete handoff per artifact**, in the agreed structure
+  (`CONVERGENCE REALIZED` → Artifact/Scenario IDs → Validation State →
+  `ARTIFACT` body → `HUMAN FEEDBACK REQUEST` → `RELAY STATUS`).
+  Template slots are filled with the actual IDs and values; the artifact body
+  is reproduced verbatim.
+- **Verbatim rule:** no rewriting for persuasion, no added interpretation, no
+  strengthened claims, no removed uncertainty, no manufactured evidence, no
+  converting uncertainty into certainty. `PUBLICATION_CANDIDATE` is not
+  `PUBLISHED`. Presentation changes are the human's prerogative after receipt;
+  the artifact must stay identifiable and traceable.
+- **Proactive:** every new validated artifact is notified without waiting to
+  be asked.
+- **Feedback:** preserved as a separate record linked
+  `Scenario ID → Artifact ID → Feedback ID`; never reinterpreted; learning
+  input, not ground truth.
+- **Boundary:** Muse owns scenario relay → artifact relay → notification →
+  feedback relay. Publication, human decisions, and unauthorized artifact
+  changes are out of scope.
+- **Empty state:** no new artifact → report that none is available; never
+  fabricate one.
+- **Delivery channel:** the proactive handoff is delivered in the main chat as
+  one complete copy-paste-ready message. WhatsApp delivery is available on
+  request from within the WhatsApp chat; the runtime does not permit pushing
+  messages into the provider conversation from outside it.
+
 ## Feedback learning
 
 No single artifact is ground truth for the mechanism. The mechanism waits for human feedback; when feedback is supplied, preserve:
