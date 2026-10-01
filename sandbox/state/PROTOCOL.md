@@ -53,3 +53,44 @@ All participants treat the following as possible perturbations and do not resolv
 contradictory sources · stale information · correlated sources · provenance loss · identity ambiguity · temporal divergence · synthetic/manipulated information · incomplete information · rapidly changing states · unexpected consequences
 
 Uncertainty is recorded, not laundered. When evidence is insufficient, the record says so.
+
+## Processing principle
+
+For every scenario, the mechanism follows:
+
+```
+Reality → Observation → Preservation → Distinguish → DOS → Execution → Rich Artifact → Validation → Next State
+```
+
+- Retrieved information is not reality itself.
+- Uncertainty is never converted into certainty.
+- Correlated sources are never inferred as independent evidence.
+- Contradictions are never resolved merely to produce a cleaner artifact.
+
+## Convergence artifact
+
+The downstream generator attempts one singular, semantically rich artifact per scenario, containing as applicable:
+
+identity · state · evidence · provenance · relevant change · constraints · uncertainty · consequence · completion · lineage
+
+Richness is internal to the singular artifact. Presentation quality and persuasiveness are separate from artifact integrity.
+
+## Publication gate
+
+No automatic publication. Possible outcomes:
+
+1. `PUBLICATION_CANDIDATE` — validated artifact, ready for the human's publication decision.
+2. `HUMAN_INPUT_REQUIRED` — consequential uncertainty remains; the question is filed in `decisions/`.
+3. `INVALID` / `INSUFFICIENT` — the evidence cannot support a convergence artifact.
+
+If uncertainty could materially affect people, institutions, reputation, safety, or interpretation, prefer `HUMAN_INPUT_REQUIRED` over forced completion.
+
+## Feedback learning
+
+No single artifact is ground truth for the mechanism. The mechanism waits for human feedback; when feedback is supplied, preserve:
+
+```
+scenario → artifact → feedback → revision → next state
+```
+
+The purpose of the initial phase is to establish the mechanism and discover its constraints, not to maximize output volume.
