@@ -25,10 +25,14 @@ scenario → relay handoff → downstream consumption → convergence artifact �
 |---|------|--------|
 | 1 | Scenario artifact identified (id, version, provenance, lineage preserved) | ✅ succeeded 2026-10-01 |
 | 2 | Artifact available on shared relay (GitHub `main` = `000cde3`) | ✅ succeeded 2026-10-01 |
-| 3 | Handoff package prepared for downstream generator | ⏳ pending — awaiting user to run external generator |
-| 4 | Downstream consumption + convergence artifact produced | ⏳ pending (external) |
-| 5 | Downstream artifact received and recorded verbatim | ⏳ pending |
-| 6 | Relay state set to `AWAITING_HUMAN_FEEDBACK` | ⏳ pending |
+| 3 | Handoff package prepared for downstream generator | ✅ succeeded 2026-10-01 |
+| 4 | Downstream consumption + convergence artifact produced | ✅ succeeded 2026-10-01 — artifact A-S-2026-10-01-001-001 received from downstream generator (validation state: PUBLICATION_CANDIDATE) |
+| 5 | Downstream artifact received and recorded verbatim | ✅ succeeded 2026-10-01 — `sandbox/artifacts/A-S-2026-10-01-001-001.md` (body unaltered) |
+| 6 | Relay state set to `AWAITING_HUMAN_FEEDBACK` | ✅ succeeded 2026-10-01 — handoff + feedback request dispatched to Nagendra via WhatsApp; feedback not yet received |
+
+## Chain result
+
+`scenario → relay handoff → downstream consumption → convergence artifact → feedback state` — **complete through feedback-state recording.** The mechanism is connected end-to-end. Remaining: human feedback (ACCEPT / CORRECT / REJECT / NEEDS_MORE_INFORMATION), to be preserved as a separate record linked to S-2026-10-01-001 and A-S-2026-10-01-001-001, then the next state transition.
 
 ## Constraints honored
 
