@@ -39,3 +39,15 @@ scenario → relay handoff → downstream consumption → convergence artifact �
 - No new scenario created. Existing scenario unmodified. Nothing published.
 - Downstream artifact will be recorded verbatim: no interpretation, revision,
   approval, rejection, or publication by the relay participant.
+
+## Bidirectional feedback channel test (2026-10-01, one run)
+
+- **Question:** can a command originating from the Nagendra/ChatGPT side reach Muse through the established mechanism without manual copying into chat?
+- **Checks performed:**
+  - `git ls-remote origin main` → still `000cde3`; no external writes to the shared layer.
+  - `sandbox/feedback/`, `sandbox/decisions/` → only README files; no inbound command files.
+  - `cron.list` → no relay-related jobs (only system jobs: feed-pulse, deterministic-doctor, profile-image, heartbeat, agentic-feature-tour).
+  - `hooks.list` → no hooks defined at all.
+- **Result:** INBOUND COMMAND CHANNEL: NOT CONNECTED.
+- **Break point:** the mechanism has an outbound path (Muse → GitHub → generator → artifact → chat) but no inbound path. Nothing monitors the shared layer — no cron polls the repo, no hook watches for changes — so a command deposited by the external side would sit unread. The only live inbound channel is the human typing/pasting into chat, which does not count as the mechanism working.
+- **Consequence:** no scenario-scouting run was executed under this test (the test's conditional steps apply only if the channel is connected).
