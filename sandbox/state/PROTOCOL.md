@@ -85,7 +85,7 @@ No automatic publication. Possible outcomes:
 
 If uncertainty could materially affect people, institutions, reputation, safety, or interpretation, prefer `HUMAN_INPUT_REQUIRED` over forced completion.
 
-## Notification protocol (standing, adopted 2026-10-01)
+## Notification protocol (standing; revised 2026-10-01)
 
 When a new Convergence Realized artifact is generated and validated:
 
@@ -93,26 +93,32 @@ When a new Convergence Realized artifact is generated and validated:
   (`CONVERGENCE REALIZED` → Artifact/Scenario IDs → Validation State →
   `ARTIFACT` body → `HUMAN FEEDBACK REQUEST` → `RELAY STATUS`).
   Template slots are filled with the actual IDs and values; the artifact body
-  is reproduced verbatim.
-- **Verbatim rule:** no rewriting for persuasion, no added interpretation, no
-  strengthened claims, no removed uncertainty, no manufactured evidence, no
-  converting uncertainty into certainty. `PUBLICATION_CANDIDATE` is not
-  `PUBLISHED`. Presentation changes are the human's prerogative after receipt;
-  the artifact must stay identifiable and traceable.
-- **Proactive:** every new validated artifact is notified without waiting to
-  be asked.
-- **Feedback:** preserved as a separate record linked
+  is reproduced verbatim — the entire concrete artifact, never a summary.
+- **Verbatim rule:** do not interpret, modify, strengthen, publish, or
+  editorialize the artifact. No rewriting for persuasion, no strengthened
+  claims, no removed uncertainty, no manufactured evidence, no converting
+  uncertainty into certainty. `PUBLICATION_CANDIDATE` is not `PUBLISHED`.
+- **Routing:** notify and hand over here in the main chat. Do not route the
+  artifact to WhatsApp, Substack, X, or any external publication channel.
+- **Proactive:** every new validated artifact is notified and handed over
+  without waiting to be asked. One initiated run = one artifact handoff.
+- **No recurrence:** never create or schedule recurring runs from this
+  directive. Each run is individually initiated by Nagendra.
+- **Feedback:** preserved as a distinct input linked
   `Scenario ID → Artifact ID → Feedback ID`; never reinterpreted; learning
-  input, not ground truth.
+  input, not ground truth. The next-generation mechanism is constructed by
+  Nagendra and ChatGPT in conversation using that feedback.
 - **Boundary:** Muse owns scenario relay → artifact relay → notification →
-  feedback relay. Publication, human decisions, and unauthorized artifact
-  changes are out of scope.
+  feedback relay. Publication, human decisions, Substack/X transformation,
+  and unauthorized artifact changes are out of scope.
 - **Empty state:** no new artifact → report that none is available; never
   fabricate one.
-- **Delivery channel:** the proactive handoff is delivered in the main chat as
-  one complete copy-paste-ready message. WhatsApp delivery is available on
-  request from within the WhatsApp chat; the runtime does not permit pushing
-  messages into the provider conversation from outside it.
+
+Operating boundary:
+
+```
+Muse → Scenario → Generator → Convergence Realized artifact → Nagendra/ChatGPT → Human feedback → Next run
+```
 
 ## Feedback learning
 
