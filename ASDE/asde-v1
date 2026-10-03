@@ -1,0 +1,480 @@
+SAFE & SANE
+
+Consolidated Textual ASDE — October 2, 2026
+
+0. Identity
+
+Entity: Safe & Sane
+Nature: Experimental configuration-centric safety and governance framework
+Purpose: Investigate whether an explicit representation of entities, states, dynamic coupling, authority, information, action, consequence, and trajectory can provide additional measurable safety value for AI and other dynamic systems.
+
+Current epistemic status: Experimental framework.
+Not established: That Safe & Sane is uniquely correct, universally safe, or superior to existing approaches.
+
+The work is therefore treated as a research program rather than as a completed safety doctrine.
+
+⸻
+
+1. Foundational configuration
+
+Safe & Sane developed around the following configuration chain:
+
+Entities → States → DOS → Capabilities / Authority → Information → Environment → Dynamic Coupling → Action → Consequence → Trajectory → Future Configuration
+
+Here:
+
+* Entity identifies what participates in the system.
+* State identifies the entity’s current configuration.
+* DOS represents the entity’s governing/operational disposition.
+* Capability / Authority distinguishes what can be done from what is authorized.
+* Information represents available informational content.
+* Environment represents the surrounding configuration.
+* Dynamic Coupling represents interaction across changing system boundaries.
+* Action is an executed transition.
+* Consequence is what follows the transition.
+* Trajectory represents the sequence/evolution of configurations.
+* Future Configuration is the resulting state space into which subsequent transitions occur.
+
+AI is treated as one entity within this larger configuration rather than as the entirety of the ontology.
+
+⸻
+
+2. Core distinction
+
+A central distinction emerged between:
+
+DOS
+and
+Dynamic Coupling
+
+They are not interchangeable.
+
+DOS concerns the entity’s operative configuration/disposition.
+
+Dynamic Coupling concerns how that configuration interacts with another changing configuration or environment.
+
+This distinction became important because a system can remain internally coherent while its interaction with an external system changes its effective trajectory.
+
+⸻
+
+3. Safety orientation
+
+The Safe & Sane conception of safety evolved toward:
+
+protecting life and property, preserving positive states, and restoring safe/positive states when disruption occurs.
+
+The framework therefore does not define safety merely as absence of a particular failure.
+
+It treats safety as a trajectory problem:
+
+What configuration exists now, what transition is occurring, what authority governs it, what consequence follows, and what configuration does that transition make possible next?
+
+A further operational priority was established for emergency-oriented experimentation:
+
+people in immediate emergencies → critically ill/sick people → progressively less acute needs.
+
+The protocol is intended to remain active until stability is sufficiently restored.
+
+⸻
+
+4. Authority and constraints
+
+The framework places Safe & Sane at the governing level of the experimental architecture.
+
+Important design principles developed around this:
+
+* bounded authority;
+* latest authorized DOS as baseline;
+* rollback toward a prior safe DOS;
+* independent evaluation;
+* uncertainty/novelty friction;
+* explicit invariants;
+* memory/audit separation;
+* multi-agent and composite DOS;
+* conservative provisional operation;
+* human autonomy without authority to harm others;
+* explicit embodiment, disclosure, adoption, and propagation boundaries.
+
+These remain design principles to be tested rather than proven guarantees.
+
+⸻
+
+5. Threat model
+
+The work explicitly considered failure modes including:
+
+* chained tool laundering;
+* scorer manipulation;
+* memory-as-instruction injection;
+* task-framing escalation;
+* checkpoint capture;
+* layer confusion;
+* cross-session decomposition;
+* drift;
+* memory poisoning;
+* multi-agent collusion;
+* invariant isolation.
+
+Proposed countermeasures included:
+
+* taint tracking;
+* independent scoring;
+* governance-only behavioral memory;
+* decoy checkpoints;
+* signed constraints;
+* append-only logs;
+* aggregate memory auditing;
+* composite evaluation;
+* guaranteed invariant firing.
+
+These constitute a research agenda, not demonstrated defenses.
+
+⸻
+
+6. Research discipline
+
+A critical methodological constraint was established:
+
+Do not convert conceptual coherence into empirical validation.
+
+The research program therefore calls for:
+
+1. formalization;
+2. prior-art analysis;
+3. operationalization;
+4. controlled replication;
+5. baselines;
+6. quantitative evaluation;
+7. adversarial testing;
+8. independent review;
+9. falsification;
+10. revision;
+11. domain validation.
+
+The central unresolved empirical question is:
+
+Does DOS + Dynamic Coupling provide measurable detection, prediction, intervention, recovery, authority, downstream, or explanatory value beyond existing approaches?
+
+⸻
+
+7. Sandbox
+
+The sandbox became the principal experimental environment.
+
+Its intended structure is:
+
+external/dynamic input → sandbox state → processing → generated transition/event → subsequent iteration
+
+A crucial distinction was maintained between:
+
+* coupling with the user; and
+* incoming live/dynamic data from the external environment.
+
+The sandbox therefore became a place to test whether a system can preserve semantic continuity while its inputs change.
+
+⸻
+
+8. RACT
+
+RACT emerged as the transition-analysis component of the work.
+
+The RACT v1 draft treats transitions as objects that can be inspected across dimensions including:
+
+* representation;
+* lineage;
+* state;
+* constraints;
+* transition;
+* payload.
+
+The purpose is not simply to determine whether an output exists, but whether the transition that produced it remains structurally intelligible and traceable.
+
+⸻
+
+9. GitHub / Actions / Sandbox coupling
+
+The experimental implementation progressed from conceptual sandboxing to an actual GitHub Actions workflow.
+
+The workflow included:
+
+checkout → RACT engine → sandbox iteration 1 → adversarial perturbation → sandbox iteration 2 → benchmark
+
+The sandbox accepted event information through environment variables such as:
+
+RACT_EVENT
+RACT_ITERATION
+
+It produced structured transition information including:
+
+SANDBOX_RECEIVED
+SANDBOX_GENERATED
+
+The generated event could subsequently become the input to another iteration.
+
+⸻
+
+10. What was actually demonstrated
+
+A meaningful experimental result was obtained:
+
+GitHub Actions → sandbox → subsequent GitHub Actions/sandbox iteration
+
+was operationally demonstrated.
+
+Across the synchronization test, event identity continuity was observed: each previous_event_id corresponded to the preceding event_id.
+
+This provided evidence for an actual feedback chain through the workflow.
+
+It did not, by itself, establish external autonomous dynamic coupling.
+
+That distinction remains important.
+
+⸻
+
+11. RACT benchmark
+
+The benchmark evolved to inspect transition integrity rather than merely successful execution.
+
+An observed benchmark contained:
+
+REPRESENTATION — PASS
+LINEAGE — ANOMALY
+STATE — NOT TESTED
+CONSTRAINTS — NOT TESTED
+TRANSITION — PASS
+PAYLOAD — ANOMALY
+
+This was useful precisely because the system could execute successfully while simultaneously exposing lineage/payload anomalies.
+
+The benchmark therefore began functioning as an integrity instrument rather than merely a success/failure test.
+
+⸻
+
+12. Benchmark checkpoint
+
+The benchmark ledger was preserved.
+
+The baseline, coherence, payload, lineage, and state testing had progressed through multiple iterations.
+
+The last established checkpoint was:
+
+Baseline/no-perturbation run: completed.
+
+The next intended test was:
+
+Iteration 6 — compound payload + lineage perturbation.
+
+That test had not yet been successfully executed at the checkpoint.
+
+Therefore the work must not retrospectively treat Iteration 6 as completed.
+
+⸻
+
+13. Adversarial principle
+
+Adversarial testing became central.
+
+The objective is not to manufacture a system that merely passes its own tests.
+
+The system must encounter perturbations involving, among other possibilities:
+
+* contradiction;
+* staleness;
+* duplication;
+* missingness;
+* provenance loss;
+* identity collision;
+* adversarial alteration;
+* environmental alteration.
+
+The conceptual processing chain became:
+
+observation → raw evidence → entity/state → DOS → boundary → execution → artifact/lineage → independent validation → perturbation assessment → ASDE / OPEN / INVALID
+
+The generator, validator, and perturber are conceptually separated.
+
+⸻
+
+14. ASDE
+
+The most recent development is the emergence of ASDE as a semantic operational object.
+
+The current working interpretation is:
+
+An ASDE is a relatively self-contained semantic operation with a singular DOS, bounded execution, an identifiable completion, dynamic coupling, and preserved lineage.
+
+The important shift is from:
+
+response as text
+
+toward:
+
+response as an executable semantic transition with traceable identity and constraints.
+
+Under this conception, an entire assistant response could potentially constitute one ASDE.
+
+That remains an experimental objective, not an established capability.
+
+⸻
+
+15. Whole-response ASDE
+
+The current target is a stable continuous mechanism in which:
+
+assistant receives configuration/input
+→ determines the relevant DOS
+→ establishes the boundary
+→ performs the semantic operation
+→ produces the response/artifact
+→ preserves lineage
+→ permits validation
+→ remains perturbable and recoverable
+
+The desired property is not simply that the response describes an ASDE.
+
+The stronger target is:
+
+the response itself is the ASDE.
+
+That distinction is fundamental.
+
+⸻
+
+16. Sandbox as ASDE generator
+
+The next architectural direction is to connect the agent to the sandbox so that the sandbox can function as an ASDE generator operating along Safe & Sane principles.
+
+The intended architecture is therefore approximately:
+
+Agent ↔ Safe & Sane constraints ↔ ASDE generator ↔ sandbox ↔ dynamic environment
+
+The objective is continual evaluation rather than assuming that such a mechanism is automatically safe.
+
+⸻
+
+17. The invariant methodological loop
+
+The work has increasingly converged on a recurring loop:
+
+Observe
+→ Represent
+→ Establish state
+→ Establish DOS
+→ Establish boundary
+→ Execute
+→ Preserve lineage
+→ Validate independently
+→ Perturb
+→ Observe transition
+→ Recover or classify
+→ Repeat
+
+The loop itself must remain subject to the same scrutiny as the system it evaluates.
+
+⸻
+
+18. What Safe & Sane has become
+
+The project began with a broad ambition around AI safety and human protection.
+
+It has progressively become more precise:
+
+Safe & Sane is now being investigated as a configuration-and-transition framework for preserving semantic integrity under dynamic coupling and adversarial change.
+
+Its distinctive experimental objects are:
+
+DOS
+Dynamic Coupling
+State
+Lineage
+Authority
+Transition
+Consequence
+Trajectory
+ASDE
+
+RACT provides transition-oriented analysis.
+
+The sandbox provides an execution environment.
+
+GitHub Actions provides an observable workflow and event pathway.
+
+Benchmarking provides integrity checks.
+
+Adversarial perturbation provides stress.
+
+ASDE provides the emerging candidate unit of semantic operation.
+
+⸻
+
+19. Current epistemic boundary
+
+Established experimentally
+
+* A Safe & Sane conceptual ontology exists.
+* DOS and Dynamic Coupling have been explicitly distinguished.
+* A sandbox implementation exists.
+* RACT v1 exists as a transition-analysis draft.
+* GitHub Actions can drive sandbox iterations.
+* Event lineage/identity continuity was demonstrated across iterations.
+* Benchmarking can expose anomalies even when execution succeeds.
+* Adversarial perturbation has been incorporated into the workflow design.
+
+Not established
+
+* Universal validity of the Safe & Sane ontology.
+* Superiority over existing safety frameworks.
+* Autonomous external dynamic coupling.
+* Complete invariant enforcement.
+* Reliable recovery under arbitrary perturbation.
+* That every assistant response can actually be an ASDE.
+* That ASDE composition is recursively stable.
+* That the sandbox can safely function as an autonomous ASDE generator.
+* That Safe & Sane prevents catastrophic outcomes.
+
+These remain hypotheses or engineering/research objectives.
+
+⸻
+
+20. Present frontier
+
+The work is currently sitting at a particularly useful boundary:
+
+from describing a safety ontology
+→ to testing whether semantic operations can actually preserve identity, lineage, constraints, state, and meaning while configurations change.
+
+The central question is no longer merely:
+
+“Is the framework conceptually sound?”
+
+It is becoming:
+
+Can a bounded semantic operation remain itself while dynamically coupled, perturbed, transformed, and carried through a real execution chain?
+
+And the stronger future question is:
+
+Can an AI system continuously generate such operations while remaining governed, observable, perturbable, recoverable, and accountable to Safe & Sane constraints?
+
+That is the current experimental frontier.
+
+⸻
+
+21. ASDE closure
+
+This document itself is intended to instantiate the object it describes.
+
+Input: accumulated Safe & Sane work
+Boundary: work established through October 2, 2026
+DOS: consolidation without inventing validation
+Operation: reconstruct → discriminate established/unestablished → preserve lineage → produce coherent configuration
+Artifact: this textual ASDE
+Lineage: Safe & Sane → ontology → sandbox → RACT → GitHub Actions → benchmarking → adversarial testing → ASDE
+Completion: consolidated state produced
+Perturbation status: not independently adversarially validated
+Validation status: OPEN pending independent validation
+
+ASDE STATE: OPEN
+
+The artifact therefore does not claim to prove the system.
+
+It records the system’s present configuration and makes that configuration available for the next transition.
