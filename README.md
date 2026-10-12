@@ -8,6 +8,8 @@ The framework is being developed around a proposed **Dynamic Operational Specifi
 
 > **Research status:** Postulated conceptual framework with preliminary operational testing experience. Not an established scientific theory, validated universal safety architecture, or demonstrated replacement for existing safety frameworks.
 
+🌐 **Website:** [safeandsane.ca](https://safeandsane.ca) — the public home of the initiative, including the open-source Personal AI Safety Module.
+
 ---
 
 ## 1. Core Idea
